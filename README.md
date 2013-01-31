@@ -6,12 +6,12 @@ Simple, extendible CMS writen on the top of Django.
 
 Features:
 * Unlimited events
+* Multilanguage support
 * Basic event info including: name, dates, description, venue, contact email
-* Early bird prices
-* Whole event prices
-* Program with prices for separate days
+* Whole event & early bird prices
+* Individual prices for separate days
 * Prices calculated according to membership
-* Confirmation email to client
+* Confirmation email for the client
 * Pay online via PayPal
 
 Installing
