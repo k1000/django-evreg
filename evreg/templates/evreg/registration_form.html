@@ -5,5 +5,10 @@
 <h1>{{ event.name }}</h1>
 <p>{% trans "Contact" %} <a href="mailto:{{ event.contact_email }}">{{ event.contact_email }}</a></p>
 
+{% if event.is_registration_active %}
 {% include "evreg/_registration_form.html" %}
+{% else %}
+<p>{% trans "Registration for %<name>s is closed. Looking forward to see you in the next events." %}</p>
+{% endif %}
+
 {% endblock %}
