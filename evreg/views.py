@@ -13,21 +13,21 @@ from django.conf import settings
 PAYMENT_TEMPLATE = getattr(settings, "PAYMENT_TEMPLATE", "evreg/payment_form.html")
 EMAIL_MSG = getattr(settings, "EMAIL_MSG", dict(
     registry_succes={
-        "subject": _("You been registered for Dzogchen Retreat in Berlin"),
+        "subject": _("You been registered for %<name>s"),
         "message": _("""
     Thank You.
-    You been registered for Dzogchen Retreat in Berlin
+    You been registered for %<name>s
     """)
     },
     payment_sucess={
-        "subject": _("We recived payment for Dzogchen Retreat in Berlin"),
+        "subject": _("We recived payment for %<name>s"),
         "message": _("""
     Thank You.
-    You been registered for Dzogchen Retreat in Berlin
+    You been registered for %<name>s
     """)
     },
     payment_failure={
-        "subject": _("There been error in payment for Dzogchen Retreat in Berlin"),
+        "subject": _("There been error in payment for %<name>s"),
         "message": _("""
     Sorry.
     There been error in processing your payment.
@@ -56,10 +56,11 @@ def registration(request, event_slug):
 
             request.session['to_pay'] = reg.payment_amount
             request.session['reg_id'] = reg.pk
+            email_var = {"name":event.name}
             send_mail(
-                EMAIL_MSG['registry_succes']['subject'],
-                EMAIL_MSG['registry_succes']['message'],
-                "office@dzogchen.de",
+                EMAIL_MSG['registry_succes']['subject'] % email_var,
+                EMAIL_MSG['registry_succes']['message'] % email_var,
+                event.contact_email,
                 [reg.email],
                 fail_silently=True
             )
@@ -72,8 +73,8 @@ def registration(request, event_slug):
             "member_prices": event.get_member_prices()}
 
 
-def render_registartion(request):
-    reg = registration(request, "berlin-retreat-2013")
+def render_registartion(request, slug):
+    reg = registration(request, slug)
     if type(reg) is dict:
         return render(request,
             "evreg/registration_form.html",
