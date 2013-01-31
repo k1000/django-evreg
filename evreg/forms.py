@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-from registration.models import Registry
+from models import Registry
 
 FORM_ERROR_MEMEBERSHIP = _("If you are member of Dzogchen Community\
      you must specify your membership number, \

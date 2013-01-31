@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.core.mail import send_mail
 
 from forms import RegistrationForm
-from registration.models import Registry, Event, ParticipationDay
+from models import Registry, Event, ParticipationDay
 
 from django.conf import settings
 
