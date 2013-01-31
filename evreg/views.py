@@ -59,7 +59,7 @@ def registration(request, event_slug):
             send_mail(
                 EMAIL_MSG['registry_succes']['subject'],
                 EMAIL_MSG['registry_succes']['message'],
-                "office@dzogchen.de",
+                event.contact_email,
                 [reg.email],
                 fail_silently=True
             )
