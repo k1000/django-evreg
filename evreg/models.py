@@ -186,6 +186,7 @@ class Registry(models.Model):
             blank=True, null=True,
     )
     gar = models.ForeignKey(Gar, verbose_name=_("gar"),
+        related_name='members',
         blank=True, null=True,
         help_text=_("Leave it empty if you dont know")
     )

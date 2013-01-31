@@ -1,0 +1,134 @@
+{% load i18n %}
+<div>
+  <h3>{% trans "Prices" %}</h3>
+  {% if event.earlybird_date %}
+  <p>{% trans "Early bird prices available until" %} <strong>{{ event.earlybird_date }}</strong>.</p>
+  {% else %}
+  <p>{% trans "No early bird prices" %}.</p>
+  {% endif %}
+  
+  <ul class="prices">
+    {% for pr in member_prices %}
+    <li><em>{{ pr.get_member_type_display }}</em>: 
+      {% if event.earlybird_date %}{% trans "early bird" %} <strong>{{ pr.earlybird_price }}</strong>€, {% trans "later" %}{% endif %}
+       <strong>{{ pr.price }}</strong>€</li>
+    {% endfor %}
+  </ul>
+
+  <p>{% trans "No early bird for the day tickets" %}.</p>
+  <table>
+    <tr>
+      <th>{% trans "Day Tickets" %}:</th>
+      {% for member in member_prices %}
+      <th>{{ member.get_member_type_display }}</th>
+      {% endfor %}
+    </tr>
+    {% for day in event_days %}
+    <tr>
+      <td> {{ day.date }}</td>
+      {% for day_price in day.per_day_prices.all %}
+      <td>
+        {% if day_price.earlybird_price %}
+        {% trans "early bird:" %}{{ day_price.earlybird_price }}€, {% trans "later" %}
+        {% endif %}
+        {{ day_price.price }}€ 
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+<div class="registration">
+  <form action="." method="post">
+  <h3>{{ event.name }} {% trans "Registartion Form" %}</h3>
+  <p>{% trans "Please fill required fields" %}</p>
+  <ul class="errorlist">
+    {% for err in registration_form.non_field_errors %}
+        <li>{{ err }}</li>
+    {% endfor %}    
+  </ul>
+
+  <ul>
+    {% for ele in registration_form %}
+    {% if ele.is_hidden %}
+      {{ ele }}
+    {% else %}
+    <li id="li_{{ ele.name }}">
+      {{ ele.label_tag }}
+      {{ ele }}
+      {% if ele.errors %}
+        {{ ele.errors }}
+      {% endif %}
+    </li>
+    {% endif %}
+    {% endfor %}
+
+    <li>{% trans "Price" %} <em id="price">{{ registration_form.instance.get_prices.0 }}€</em></li>
+    <li><button>{% trans "Register" %}</button></li>
+  </ul>
+  {% csrf_token %}
+  </form>
+</div>
+
+
+{% block js %}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  var prices = {{ event.list_member_pices|safe }};
+  var list_per_day_prices = {{ event.list_per_day_prices|safe }};
+  
+  function calculate_price(id_member_type){
+    var price = 0;
+    var days = $("input[name='participation']");
+    var checked_days = $("input[name='participation']:checked");
+    
+    if ( days.length == checked_days.length) {
+      return prices[id_member_type-1][1];
+    } else {
+      var day_prices = list_per_day_prices[id_member_type-1];
+      for (var i = 0; i < days.length; i++) {
+        if ($(days[i]).is(":checked")) {
+          price += day_prices[i];
+        }
+      };
+      return price;
+    }
+  }
+
+  function render_price(price) {
+    $("#price").html(price + "€");
+  }
+
+  function toogle_member_fields(id_member_type){
+    var tohide = $("#li_membership_nr, #li_gar, #li_karmayoga");
+    tohide.hide();
+    if (id_member_type > 1) {
+      tohide.show();
+    } else {
+      tohide.hide();
+    }
+  }
+
+  $("#id_member_type").change( function(){
+    var id_member_type = $(this).val();
+    toogle_member_fields(id_member_type);
+    price = calculate_price(id_member_type);
+    render_price( price );
+  })
+
+  $("input[name='participation']").change( function() {
+    var id_member_type = $("#id_member_type").val()
+    price = calculate_price(id_member_type);
+    render_price( price );
+  })
+
+  var id_member_type = $("#id_member_type").val()
+  toogle_member_fields(id_member_type);
+  price = calculate_price(id_member_type);
+  render_price( price );
+})
+</script>
+{% endblock js %}
