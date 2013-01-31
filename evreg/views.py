@@ -40,7 +40,7 @@ EMAIL_MSG = getattr(settings, "EMAIL_MSG", dict(
 ))
 
 
-def registration(request, event_slug):
+def registration(request, event_slug, settings=None):
     event = Event.objects.select_related().get(slug=event_slug)
     registration_form = RegistrationForm(request.POST or None, initial={'event': event})
 
