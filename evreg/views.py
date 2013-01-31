@@ -11,6 +11,7 @@ from models import Registry, Event, ParticipationDay
 from django.conf import settings
 
 PAYMENT_TEMPLATE = getattr(settings, "PAYMENT_TEMPLATE", "evreg/payment_form.html")
+PAYMENT_URL = getattr(settings, "PAYMENT_URL", reverse("payment-form"))
 EMAIL_MSG = getattr(settings, "EMAIL_MSG", dict(
     registry_succes={
         "subject": _("You been registered for %<name>s"),
@@ -64,7 +65,7 @@ def registration(request, event_slug):
                 [reg.email],
                 fail_silently=True
             )
-            return HttpResponseRedirect(reverse("payment-form"))
+            return HttpResponseRedirect(PAYMENT_URL)
 
     return {"registration_form": registration_form,
             "event": event,
