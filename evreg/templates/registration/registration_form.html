@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans "Berlin Retreat 30<sup>th</sup> August - 1<sup>st</sup> September " %}</h1>
+<p>{% trans "Contact" %} <a href="mailto:{{ event.contact_email }}">{{ event.contact_email }}</a></p>
+  <img src="/Resources/rinpoche-indicating.jpeg" alt="" width="525" height="392">
+
+<blockquote class="citation">
+  <p>Everybody always says we need peace and if there is no peace we cannot find happiness. But how can we have peace? There will only be peace when there is the evolution of the individual. What does evolution mean? Evolution means that we know how our condition is and how many different kinds of limitations we have relatively. If we are not conditioned by them, it means finally we are getting into our real nature. This is the principle of the Dzogchen teaching.</p>
+  <em class="citationsource">by Chögyal Namkhai Norbu</em>
+</blockquote>
+
+<div>
+  <h3>{% trans "Prices" %}</h3>
+  {% if event.earlybird_date %}
+  <p>{% trans "Early bird prices available until" %} <strong>{{ event.earlybird_date }}</strong>.</p>
+  {% else %}
+  <p>{% trans "No early bird prices" %}.</p>
+  {% endif %}
+  
+  <ul class="prices">
+    {% for pr in member_prices %}
+    <li><em>{{ pr.get_member_type_display }}</em>: 
+      {% if event.earlybird_date %}{% trans "early bird" %} <strong>{{ pr.earlybird_price }}</strong>€, {% trans "later" %}{% endif %}
+       <strong>{{ pr.price }}</strong>€</li>
+    {% endfor %}
+  </ul>
+
+  <p>{% trans "No early bird for the day tickets" %}.</p>
+  <table>
+    <tr>
+      <th>{% trans "Day Tickets" %}:</th>
+      {% for member in member_prices %}
+      <th>{{ member.get_member_type_display }}</th>
+      {% endfor %}
+    </tr>
+    {% for day in event_days %}
+    <tr>
+      <td> {{ day.date }}</td>
+      {% for day_price in day.per_day_prices.all %}
+      <td>
+        {% if day_price.earlybird_price %}
+        {% trans "early bird:" %}{{ day_price.earlybird_price }}€, {% trans "later" %}
+        {% endif %}
+        {{ day_price.price }}€ 
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+<div class="registration">
+  <form action="." method="post">
+  <h3>{{ event.name }} {% trans "Registartion Form" %}</h3>
+  <p>{% trans "Please fill required fields" %}</p>
+  <ul class="errorlist">
+    {% for err in registration_form.non_field_errors %}
+        <li>{{ err }}</li>
+    {% endfor %}    
+  </ul>
+
+  <ul>
+    {% for ele in registration_form %}
+    {% if ele.is_hidden %}
+      {{ ele }}
+    {% else %}
+    <li id="li_{{ ele.name }}">
+      {{ ele.label_tag }}
+      {{ ele }}
+      {% if ele.errors %}
+        {{ ele.errors }}
+      {% endif %}
+    </li>
+    {% endif %}
+    {% endfor %}
+
+    <li>{% trans "Price" %} <em id="price">{{ registration_form.instance.get_prices.0 }}€</em></li>
+    <li><button>{% trans "Register" %}</button></li>
+  </ul>
+  {% csrf_token %}
+  </form>
+</div>
+{% endblock %}
+
+
+{% block js %}
+{{ block.super }}
+
+<script type="text/javascript">
+$(document).ready(function() {
+  var prices = {{ event.list_member_pices|safe }};
+  var list_per_day_prices = {{ event.list_per_day_prices|safe }};
+  
+  function calculate_price(id_member_type){
+    var price = 0;
+    var days = $("input[name='participation']");
+    var checked_days = $("input[name='participation']:checked");
+    
+    if ( days.length == checked_days.length) {
+      return prices[id_member_type-1][1];
+    } else {
+      var day_prices = list_per_day_prices[id_member_type-1];
+      for (var i = 0; i < days.length; i++) {
+        if ($(days[i]).is(":checked")) {
+          price += day_prices[i];
+        }
+      };
+      return price;
+    }
+  }
+
+  function render_price(price) {
+    $("#price").html(price + "€");
+  }
+
+  function toogle_member_fields(id_member_type){
+    var tohide = $("#li_membership_nr, #li_gar, #li_karmayoga");
+    tohide.hide();
+    if (id_member_type > 1) {
+      tohide.show();
+    } else {
+      tohide.hide();
+    }
+  }
+
+  $("#id_member_type").change( function(){
+    var id_member_type = $(this).val();
+    toogle_member_fields(id_member_type);
+    price = calculate_price(id_member_type);
+    render_price( price );
+  })
+
+  $("input[name='participation']").change( function() {
+    var id_member_type = $("#id_member_type").val()
+    price = calculate_price(id_member_type);
+    render_price( price );
+  })
+
+  var id_member_type = $("#id_member_type").val()
+  toogle_member_fields(id_member_type);
+  price = calculate_price(id_member_type);
+  render_price( price );
+})
+</script>
+{% endblock js %}

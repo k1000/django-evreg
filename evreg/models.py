@@ -1,0 +1,270 @@
+# -*- coding: utf-8 -*-
+from operator import itemgetter
+import datetime
+
+from django.db import models
+from django.utils.translation import ugettext_lazy as _
+
+from countries import codes
+from international.models import Gar
+
+from django.conf import settings
+
+
+MEMBER_TYPES = getattr(settings, "MEMBER_TYPES",
+(
+    (1, _("Non-member")),
+    (2, _("Ordinary")),
+    (3, _("Reduced")),
+    (4, _("Sustaining")),
+    (5, _("Benefactor")),
+))
+
+
+class Event(models.Model):
+    name = models.CharField(_("name"), max_length=250)
+    slug = models.SlugField(_("identificator"))
+    description = models.TextField(_("description"))
+    earlybird_date = models.DateField(_("earlybird date"),
+        null=True, blank=True)
+    venue = models.TextField()
+    contact_email = models.EmailField(_("contact email"))
+    start = models.DateField(_("start"))
+    finish = models.DateField(_("finish"))
+    registration_until = models.DateField(_("registration until"),
+        null=True, blank=True)
+
+    def get_member_prices(self):
+        """
+        Memoizing member prices
+        """
+        self._member_prices = getattr(self, "_member_prices", self.member_prices.all())
+        return self._member_prices
+
+    def get_event_days(self):
+        """
+        Memoizing event days
+        """
+        self._event_days = getattr(self, "_event_days", self.days.all())
+        return self._event_days
+
+    def list_member_pices(self):
+        """
+        returns current whole event prices per member. Earlybird applied
+        """
+        def establish_early(obj):
+            if self.is_earlybird:
+                return obj.earlybird_price
+            else:
+                obj.price
+
+        return [[str(m_price.get_member_type_display()), establish_early(m_price)] for m_price in self.get_member_prices()]
+
+    def list_per_day_prices(self):
+        """
+        returns current per day prices. Earlybird applied
+        """
+        def _per_day_prices():
+            dates = {}
+            days = self.get_event_days()
+            for day in days:
+                d = str(day.date)
+                dates[d] = []
+                for day_price in day.per_day_prices.all():
+                    if self.is_earlybird and day_price.earlybird_price:
+                        dates[d].append(day_price.earlybird_price)
+                    else:
+                        dates[d].append(day_price.price)
+
+            return [list(m) for m in zip(*dates.values())]
+
+        self._per_day_prices = getattr(self, "_per_day_prices", _per_day_prices())
+        return self._per_day_prices
+
+    @property
+    def is_earlybird(self):
+        if self.earlybird_date:
+            return (datetime.date.today() < self.earlybird_date)
+        return None
+
+    @property
+    def is_finished(self):
+        return (datetime.date.today() > self.finish)
+
+    @property
+    def is_registration_active(self):
+        registration_until = self.registration_until or self.finish
+        return (datetime.date.today() < registration_until)
+
+    def __unicode__(self):
+        return self.name
+
+
+class MemberPrices(models.Model):
+    event = models.ForeignKey(Event,
+        related_name='member_prices',
+        verbose_name=_("Event"))
+    member_type = models.PositiveSmallIntegerField(_("Member type"),
+            choices=MEMBER_TYPES
+    )
+    price = models.IntegerField(_("full price"))
+    earlybird_price = models.IntegerField(_("earlybird price"),
+        null=True, blank=True)
+
+
+class EventDay(models.Model):
+    """docstring for Day"""
+    event = models.ForeignKey(Event,
+        related_name="days",
+        verbose_name=_("Event"))
+    date = models.DateField(_("date"),
+        null=True, blank=True)
+    programme = models.TextField(_("programme"),
+        null=True, blank=True)
+
+    def __unicode__(self):
+        return unicode(self.date)
+
+
+class MemberPricesPerDay(models.Model):
+    day = models.ForeignKey(EventDay,
+        related_name="per_day_prices",
+        verbose_name=_("Day"))
+    member_type = models.PositiveSmallIntegerField(_("Member type"),
+            choices=MEMBER_TYPES
+    )
+    price = models.IntegerField(_("full price"))
+    earlybird_price = models.IntegerField(_("earlybird price"),
+        null=True, blank=True)
+
+
+class Registry(models.Model):
+    """Registry model"""
+
+    STATUS = (
+        (1, _("not payed")),
+        (2, _("payed")),
+        (3, _("canceled")),
+    )
+
+    GENDER_TYPES = (
+        (1, _("Male")),
+        (2, _("Female")),
+    )
+    event = models.ForeignKey(Event, verbose_name=_("Event"))
+
+    created_at = models.DateTimeField(_("created_at"), auto_now_add=True)
+
+    first_name = models.CharField(_("first name"), max_length=50)
+    last_name = models.CharField(_("last name"), max_length=50)
+    gender = models.PositiveSmallIntegerField(
+            _("gender"),
+            blank=True, null=True,
+            choices=GENDER_TYPES
+    )
+
+    email = models.EmailField(_("email"))
+    phone = models.CharField(_("phone"), max_length=12)
+
+    address = models.TextField(_("address"), max_length=250)
+    postal_code = models.CharField(_("zip"), max_length=8)
+    city = models.CharField(_("city"), max_length=100)
+    country = models.CharField(_("country"),
+        max_length=50,
+        choices=sorted(codes.items(), key=itemgetter(1)),
+        default="DE",
+    )
+
+    member_type = models.PositiveSmallIntegerField(
+            _("member of Dzogchen Community"),
+            default=1,
+            choices=[[mem[0], u"%s" % mem[1]] for mem in MEMBER_TYPES]
+    )
+    membership_nr = models.PositiveSmallIntegerField(
+            _("membership nr"),
+            max_length=5,
+            blank=True, null=True,
+    )
+    gar = models.ForeignKey(Gar, verbose_name=_("gar"),
+        blank=True, null=True,
+        help_text=_("Leave it empty if you dont know")
+    )
+
+    member_validated = models.BooleanField(_("is valid member?"),
+        default=False,
+    )
+    karmayoga = models.TextField(_("karmayoga"),
+        blank=True, null=True,
+        help_text=_("Do you want to help?")
+    )
+
+    observations = models.TextField(_("observations"),
+        blank=True, null=True,
+    )
+    newsletter = models.BooleanField(_("recive newsletter"))
+    comments = models.TextField(_("comments"),
+        blank=True, null=True,
+    )
+
+    payment_time = models.DateTimeField(_("payment time"),
+        blank=True, null=True,
+    )
+    payment_amount = models.PositiveSmallIntegerField(_("amount to pay "),
+        blank=True, null=True,
+    )
+    payment_id = models.PositiveIntegerField(_("payment id"),
+        blank=True, null=True,
+    )
+
+    status = models.PositiveSmallIntegerField(
+            _("status"),
+            choices=STATUS,
+            default=1,
+    )
+
+    @property
+    def participation_days(self):
+        return [day[0] for day in self.participationday_set.values_list("day__date")]
+
+    @property
+    def event_days(self):
+        return self.event.days.all()
+
+    def get_member_prices(self, member_type):
+        return self.event.member_prices.get(member_type=member_type)
+
+    def calculate_price(self, participation_days):
+        event_days = self.event_days
+        # whole event
+        if len(event_days) == len(participation_days):
+            member_type_price = self.get_member_prices(member_type=self.member_type)
+            if self.event.earlybird_date and self.event.is_earlybird:
+                price = member_type_price.earlybird_price
+            else:
+                price = member_type_price.price
+        else:
+            price = 0
+            event_days_participation = [event_day for event_day in event_days if event_day.date in participation_days]
+            for day in event_days_participation:
+                day_prices = day.per_day_prices.get(member_type=self.member_type)
+                if self.event.earlybird_date and self.event.is_earlybird and day_prices.earlybird_price:
+                    price = price + day_prices.earlybird_price
+                else:
+                    price = price + day_prices.price
+
+        return price
+
+    class Meta:
+        verbose_name = _('Registry')
+        verbose_name_plural = _('Registry')
+
+    def __unicode__(self):
+        return self.email
+
+
+class ParticipationDay(models.Model):
+    participant = models.ForeignKey(Registry, verbose_name=_("Registry"))
+    day = models.ForeignKey(EventDay,
+        related_name="participation_days",
+        verbose_name=_("Day"))
+    created_at = models.DateTimeField(_("created_at"), auto_now_add=True)
