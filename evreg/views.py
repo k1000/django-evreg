@@ -8,7 +8,10 @@ from django.core.mail import send_mail
 from forms import RegistrationForm
 from registration.models import Registry, Event, ParticipationDay
 
-EMAIL_MSG = dict(
+from django.conf import settings
+
+PAYMENT_TEMPLATE = getattr(settings, "PAYMENT_TEMPLATE", "evreg/payment_form.html")
+EMAIL_MSG = getattr(settings, "EMAIL_MSG", dict(
     registry_succes={
         "subject": _("You been registered for Dzogchen Retreat in Berlin"),
         "message": _("""
@@ -33,7 +36,7 @@ EMAIL_MSG = dict(
     Thank you
     """)
     },
-)
+))
 
 
 def registration(request, event_slug):
@@ -73,7 +76,7 @@ def render_registartion(request):
     reg = registration(request, "berlin-retreat-2013")
     if type(reg) is dict:
         return render(request,
-            "registration/registration_form.html",
+            "evreg/registration_form.html",
             reg
         )
     else:
@@ -83,12 +86,12 @@ def render_registartion(request):
 def payment(request):
     pk = request.session.get("reg_id")
     registry = Registry.objects.get(pk=pk)
-    return render(request, "registration/payment_form.html", {"registry": registry})
+    return render(request, PAYMENT_TEMPLATE, {"registry": registry})
 
 
 def payment_sucess(request):
-    return render(request, "registration/payment_form.html", {})
+    return render(request, PAYMENT_TEMPLATE, {})
 
 
 def payment_failure(request):
-    return render(request, "registration/payment_form.html", {})
+    return render(request, PAYMENT_TEMPLATE, {})
