@@ -25,7 +25,7 @@ Add to INSTALLED_APPS in settings.py:
 
 Add to 'urlpatterns' (at the end) urls.py:
     
-    (r'', include('evreg.urls')),
+    (r'registration', include('evreg.urls')),
     
 Create tables etc.:
 
