@@ -2,32 +2,17 @@
 {% load i18n %}
 
 {% block content %}
-<h1>{% trans "Berlin Retreat 30<sup>th</sup> August - 1<sup>st</sup> September " %}</h1>
-<p>{% trans "Contact" %} <a href="mailto:berlin@dzogchen.de">berlin@dzogchen.de</a></p>
+<h1>{{ event.name }}</h1>
+<p>{% trans "Contact" %} <a href="{{ event.contact_email }}">{{ event.contact_email }}</a></p>
 
 <p>{% trans "Thank you. Please prepare your credir/debit card in order to procead to make a payment on line. You will be charged" %} <strong>{{ request.session.to_pay }}€</strong>.</p>
 
-<!-- https://www.x.com/developers/paypal/documentation-tools/paypal-payments-standard/integration-guide/buynow_buttons -->
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+{% if event.bank_details %}
+<p>{% trans "You can also make payment making mony transfer on following account." %}</p>
+<h3>{% trans "Bank details" %}<br/></h3>
+{{ event.bank_details}}
+{% endif %}
 
-	<!-- Identify your business so that you can collect the payments. -->
-	<input type="hidden" name="business" value="selwak@gmail.com">
-
-	<!-- Specify a Buy Now button. -->
-	<input type="hidden" name="cmd" value="_xclick">
-
-	<!-- Specify details about the item that buyers will purchase. -->
-	<input type="hidden" name="item_name" value="ChNN Dzogchen Retreat Berilin 2013 #{{ registry.pk }}">
-	<input type="hidden" name="amount" value="{{ registry.payment_amount }}">
-	<input type="hidden" name="currency_code" value="EUR">
-
-	<!-- Display the payment button. -->
-	<input type="image" name="submit" border="0"
-	src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
-	alt="PayPal - The safer, easier way to pay online">
-	<img alt="" border="0" width="1" height="1"
-	src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
-
-</form>
+{% include "evreg/_payment_form.html" %}
 
 {% endblock %}

@@ -15,17 +15,17 @@ class RegistryAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-                'fields': (
-                            'event',
-                            ('first_name', 'last_name'),
-                           'status',
-                           ('email', 'phone',),
-                           'address',
-                           ('postal_code', "city",),
-                           'country',
-                           ('member_type', 'membership_nr', 'gar'),
-                           'karmayoga',
-                           ('payment_time', 'payment_amount', 'payment_id')),
+            'fields': (
+                'event',
+                ('first_name', 'last_name'),
+                'status',
+                ('email', 'phone',),
+                'address',
+                ('postal_code', "city",),
+                'country',
+                ('member_type', 'membership_nr', 'gar'),
+                'karmayoga',
+                ('payment_time', 'payment_amount', 'payment_id')),
         }),
     )
     list_display = ('first_name', 'last_name', 'event', 'status', 'member_type')
@@ -57,13 +57,15 @@ class EventAdmin(admin.ModelAdmin):
     ]
     fieldsets = (
         (None, {
-                'fields': (
-                            ('name', 'slug'),
-                          ('start', 'finish'),
-                           ('registration_until', 'earlybird_date',),
-                           'contact_email',
-                           'description',
-                           'venue',
+            'fields': (
+                ('name', 'slug'),
+                ('start', 'finish'),
+                'description',
+                'organizer',
+                ('contact_email', 'web'),
+                ('venue_name', 'venue_address'),
+                ('registration_until', 'earlybird_date',),
+                'bank_details'
         )}),
     )
     list_display = ('name', 'start')

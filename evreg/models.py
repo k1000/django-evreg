@@ -25,14 +25,30 @@ class Event(models.Model):
     name = models.CharField(_("name"), max_length=250)
     slug = models.SlugField(_("identificator"))
     description = models.TextField(_("description"))
-    earlybird_date = models.DateField(_("earlybird date"),
-        null=True, blank=True)
-    venue = models.TextField()
-    contact_email = models.EmailField(_("contact email"))
-    start = models.DateField(_("start"))
-    finish = models.DateField(_("finish"))
+    organizer = models.CharField(_("Organizer"), max_length=250)
+
     registration_until = models.DateField(_("registration until"),
         null=True, blank=True)
+    earlybird_date = models.DateField(_("earlybird date"),
+        null=True, blank=True)
+
+    start = models.DateField(_("start"))
+    finish = models.DateField(_("finish"))
+
+    venue_name = models.CharField(_("Venue name"), max_length=250)
+    venue_address = models.TextField(_("Venue address"))
+
+    contact_email = models.EmailField(_("contact email"))
+    contact_tel = models.EmailField(_("contact tel"))
+    web = models.URLField(_("event web"))
+
+    bank_details = models.TextField(_("bank details"),
+        null=True, blank=True)
+
+    @property
+    def title(self):
+        return _("%s from %s to %s at %s"
+             % (self.name, self.start, self.finish, self.venue_name))
 
     def get_member_prices(self):
         """
@@ -186,7 +202,6 @@ class Registry(models.Model):
             blank=True, null=True,
     )
     gar = models.ForeignKey(Gar, verbose_name=_("gar"),
-        related_name='members',
         blank=True, null=True,
         help_text=_("Leave it empty if you dont know")
     )

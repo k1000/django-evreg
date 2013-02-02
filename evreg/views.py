@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django.core.mail import send_mail
+from django.template.loader import get_template
+from django.template import Context
 
 from forms import RegistrationForm
 from models import Registry, Event, ParticipationDay
@@ -13,21 +15,17 @@ from django.conf import settings
 PAYMENT_TEMPLATE = getattr(settings, "PAYMENT_TEMPLATE", "evreg/payment_form.html")
 EMAIL_MSG = getattr(settings, "EMAIL_MSG", dict(
     registry_succes={
-        "subject": _("You been registered for %<name>s"),
-        "message": _("""
-    Thank You.
-    You been registered for %<name>s
-    """)
+        "subject": _("You been registered for %s"),
     },
     payment_sucess={
-        "subject": _("We recived payment for %<name>s"),
+        "subject": _("We recived payment for %s"),
         "message": _("""
     Thank You.
     You been registered for %<name>s
     """)
     },
     payment_failure={
-        "subject": _("There been error in payment for %<name>s"),
+        "subject": _("There been error in payment for %s"),
         "message": _("""
     Sorry.
     There been error in processing your payment.
@@ -56,15 +54,17 @@ def registration(request, event_slug):
 
             request.session['to_pay'] = reg.payment_amount
             request.session['reg_id'] = reg.pk
-            email_var = {"name":event.name}
+            email_var = {"event": event, "person": reg}
+
+            email_template_name = "evreg/retreat_registration_confirmation-%s.mail" % request.LANGUAGE_CODE
             send_mail(
-                EMAIL_MSG['registry_succes']['subject'] % email_var,
-                EMAIL_MSG['registry_succes']['message'] % email_var,
+                EMAIL_MSG['registry_succes']['subject'] % event.title,
+                get_template(email_template_name).render(Context(email_var)),
                 event.contact_email,
                 [reg.email],
                 fail_silently=True
             )
-            return HttpResponseRedirect(reverse("payment-form"))
+            return HttpResponseRedirect(reverse("payment-form", args=(event.slug,)))
 
     return {"registration_form": registration_form,
             "event": event,
@@ -84,10 +84,13 @@ def render_registartion(request, slug):
         return reg
 
 
-def payment(request):
+def payment(request, slug):
     pk = request.session.get("reg_id")
     registry = Registry.objects.get(pk=pk)
-    return render(request, PAYMENT_TEMPLATE, {"registry": registry})
+    event = registry.event
+
+    return render(request, PAYMENT_TEMPLATE,
+        {"registry": registry, "event": event})
 
 
 def payment_sucess(request):
