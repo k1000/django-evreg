@@ -2,12 +2,11 @@ Django evreg - event registration
 =================================
 
 Event registration
-Simple, extendible CMS writen on the top of Django. 
 
 Features:
 * Unlimited events
 * Multilanguage support
-* Basic event info including: name, dates, description, venue, contact email
+* Event info includes: name, dates, description, venue, contact email, venue etc.
 * Whole event & early bird prices
 * Individual prices for separate days
 * Prices calculated according to membership
@@ -26,7 +25,7 @@ Add to INSTALLED_APPS in settings.py:
 
 Add to 'urlpatterns' (at the end) urls.py:
     
-    (r'', include('evreg.urls')),
+    (r'registration', include('evreg.urls')),
     
 Create tables etc.:
 
