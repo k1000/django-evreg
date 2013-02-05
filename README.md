@@ -15,7 +15,7 @@ Features:
 
 Installing
 ----------
-Assuming that you got virtualenv installed.
+Assuming that you got virtualenv installed activated.
 
 Install via pip:
 
