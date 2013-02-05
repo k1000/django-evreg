@@ -1,0 +1,20 @@
+Dear {{person.first_name}} {{person.last_name}},
+
+thank your for registering for the {{ event.name }}.
+
+Your registration number is: RG-{{person.id}}
+
+Please note that your registration will only be valid once the retreat fee has arrived on the account of the German Dzogchen Community. In order to be entitled for the early bird tariff the fee has to be arrived on our account by {{event.earlybird_date }}.
+
+{% if event.bank_details %}
+Bank details:
+{{event.bank_details}}
+
+{% endif %}
+All other details about travelling and lodging can be found on our website at {{ event.web }}
+
+For further information or questions please contact us at {{ event.contact_email }} or by phone at {{ event.contact_tel }}
+
+Regards,
+
+{{ event.organizer }}
