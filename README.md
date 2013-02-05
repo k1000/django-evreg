@@ -15,15 +15,17 @@ Features:
 
 Installing
 ----------
+Assuming that you got virtualenv (python virtual envirement) created and activated.
+
 Install via pip:
 
     pip install -e git+https://github.com/k1000/django-evreg.git#egg=evreg
 
-Add to INSTALLED_APPS in settings.py:
+Add to "INSTALLED_APPS" in settings.py file:
     
     'evreg',
 
-Add to 'urlpatterns' (at the end) urls.py:
+Add to 'urlpatterns' (at the end) urls.py file:
     
     (r'registration', include('evreg.urls')),
     
