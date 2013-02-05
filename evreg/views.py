@@ -57,7 +57,7 @@ def registration(request, event_slug, settings=None):
             request.session['reg_id'] = reg.pk
             email_var = {"event": event, "person": reg}
 
-            email_template_name = "evreg/retreat_registration_confirmation-%s.mail" % request.LANGUAGE_CODE
+            email_template_name = "evreg/registration_confirmation-%s.mail" % request.LANGUAGE_CODE
             send_mail(
                 EMAIL_MSG['registry_succes']['subject'] % event.title,
                 get_template(email_template_name).render(Context(email_var)),
