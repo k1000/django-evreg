@@ -16,6 +16,7 @@ Features:
 Installing
 ----------
 Assuming that you got virtualenv installed.
+
 Install via pip:
 
     pip install -e git+https://github.com/k1000/django-evreg.git#egg=evreg
