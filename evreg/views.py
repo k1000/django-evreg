@@ -49,9 +49,10 @@ def registration(request, event_slug, settings=None):
             reg.payment_amount = reg.calculate_price(participation_days)
             reg.save()
 
-            for day_id in participation_days:
-                participation_day = ParticipationDay(participant=reg, day_id=int(day_id))
-                participation_day.save()
+            if reg.event.has_daily_prices:
+                for day_id in participation_days:
+                    participation_day = ParticipationDay(participant=reg, day_id=int(day_id))
+                    participation_day.save()
 
             request.session['to_pay'] = reg.payment_amount
             request.session['reg_id'] = reg.pk

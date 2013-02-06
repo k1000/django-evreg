@@ -15,7 +15,7 @@
     {% endfor %}
   </ul>
 
-  <p>{% trans "No early bird for the day tickets" %}.</p>
+  {% if event.has_daily_prices %}
   <table>
     <tr>
       <th>{% trans "Day Tickets" %}:</th>
@@ -23,11 +23,13 @@
       <th>{{ member.get_member_type_display }}</th>
       {% endfor %}
     </tr>
-    {% for day in event_days %}
+    {% regroup event.get_daily_prices by day as day_price_list %}
+    {% for day_prices in day_price_list %}
     <tr>
-      <td> {{ day.date }}</td>
-      {% for day_price in day.per_day_prices.all %}
+      <td> {{ day_prices.grouper.date }}</td>
+      {% for day_price in day_prices.list %}
       <td>
+        {{ day_price.0 }}
         {% if day_price.earlybird_price %}
         {% trans "early bird:" %}{{ day_price.earlybird_price }}€, {% trans "later" %}
         {% endif %}
@@ -37,6 +39,10 @@
     </tr>
     {% endfor %}
   </table>
+  {% else %}
+  <p>{% trans "Event has no option to pay for separate days." %}</p>
+  {% endif %}
+
 </div>
 <div class="registration">
   <form action="." method="post">
@@ -85,10 +91,10 @@ $(document).ready(function() {
     var days = $("input[name='participation']");
     var checked_days = $("input[name='participation']:checked");
     
-    if ( days.length == checked_days.length) {
+    if ((list_per_day_prices == 0) || ( days.length == checked_days.length)) {
       return prices[id_member_type-1][1];
     } else {
-      var day_prices = list_per_day_prices[id_member_type-1];
+      var day_prices = list_per_day_prices[id_member_type];
       for (var i = 0; i < days.length; i++) {
         if ($(days[i]).is(":checked")) {
           price += day_prices[i];

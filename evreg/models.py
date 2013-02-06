@@ -4,7 +4,7 @@ import datetime
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
+from django.utils.encoding import smart_str
 from countries import codes
 from international.models import Gar
 
@@ -50,53 +50,6 @@ class Event(models.Model):
         return _("%s from %s to %s at %s"
              % (self.name, self.start, self.finish, self.venue_name))
 
-    def get_member_prices(self):
-        """
-        Memoizing member prices
-        """
-        self._member_prices = getattr(self, "_member_prices", self.member_prices.all())
-        return self._member_prices
-
-    def get_event_days(self):
-        """
-        Memoizing event days
-        """
-        self._event_days = getattr(self, "_event_days", self.days.all())
-        return self._event_days
-
-    def list_member_pices(self):
-        """
-        returns current whole event prices per member. Earlybird applied
-        """
-        def establish_early(obj):
-            if self.is_earlybird:
-                return obj.earlybird_price
-            else:
-                obj.price
-
-        return [[str(m_price.get_member_type_display()), establish_early(m_price)] for m_price in self.get_member_prices()]
-
-    def list_per_day_prices(self):
-        """
-        returns current per day prices. Earlybird applied
-        """
-        def _per_day_prices():
-            dates = {}
-            days = self.get_event_days()
-            for day in days:
-                d = str(day.date)
-                dates[d] = []
-                for day_price in day.per_day_prices.all():
-                    if self.is_earlybird and day_price.earlybird_price:
-                        dates[d].append(day_price.earlybird_price)
-                    else:
-                        dates[d].append(day_price.price)
-
-            return [list(m) for m in zip(*dates.values())]
-
-        self._per_day_prices = getattr(self, "_per_day_prices", _per_day_prices())
-        return self._per_day_prices
-
     @property
     def is_earlybird(self):
         if self.earlybird_date:
@@ -111,6 +64,62 @@ class Event(models.Model):
     def is_registration_active(self):
         registration_until = self.registration_until or self.finish
         return (datetime.date.today() < registration_until)
+
+    @property
+    def has_daily_prices(self):
+        return (self.get_daily_prices())
+
+    def get_member_prices(self):
+        """
+        Memoizing member prices
+        """
+        self._member_prices = getattr(self, "_member_prices", self.member_prices.all())
+        return self._member_prices
+
+    def get_event_days(self):
+        """
+        Memoizing event days
+        """
+        self._event_days = getattr(self, "_event_days", self.days.all())
+        return self._event_days
+
+    def get_daily_prices(self):
+        """
+        Memoizing daily prices
+        """
+        self._daily_prices = getattr(self, "_daily_prices", MemberPricesPerDay.objects.select_related().filter(day__event=self.pk))
+        return self._daily_prices
+
+    def list_member_pices(self):
+        """
+        returns current whole event prices per member. Earlybird applied
+        """
+        def establish_early(obj):
+            if self.is_earlybird:
+                return obj.earlybird_price
+            else:
+                return obj.price
+
+        return [[smart_str(m_price.get_member_type_display()), establish_early(m_price)] for m_price in self.get_member_prices()]
+
+    def list_per_day_prices(self, group_on="member_type"):
+        """
+        returns current per day prices. Earlybird applied
+        """
+
+        objects = {}
+        per_day_prices = self.get_daily_prices()
+        for day_prices in per_day_prices:
+            atr = str(getattr(day_prices, group_on))
+            if self.is_earlybird and day_prices.earlybird_price:
+                current_price = day_prices.earlybird_price
+            else:
+                current_price = day_prices.price
+            if atr in objects:
+                objects[atr].append(current_price)
+            else:
+                objects[atr] = [current_price]
+        return objects or 0
 
     def __unicode__(self):
         return self.name
@@ -139,7 +148,7 @@ class EventDay(models.Model):
         null=True, blank=True)
 
     def __unicode__(self):
-        return unicode(self.date)
+        return u"%s %s" % (self.event, unicode(self.date))
 
 
 class MemberPricesPerDay(models.Model):
@@ -188,7 +197,7 @@ class Registry(models.Model):
     country = models.CharField(_("country"),
         max_length=50,
         choices=sorted(codes.items(), key=itemgetter(1)),
-        default="DE",
+        default=settings.LANGUAGE_CODE,
     )
 
     member_type = models.PositiveSmallIntegerField(
@@ -252,7 +261,7 @@ class Registry(models.Model):
     def calculate_price(self, participation_days):
         event_days = self.event_days
         # whole event
-        if len(event_days) == len(participation_days):
+        if not self.event.has_daily_prices or len(event_days) == len(participation_days):
             member_type_price = self.get_member_prices(member_type=self.member_type)
             if self.event.earlybird_date and self.event.is_earlybird:
                 price = member_type_price.earlybird_price

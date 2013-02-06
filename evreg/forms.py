@@ -16,12 +16,13 @@ class RegistrationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
         self.fields['event'].widget = forms.HiddenInput()
-        event = kwargs["initial"]["event"]
-        self.fields["participation"] = forms.MultipleChoiceField(
-            widget=forms.CheckboxSelectMultiple,
-            label="Event Days",
-            initial=[e.id for e in event.get_event_days()],
-            choices=[[e.id, e.date] for e in event.get_event_days()])
+        self.event = kwargs["initial"]["event"]
+        if self.event.has_daily_prices:
+            self.fields["participation"] = forms.MultipleChoiceField(
+                widget=forms.CheckboxSelectMultiple,
+                label="Event Days",
+                initial=[e.id for e in self.event.get_event_days()],
+                choices=[[e.id, e.date] for e in self.event.get_event_days()])
 
     class Meta:
         model = Registry
@@ -33,10 +34,10 @@ class RegistrationForm(forms.ModelForm):
         member_type = cleaned_data.get("member_type")
         membership_nr = cleaned_data.get("membership_nr")
         participation = cleaned_data.get("participation")
-
-        if not participation:
-            raise forms.ValidationError(FORM_ERROR_NO_DAY_SELECTED)
         gar = cleaned_data.get("gar")
+
+        if self.event.has_daily_prices and not participation:
+            raise forms.ValidationError(FORM_ERROR_NO_DAY_SELECTED)
         if int(member_type) > 1 and (not membership_nr or not gar):
             raise forms.ValidationError(FORM_ERROR_MEMEBERSHIP)
         if int(member_type) == 1 and (membership_nr or gar):

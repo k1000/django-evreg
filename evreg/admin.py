@@ -76,7 +76,6 @@ class EventDayAdmin(admin.ModelAdmin):
     inlines = [
         MemberPricesPerDayInline,
     ]
-    list_display = ('event', 'date')
     list_filter = ['event']
     extra = 1
 
