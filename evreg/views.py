@@ -12,7 +12,7 @@ from models import Registry, Event, ParticipationDay
 
 from django.conf import settings
 
-PAYMENT_TEMPLATE = getattr(settings, "PAYMENT_TEMPLATE", "evreg/payment_form.html")
+PAYMENT_TEMPLATE = getattr(settings, "EVREG_PAYMENT_TEMPLATE", "evreg/payment_form.html")
 
 EMAIL_MSG = getattr(settings, "EMAIL_MSG", dict(
     registry_succes={
