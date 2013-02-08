@@ -11,7 +11,7 @@ from international.models import Gar
 from django.conf import settings
 
 
-MEMBER_TYPES = getattr(settings, "MEMBER_TYPES",
+MEMBER_TYPES = getattr(settings, "EVREG_MEMBER_TYPES",
 (
     (1, _("Non-member")),
     (2, _("Ordinary")),
@@ -44,6 +44,12 @@ class Event(models.Model):
 
     bank_details = models.TextField(_("bank details"),
         null=True, blank=True)
+
+    success_template_name = models.CharField(_('Success template name'),
+        blank=True, null=True,
+        max_length=70,
+        help_text=_("Example: 'success.html'. If this isn't provided, \
+        the system will use 'evreg/payment_form.html'."))
 
     @property
     def title(self):
@@ -87,7 +93,9 @@ class Event(models.Model):
         """
         Memoizing daily prices
         """
-        self._daily_prices = getattr(self, "_daily_prices", MemberPricesPerDay.objects.select_related().filter(day__event=self.pk))
+        self._daily_prices = getattr(self,
+                "_daily_prices",
+                MemberPricesPerDay.objects.select_related().filter(day__event=self.pk))
         return self._daily_prices
 
     def list_member_pices(self):
@@ -100,7 +108,8 @@ class Event(models.Model):
             else:
                 return obj.price
 
-        return [[smart_str(m_price.get_member_type_display()), establish_early(m_price)] for m_price in self.get_member_prices()]
+        return [[smart_str(m_price.get_member_type_display()),
+            establish_early(m_price)] for m_price in self.get_member_prices()]
 
     def list_per_day_prices(self, group_on="member_type"):
         """
@@ -210,12 +219,14 @@ class Registry(models.Model):
             max_length=5,
             blank=True, null=True,
     )
-    gar = models.ForeignKey(Gar, verbose_name=_("gar"),
+    gar = models.ForeignKey(Gar,
+        verbose_name=_("gar"),
         blank=True, null=True,
         help_text=_("Leave it empty if you dont know")
     )
 
-    member_validated = models.BooleanField(_("is valid member?"),
+    member_validated = models.BooleanField(
+        _("is valid member?"),
         default=False,
     )
     karmayoga = models.TextField(_("karmayoga"),

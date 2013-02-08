@@ -1,5 +1,6 @@
  # -*- coding: utf-8 -*-
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
 
 from models import Registry, Event, MemberPrices, EventDay, MemberPricesPerDay, ParticipationDay
 
@@ -65,8 +66,12 @@ class EventAdmin(admin.ModelAdmin):
                 ('contact_email', 'web'),
                 ('venue_name', 'venue_address'),
                 ('registration_until', 'earlybird_date',),
-                'bank_details'
+                'bank_details',
         )}),
+        (_('Advanced options'),
+            {'classes': ('collapse',),
+            'fields': ('success_template_name',)}
+        ),
     )
     list_display = ('name', 'start')
     prepopulated_fields = {"slug": ("name",)}
