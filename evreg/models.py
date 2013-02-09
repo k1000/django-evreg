@@ -63,6 +63,17 @@ class Event(models.Model):
         return None
 
     @property
+    def offers_meals(self):
+        return self.get_meals()
+
+    def get_meals(self):
+        """
+        Memoizing event days
+        """
+        self._event_meals = getattr(self, "_event_meals", self.meals.all())
+        return self._event_meals
+
+    @property
     def is_finished(self):
         return (datetime.date.today() > self.finish)
 
@@ -145,6 +156,9 @@ class MemberPrices(models.Model):
     earlybird_price = models.IntegerField(_("earlybird price"),
         null=True, blank=True)
 
+    class Meta:
+        verbose_name = verbose_name_plural = _('Member Prices')
+
 
 class EventDay(models.Model):
     """docstring for Day"""
@@ -156,8 +170,24 @@ class EventDay(models.Model):
     programme = models.TextField(_("programme"),
         null=True, blank=True)
 
+    class Meta:
+        verbose_name = _('event day')
+        verbose_name_plural = _('event days')
+
     def __unicode__(self):
         return u"%s %s" % (self.event, unicode(self.date))
+
+
+class Meal(models.Model):
+    """
+    Event meals
+    """
+    event = models.ForeignKey(Event,
+        related_name='meals',
+        verbose_name=_("Event"))
+    created_at = models.DateTimeField(auto_now_add=True)
+    description = models.TextField(_("description"))
+    price = models.DecimalField(_('price'), max_digits=8, decimal_places=2)
 
 
 class MemberPricesPerDay(models.Model):
@@ -304,3 +334,13 @@ class ParticipationDay(models.Model):
         related_name="participation_days",
         verbose_name=_("Day"))
     created_at = models.DateTimeField(_("created_at"), auto_now_add=True)
+
+
+class MealOrder(models.Model):
+    meal = models.ForeignKey(Meal, verbose_name=_("Registry"))
+    quantity = models.PositiveSmallIntegerField(_("Quantity"))
+    registry = models.ForeignKey(Registry, verbose_name=_("Registry"))
+    created_at = models.DateTimeField(_("created_at"), auto_now_add=True)
+
+    def __unicode__(self):
+        return self.meal

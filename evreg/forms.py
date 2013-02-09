@@ -1,7 +1,8 @@
 from django import forms
+from django.forms.models import modelformset_factory
 from django.utils.translation import ugettext_lazy as _
 
-from models import Registry
+from models import Registry, MealOrder
 
 FORM_ERROR_MEMEBERSHIP = _("If you are member of Dzogchen Community\
      you must specify your membership number, \
@@ -50,3 +51,19 @@ class RegistrationForm(forms.ModelForm):
         if commit:
             reg.save()
         return reg
+
+
+# class OrderMealsForm(forms.ModelForm):
+#     model = MealOrder
+
+
+OrderMealsFormSetBase = modelformset_factory(
+    MealOrder, extra=0, fields=('meal', 'quantity',))
+
+
+class OrderMealsFormSet(OrderMealsFormSetBase):
+    # this is where you can add additional fields to a ModelFormSet
+    # this is also where you can change stuff about the auto generated form
+    def add_fields(self, form, index):
+        super(OrderMealsFormSet, self).add_fields(form, index)
+        form.fields['is_checked'] = forms.BooleanField(required=False)

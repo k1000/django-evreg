@@ -7,8 +7,8 @@ from django.core.mail import send_mail
 from django.template.loader import get_template
 from django.template import Context
 
-from forms import RegistrationForm
-from models import Registry, Event, ParticipationDay
+from forms import RegistrationForm, OrderMealsFormSet
+from models import Registry, Event, ParticipationDay, MealOrder
 
 from django.conf import settings
 
@@ -91,9 +91,18 @@ def payment(request, slug):
     pk = request.session.get("reg_id")
     registry = Registry.objects.get(pk=pk)
     event = registry.event
+    order_meals_formset = OrderMealsFormSet(
+        request.POST or None,
+        queryset=MealOrder.objects.filter(event=event)
+    )
+
+    if order_meals_formset.is_valid():
+        for form in order_meals_formset:
+            if form.cleaned_data.get('is_checked'):
+                form.save()
 
     return render(request, PAYMENT_TEMPLATE,
-        {"registry": registry, "event": event})
+        {"registry": registry, "event": event, "order_meals": order_meals_formset})
 
 
 def payment_sucess(request):

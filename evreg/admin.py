@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from models import Registry, Event, MemberPrices, EventDay, MemberPricesPerDay, ParticipationDay
+from models import Registry, Event, MemberPrices, EventDay, MemberPricesPerDay, ParticipationDay, Meal
 
 
 class ParticipationDayInline(admin.TabularInline):
@@ -52,9 +52,14 @@ class EventDayInline(admin.TabularInline):
     extra = 0
 
 
+class MealInline(admin.TabularInline):
+    model = Meal
+    extra = 0
+
+
 class EventAdmin(admin.ModelAdmin):
     inlines = [
-        MemberPricesInline, EventDayInline
+        MemberPricesInline, EventDayInline, MealInline
     ]
     fieldsets = (
         (None, {
