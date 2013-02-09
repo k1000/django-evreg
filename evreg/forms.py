@@ -9,7 +9,7 @@ FORM_ERROR_MEMEBERSHIP = _("If you are member of Dzogchen Community\
      membership type and Gar you belong.")
 
 FORM_ERROR_MEMEBERSHIP_TYPE = _("Erroneus member type")
-FORM_ERROR_NO_DAY_SELECTED = _("You must select at least one day of the retreat to attend")
+FORM_ERROR_NO_DAY_SELECTED = _("You must select at least one day of the event to attend")
 
 
 class RegistrationForm(forms.ModelForm):

@@ -2,16 +2,17 @@ Django evreg - event registration
 =================================
 
 Event registration
+Tested with django 1.4.3
 
 Features:
 * Unlimited events
 * Multilanguage support
-* Event info includes: name, dates, description, venue, contact email, venue etc.
-* Whole event & early bird prices
+* Event info includes: name, dates, description, venue, contact email, etc.
+* Prices for whole event & early bird prices
 * Individual prices for separate days
-* Prices calculated according to membership
+* Prices calculated according to membership type
 * Confirmation email for the client
-* Pay online via PayPal
+* Support of online payemnt ex: PayPal
 
 Installing
 ----------
@@ -35,6 +36,11 @@ Create tables etc.:
 
 Config
 ------
+Optionally you may set in settings.py file:
+
+* EVREG_MEMBER_TYPES = ((1, _("Non-member")), (2, _("Member")))
+* EVREG_PAYMENT_TEMPLATE = "evreg/payment_form.html"
+* EVREG_EMAIL_MSG 
 
 Thanx
 -----
