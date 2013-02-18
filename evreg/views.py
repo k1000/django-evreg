@@ -7,8 +7,11 @@ from django.core.mail import send_mail
 from django.template.loader import get_template
 from django.template import Context
 
-from forms import RegistrationForm, OrderMealsFormSet
-from models import Registry, Event, ParticipationDay, MealOrder
+from forms import RegistrationForm
+from models import Registry, Event, ParticipationDay
+
+from shop.cart import Cart
+from shop.forms import ItemForm
 
 from django.conf import settings
 
@@ -38,6 +41,18 @@ EMAIL_MSG = getattr(settings, "EVREG_EMAIL_MSG", dict(
 ))
 
 
+def mail_registration_complete(event, reg, lang):
+    email_var = {"event": event, "person": reg}
+    email_template_name = "evreg/registration_confirmation-%s.mail" % lang
+    send_mail(
+                EMAIL_MSG['registry_succes']['subject'] % event.title,
+                get_template(email_template_name).render(Context(email_var)),
+                event.contact_email,
+                [reg.email],
+                fail_silently=True
+            )
+
+
 def registration(request, event_slug, settings=None):
     event = Event.objects.select_related().get(slug=event_slug)
     registration_form = RegistrationForm(request.POST or None, initial={'event': event})
@@ -54,20 +69,14 @@ def registration(request, event_slug, settings=None):
                     participation_day = ParticipationDay(participant=reg, day_id=int(day_id))
                     participation_day.save()
 
-            request.session['to_pay'] = reg.payment_amount
+            # request.session['to_pay'] = reg.payment_amount
+            order = Cart(request)
+            order.add(reg, reg.payment_amount, 1)
             request.session['reg_id'] = reg.pk
-            email_var = {"event": event, "person": reg}
 
-            email_template_name = "evreg/registration_confirmation-%s.mail" % request.LANGUAGE_CODE
-            send_mail(
-                EMAIL_MSG['registry_succes']['subject'] % event.title,
-                get_template(email_template_name).render(Context(email_var)),
-                event.contact_email,
-                [reg.email],
-                fail_silently=True
-            )
+            mail_registration_complete(event, reg, request.LANGUAGE_CODE)
 
-            return HttpResponseRedirect(reverse("payment-form", args=(event.slug,)))
+            return HttpResponseRedirect(reverse("registration-complete", args=(event.slug,)))
 
     return {"registration_form": registration_form,
             "event": event,
@@ -87,22 +96,51 @@ def render_registartion(request, slug):
         return reg
 
 
-def payment(request, slug):
+def registration_complete(request, slug):
     pk = request.session.get("reg_id")
     registry = Registry.objects.get(pk=pk)
     event = registry.event
-    order_meals_formset = OrderMealsFormSet(
-        request.POST or None,
-        queryset=MealOrder.objects.filter(event=event)
-    )
+    order = Cart(request)
+    meal_order_form = None
+    msgs = []
 
-    if order_meals_formset.is_valid():
-        for form in order_meals_formset:
-            if form.cleaned_data.get('is_checked'):
-                form.save()
+    if event.offers_meals:
+        meal = event.meals.all()[0]  # TODO support multiple meals offers per event
+        meal_order_form = ItemForm(
+            request.POST or None,
+            initial={"unit_price": meal.price},
+            item_label=_("meals number"),
+            items_nr=len(registry.participation_days) + 1
+        )
+        if request.method == "POST":
+            nr_meals = meal_order_form.data.get('nr_items')
+            order.add(meal, meal.price, nr_meals)
+            msgs.append(_("%s meal has been added" % nr_meals))
+
+        # OrderMealsFormSet = make_order_items_form(
+        #     extra=3,
+        #     fields=['quantity', 'unit_price']
+        # )
+        # order_meals_formset = OrderMealsFormSet(
+        #     request.POST or None,
+        #     queryset=Meal.objects.filter(meal__event=event),
+        # )
+
+        # if order_meals_formset.is_valid():
+        #     for form in order_meals_formset:
+        #         if form.cleaned_data.get('is_checked'):
+        #             form.save()
+        #             order = Cart(request)
+        #             meal = form.instance
+        #             order.add(meal, meal.payment_amount, 1)
 
     return render(request, PAYMENT_TEMPLATE,
-        {"registry": registry, "event": event, "order_meals": order_meals_formset})
+        {"registry": registry,
+        "event": event,
+        "meal_order_form": meal_order_form,
+        "msgs": msgs,
+        "order": order
+        })
 
 
 def payment_sucess(request):

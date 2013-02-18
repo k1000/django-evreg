@@ -5,12 +5,28 @@
 <h1>{{ event.name }}</h1>
 <p>{% trans "Contact" %} <a href="{{ event.contact_email }}">{{ event.contact_email }}</a></p>
 
-<p>{% trans "Thank you. Please prepare your credir/debit card in order to procead to make a payment on line. You will be charged" %} <strong>{{ request.session.to_pay }}€</strong>.</p>
+<p>{% trans "Thank you. Please prepare your credir/debit card in order to procead to make a payment on line. You will be charged" %} <strong>{{ order.summary }}€</strong>.</p>
 
 {% if event.bank_details %}
 <p>{% trans "You can also make payment making mony transfer on following account." %}</p>
 <h3>{% trans "Bank details" %}<br/></h3>
 {{ event.bank_details}}
+{% endif %}
+
+<ul class="orders">
+	{% for item in order %}
+	<li>{{ item }}: {{ item.total_price }}€</li>
+	{% endfor %}
+</ul>
+
+{% if meal_order_form %}
+<form action="./" method="post">
+	<p>{% trans "You may reserve meals offered during the event." %}</p>
+	<ul>
+		<li>{{ meal_order_form.as_ul }}</li>
+		<li><button>{% trans "Reserve meals" %}</button></li>
+	</ul>
+</form>
 {% endif %}
 
 {% include "evreg/_payment_form.html" %}

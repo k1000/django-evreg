@@ -334,13 +334,3 @@ class ParticipationDay(models.Model):
         related_name="participation_days",
         verbose_name=_("Day"))
     created_at = models.DateTimeField(_("created_at"), auto_now_add=True)
-
-
-class MealOrder(models.Model):
-    meal = models.ForeignKey(Meal, verbose_name=_("Registry"))
-    quantity = models.PositiveSmallIntegerField(_("Quantity"))
-    registry = models.ForeignKey(Registry, verbose_name=_("Registry"))
-    created_at = models.DateTimeField(_("created_at"), auto_now_add=True)
-
-    def __unicode__(self):
-        return self.meal
