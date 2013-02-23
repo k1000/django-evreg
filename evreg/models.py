@@ -235,8 +235,8 @@ class Registry(models.Model):
     city = models.CharField(_("city"), max_length=100)
     country = models.CharField(_("country"),
         max_length=50,
-        choices=sorted(codes.items(), key=itemgetter(1)),
-        default=settings.LANGUAGE_CODE,
+        choices=sorted(codes.items(), key=itemgetter(1B)),
+        default=str(settings.LANGUAGE_CODE.upper()),
     )
 
     member_type = models.PositiveSmallIntegerField(
