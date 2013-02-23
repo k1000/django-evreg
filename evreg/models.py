@@ -211,21 +211,12 @@ class Registry(models.Model):
         (3, _("canceled")),
     )
 
-    GENDER_TYPES = (
-        (1, _("Male")),
-        (2, _("Female")),
-    )
     event = models.ForeignKey(Event, verbose_name=_("Event"))
 
     created_at = models.DateTimeField(_("created_at"), auto_now_add=True)
 
     first_name = models.CharField(_("first name"), max_length=50)
     last_name = models.CharField(_("last name"), max_length=50)
-    gender = models.PositiveSmallIntegerField(
-            _("gender"),
-            blank=True, null=True,
-            choices=GENDER_TYPES
-    )
 
     email = models.EmailField(_("email"))
     phone = models.CharField(_("phone"), max_length=12)
@@ -235,7 +226,7 @@ class Registry(models.Model):
     city = models.CharField(_("city"), max_length=100)
     country = models.CharField(_("country"),
         max_length=50,
-        choices=sorted(codes.items(), key=itemgetter(1B)),
+        choices=sorted(codes.items(), key=itemgetter(1)),
         default=str(settings.LANGUAGE_CODE.upper()),
     )
 
