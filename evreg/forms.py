@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from django.forms.formsets import formset_factory
 
 from models import Registry
 
@@ -52,17 +54,19 @@ class RegistrationForm(forms.ModelForm):
         return reg
 
 
-# class OrderMealsForm(forms.ModelForm):
-#     model = MealOrder
+class MealItemForm(forms.Form):
 
+    def __init__(self, *args, **kwargs):
+        super(MealItemForm, self).__init__(*args, **kwargs)
+        label = u"%s for %s€, quantity" % (self.initial.get('name', ""),
+                                self.initial.get('unit_price', ""))
+        self.fields["quantity"].label = label
 
-# OrderMealsFormSetBase = modelformset_factory(
-#     MealOrder, extra=0, fields=('meal', 'quantity',))
+    id = forms.CharField(widget=forms.HiddenInput())
+    unit_price = forms.CharField(widget=forms.HiddenInput())
+    quantity = forms.ChoiceField(
+        label=_("quantity"),
+        choices=enumerate(range(10)),
+    )
 
-
-# class OrderMealsFormSet(OrderMealsFormSetBase):
-#     # this is where you can add additional fields to a ModelFormSet
-#     # this is also where you can change stuff about the auto generated form
-#     def add_fields(self, form, index):
-#         super(OrderMealsFormSet, self).add_fields(form, index)
-#         form.fields['is_checked'] = forms.BooleanField(required=False)
+MealOrderFormSet = formset_factory(MealItemForm, extra=0)
