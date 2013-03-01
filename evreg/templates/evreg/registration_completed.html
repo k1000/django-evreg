@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<p>{% trans "Thank your for registering for the" %} {{ event.name }}.</p>
+
+<p>{% trans "Your registration number is: RG-" %}{{registry.id}}</p>
+
+<p>{% trans "Please note that your registration will only be valid once the retreat fee has arrived on the account of the German Dzogchen Community. In order to be entitled for the early bird tariff the fee has to be arrived on our account by-" %} {{event.earlybird_date }}.</p>
+
+<p>{% trans "You can register other persons filling again the form at" %}</p>
+
+<p>{% trans "or procead to checkout and pay online" %}</p>
+
+<a href="" class="checkout">{% trans "Checkout" %}</a>
+
+{% if meal_order_formset %}
+<form action="./" method="post">
+	<fieldset>
+		<legend>{% trans "You may reserve meals offered during the event. In such a cas indicate the cuantity" %}</legend>
+		<ul>
+			{{meal_order_formset.as_ul}}
+			<li><button>{% trans "Reserve meals" %}</button></li>
+		</ul>
+	</fieldset>
+</form>
+{% endif %}
+
+
+{% endblock %}
