@@ -53,8 +53,12 @@ class Event(models.Model):
 
     @property
     def title(self):
-        return _("%s from %s to %s at %s"
-             % (self.name, self.start, self.finish, self.venue_name))
+        return _("%(name)s from %(start)s to %(finish)s at %(venue_name)s") % {
+            "name": self.name,
+            "start": self.start,
+            "finish": self.finish,
+            "venue_name": self.venue_name
+        }
 
     @property
     def is_earlybird(self):
@@ -223,7 +227,9 @@ class Registry(models.Model):
 
     address = models.TextField(_("address"), max_length=250)
     postal_code = models.CharField(_("zip"), max_length=8)
+    state = models.CharField(_("State/Region"), max_length=100)
     city = models.CharField(_("city"), max_length=100)
+
     country = models.CharField(_("country"),
         max_length=50,
         choices=sorted(codes.items(), key=itemgetter(1)),
@@ -301,7 +307,7 @@ class Registry(models.Model):
                 price = member_type_price.price
         else:
             price = 0
-            event_days_participation = [event_day for event_day in event_days if event_day.date in participation_days]
+            event_days_participation = [event_day for event_day in event_days if unicode(event_day.pk) in participation_days]
             for day in event_days_participation:
                 day_prices = day.per_day_prices.get(member_type=self.member_type)
                 if self.event.earlybird_date and self.event.is_earlybird and day_prices.earlybird_price:
@@ -316,7 +322,11 @@ class Registry(models.Model):
         verbose_name_plural = _('Registry')
 
     def __unicode__(self):
-        return self.email
+        return _("%(first_name)s %(last_name)s registered for %(event)s") % {
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "event": self.event
+        }
 
 
 class ParticipationDay(models.Model):
