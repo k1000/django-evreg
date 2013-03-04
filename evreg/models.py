@@ -193,6 +193,10 @@ class Meal(models.Model):
     description = models.TextField(_("description"))
     price = models.DecimalField(_('price'), max_digits=8, decimal_places=2)
 
+    class Meta:
+        verbose_name = _('Service')
+        verbose_name_plural = _('Service')
+
 
 class MemberPricesPerDay(models.Model):
     day = models.ForeignKey(EventDay,
