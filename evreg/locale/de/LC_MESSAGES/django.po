@@ -17,11 +17,11 @@ msgstr "Wenn Sie Mitglied der Dzogchen Gemeinschaft sind, geben Sie bitte Ihre M
 
 #: forms.py:12
 msgid "Erroneus member type"
-msgstr "Erroneus Elementtyp"
+msgstr "Fehlerhafter Elementtyp"
 
 #: forms.py:13
 msgid "You must select at least one day of the event to attend"
-msgstr "Sie müssen mindestens einen Tag der Veranstaltung zu besuchen"
+msgstr "Sie müssen mindestens einen Tag der Veranstaltung auswählen um daran teilzunehmen"
 
 #: forms.py:68
 msgid "quantity"
@@ -45,7 +45,7 @@ msgstr "Förder"
 
 #: models.py:20
 msgid "Benefactor"
-msgstr "Wohltäter"
+msgstr "Verdienstvoll"
 
 #: models.py:25
 msgid "name"
@@ -69,7 +69,7 @@ msgstr "Anmeldung bis"
 
 #: models.py:32
 msgid "earlybird date"
-msgstr "earlybird Datum"
+msgstr "Frühbucher-Frist"
 
 #: models.py:35
 msgid "start"
@@ -81,11 +81,11 @@ msgstr "beenden"
 
 #: models.py:38
 msgid "Venue name"
-msgstr "Venue Namen"
+msgstr "Name des Veranstaltungsorts"
 
 #: models.py:39
 msgid "Venue address"
-msgstr "Venue-Adresse"
+msgstr "Adresse des Veranstaltungsorts"
 
 #: models.py:41
 msgid "contact email"
@@ -93,7 +93,7 @@ msgstr "Kontakt E-Mail-"
 
 #: models.py:42
 msgid "contact tel"
-msgstr "Kontakt tel"
+msgstr "Kontakt Tel."
 
 #: models.py:43
 msgid "event web"
@@ -105,7 +105,7 @@ msgstr "Bankverbindung"
 
 #: models.py:48
 msgid "Success template name"
-msgstr "Success Template-Namen"
+msgstr "Success-Template-Namen"
 
 #: models.py:51
 msgid "Example: 'success.html'. If this isn't provided,         the system will use 'evreg/payment_form.html'."
@@ -113,7 +113,7 @@ msgstr "Beispiel: 'success.html'. Wenn diese nicht vorhanden ist, verwendet das 
 
 #: models.py:56
 msgid "%(name)s from %(start)s to %(finish)s at %(venue_name)s"
-msgstr "% (Name) s von% (start) s nach% (Finish) s at% (venue_name) s"
+msgstr "%(name)s von %(start)s nach %(finish)s bei %(venue_name)s"
 
 #: models.py:155 models.py:171 models.py:191 models.py:218
 msgid "Event"
@@ -121,7 +121,7 @@ msgstr "Veranstaltung"
 
 #: models.py:156 models.py:201
 msgid "Member type"
-msgstr "Mitglied Art"
+msgstr "Art der Mitgliedschaft"
 
 #: models.py:159 models.py:204
 msgid "full price"
@@ -129,11 +129,11 @@ msgstr "vollen Preis"
 
 #: models.py:160 models.py:205
 msgid "earlybird price"
-msgstr "earlybird Preis"
+msgstr "Frühbucher-Preis"
 
 #: models.py:164
 msgid "Member Prices"
-msgstr "Mitglied Preise"
+msgstr "Preise für Mitglieder"
 
 #: models.py:172
 msgid "date"
@@ -145,7 +145,7 @@ msgstr "Programm"
 
 #: models.py:178
 msgid "event day"
-msgstr "Event Tag"
+msgstr "Veranstaltungstag"
 
 #: models.py:179
 msgid "event days"
@@ -201,7 +201,7 @@ msgstr "PLZ"
 
 #: models.py:230
 msgid "State/Region"
-msgstr "Bundesland / Region"
+msgstr "Bundesland/Region"
 
 #: models.py:231
 msgid "city"
@@ -257,7 +257,7 @@ msgstr "Zahlungsfrist"
 
 #: models.py:275
 msgid "amount to pay "
-msgstr "Betrag zu zahlen"
+msgstr "Betrag zu zahlen␣"
 
 #: models.py:278
 msgid "payment id"
@@ -273,37 +273,35 @@ msgstr "Registratur"
 
 #: models.py:325
 msgid "%(first_name)s %(last_name)s registered for %(event)s"
-msgstr "% (Vorname) s% (nachname) s für% registriert (event) s"
+msgstr "%(first_name)s %(last_name)s für %(event)s registriert"
 
 #: views.py:19
 msgid "\n"
 "Thank You for registring for %s. Soon you will recive confirmation email.\n"
 ""
-msgstr "\n"
-"Vielen Dank für Registrierung als für% s. Bald werden Sie recive Bestätigungs-Email.\n"
+msgstr "Vielen Dank dass Sie sich für %s angemeldet haben. Sie werden umgehend eine Bestätigungs-Email erhalten.\n"
 ""
 
 #: views.py:24
 msgid "You been registered for %s"
-msgstr "Sie for% s registriert"
+msgstr "Sie haben sich für %s angemeldet"
 
 #: views.py:27
 msgid "We recived payment for %s"
-msgstr "Wir recived Zahlung für% s"
+msgstr "Wir haben die Zahlung für %s erhalten"
 
 #: views.py:28
 msgid "\n"
 "    Thank You.\n"
 "    You been registered for %<name>s\n"
 "    "
-msgstr "\n"
-"    Danke.\n"
-"    Sie suchen% <name> s registriert\n"
+msgstr "␣␣␣␣␣Danke.\n"
+"    Sie haben sich für %<name>s angemeldet\n"
 "    "
 
 #: views.py:34
 msgid "There been error in payment for %s"
-msgstr "Es waren Fehler in Zahlung für% s"
+msgstr "Es gab einen Fehler in der Zahlung für %s"
 
 #: views.py:35
 msgid "\n"
@@ -313,7 +311,12 @@ msgid "\n"
 "\n"
 "    Thank you\n"
 "    "
-msgstr ""
+msgstr "␣␣␣␣␣Verzeihung.\n"
+"    Es ist ein Fehler bei der Bearbeitung Ihrer Zahlung aufgetreten.\n"
+"    Bitte kontaktieren Sie uns:\n"
+"\n"
+"    Vielen Dank␣␣␣␣␣\n"
+"    "
 
 #: templates/evreg/_registration_form.html:3
 msgid "Prices"
@@ -329,7 +332,7 @@ msgstr "Keine Frühbucherpreise"
 
 #: templates/evreg/_registration_form.html:13
 msgid "early bird"
-msgstr "Frühaufsteher"
+msgstr "Frühbucher"
 
 #: templates/evreg/_registration_form.html:13
 #: templates/evreg/_registration_form.html:34
@@ -342,15 +345,15 @@ msgstr "Tageskarten"
 
 #: templates/evreg/_registration_form.html:34
 msgid "early bird:"
-msgstr "early bird:"
+msgstr "Frühbucher:"
 
 #: templates/evreg/_registration_form.html:43
 msgid "Event has no option to pay for separate days."
-msgstr "Event hat keine Möglichkeit, für einzelne Tage zu bezahlen."
+msgstr "Bei dieser Veranstaltung gibt es keine Möglichkeit, für einzelne Tage zu bezahlen."
 
 #: templates/evreg/_registration_form.html:49
 msgid "Registartion Form"
-msgstr "Registartion Formular"
+msgstr "Anmeldungsformular"
 
 #: templates/evreg/_registration_form.html:50
 msgid "Please fill required fields"
@@ -362,7 +365,7 @@ msgstr "Preis"
 
 #: templates/evreg/_registration_form.html:73
 msgid "Register"
-msgstr "Registrieren"
+msgstr "Anmelden"
 
 #: templates/evreg/registration_completed.html:6
 msgid "Thank your for registering for the"
@@ -370,19 +373,19 @@ msgstr "Vielen Dank für die Registrierung für die"
 
 #: templates/evreg/registration_completed.html:8
 msgid "Your registration number is: RG-"
-msgstr "Ihre Nummer ist: RG-"
+msgstr "Ihre Buchungsnummer ist: RG-"
 
 #: templates/evreg/registration_completed.html:10
 msgid "Please note that your registration will only be valid once the retreat fee has arrived on the account of the German Dzogchen Community. In order to be entitled for the early bird tariff the fee has to be arrived on our account by-"
-msgstr "Bitte beachten Sie, dass Ihre Anmeldung ist nur gültig, wenn der Rückzug Gebühr auf das Konto der deutschen Dzogchen Gemeinschaft angekommen ist. Um für die early bird Tarif berechtigt, die Gebühr muss auf unserem Konto angekommenen werden"
+msgstr "Bitte beachten Sie, dass Ihre Anmeldung erst mit Zahlungseingang auf dem Konto der deutschen Dzogchen Gemeinschaft gültig wird. Für die Berechnung des Frühbucherpreises ist der fristgerechte Zahlungseingang ausschlaggebend."
 
 #: templates/evreg/registration_completed.html:12
 msgid "You can register other persons filling again the form at"
-msgstr "Sie können sich anderen Personen füllen wieder die Form an"
+msgstr "Sie können weitere Anmeldungen hinzufügen"
 
 #: templates/evreg/registration_completed.html:14
 msgid "or procead to checkout and pay online"
-msgstr "oder procead zur Kasse und bezahlen Sie online"
+msgstr "oder zur Kasse gehen und online bezahlen"
 
 #: templates/evreg/registration_completed.html:16
 msgid "Checkout"
@@ -390,11 +393,11 @@ msgstr "Kasse"
 
 #: templates/evreg/registration_completed.html:21
 msgid "You may reserve meals offered during the event. In such a cas indicate the cuantity"
-msgstr "Sie können behalten Verpflegung während der Veranstaltung angeboten. In einem solchen cas geben Sie den cuantity"
+msgstr "Sie haben die Möglichkeit vergünstigte Mahlzeiten zu buchen. Bitte geben Sie die Menge an."
 
 #: templates/evreg/registration_completed.html:24
 msgid "Reserve meals"
-msgstr "Reserve Mahlzeiten"
+msgstr "Reservierung von Mahlzeiten"
 
 #: templates/evreg/registration_form.html:6
 msgid "Contact"
@@ -402,5 +405,5 @@ msgstr "Kontakt"
 
 #: templates/evreg/registration_form.html:11
 msgid "Registration for %%<name>s is closed. Looking forward to see you in the next events."
-msgstr "Registrierung für%% <name> s geschlossen ist. Wir freuen uns auf Sie in den nächsten Veranstaltungen zu sehen."
+msgstr "Die Anmeldung für %%<name>s ist abgeschlossen. Wir freuen uns darauf Sie bei einer der nächsten Veranstaltungen zu empfangen."
 
