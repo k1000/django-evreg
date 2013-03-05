@@ -9,11 +9,11 @@
 
 <p>{% trans "Please note that your registration will only be valid once the retreat fee has arrived on the account of the German Dzogchen Community. In order to be entitled for the early bird tariff the fee has to be arrived on our account by-" %} {{event.earlybird_date }}.</p>
 
-<p>{% trans "You can register other persons filling again the form at" %}</p>
+<p>{% trans "You can register other persons filling again" %} <a href="{{ request.referrer }}">{% trans "registration form" %}</a> </p>
 
 <p>{% trans "or procead to checkout and pay online" %}</p>
 
-<a href="" class="checkout">{% trans "Checkout" %}</a>
+<a href="{% url "checkout" %}" class="checkout" class="button">{% trans "Checkout" %}</a>
 
 {% if meal_order_formset %}
 <form action="./" method="post">
@@ -21,7 +21,7 @@
 		<legend>{% trans "You may reserve meals offered during the event. In such a cas indicate the cuantity" %}</legend>
 		<ul>
 			{{meal_order_formset.as_ul}}
-			<li><button>{% trans "Reserve meals" %}</button></li>
+			<li><button class="button">{% trans "Reserve meals" %}</button></li>
 		</ul>
 	</fieldset>
 </form>
