@@ -132,10 +132,10 @@ def registration_complete(request, slug):
         if request.method == "POST":
 
             if meal_order_formset.is_valid():
-                order = Cart(request)
                 meals_by_id = dict([[meal.id, meal] for meal in meals])
                 for form in meal_order_formset:
-                    quantity = form.cleaned_data['quantity']
+                    quantity = int(form.cleaned_data['quantity'])
+
                     if quantity > 0:
                         meal_id = int(form.cleaned_data['id'])
                         meal = meals_by_id[meal_id]
