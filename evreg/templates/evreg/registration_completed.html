@@ -13,7 +13,7 @@
 
 <p>{% trans "or procead to checkout and pay online" %}</p>
 
-<a href="{% url "checkout" %}" class="checkout" class="button">{% trans "Checkout" %}</a>
+<a href="/shop/checkout/" class="checkout" class="button">{% trans "Checkout" %}</a>
 
 {% if meal_order_formset %}
 <form action="./" method="post">

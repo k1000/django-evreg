@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.template.loader import get_template
 from django.template import Context
 from django.conf import settings
+
 from signals import registration_completed
 
 
