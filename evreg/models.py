@@ -197,6 +197,9 @@ class Meal(models.Model):
         verbose_name = _('Service')
         verbose_name_plural = _('Service')
 
+    def __unicode__(self):
+        return self.description
+
 
 class MemberPricesPerDay(models.Model):
     day = models.ForeignKey(EventDay,
