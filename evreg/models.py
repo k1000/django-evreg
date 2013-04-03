@@ -230,10 +230,12 @@ class Registry(models.Model):
     last_name = models.CharField(_("last name"), max_length=50)
 
     email = models.EmailField(_("email"))
-    phone = models.CharField(_("phone"), max_length=12)
+    phone = models.CharField(_("phone"), max_length=12,
+        blank=True, null=True,)
 
     address = models.TextField(_("address"), max_length=250)
-    postal_code = models.CharField(_("zip"), max_length=8)
+    postal_code = models.CharField(_("zip"), max_length=8,
+        blank=True, null=True,)
     state = models.CharField(_("State/Region"), max_length=100)
     city = models.CharField(_("city"), max_length=100)
 
