@@ -331,7 +331,7 @@ class Registry(models.Model):
         verbose_name_plural = _('Registry')
 
     def __unicode__(self):
-        return _(u"%(first_name)s %(last_name)s registered for %(event)s") % {
+        return _(u"%(first_name)s %(last_name)s registry for %(event)s") % {
             "first_name": self.first_name,
             "last_name": self.last_name,
             "event": self.event.__unicode__()
