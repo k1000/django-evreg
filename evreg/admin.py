@@ -29,7 +29,7 @@ class RegistryAdmin(admin.ModelAdmin):
                 ('payment_time', 'payment_amount', 'payment_id')),
         }),
     )
-    list_display = ('first_name', 'last_name', 'event', 'status', 'member_type')
+    list_display = ('first_name', 'last_name', 'id', 'event', 'status', 'member_type')
     list_filter = ['event', 'gar', 'status', 'member_type', 'karmayoga']
     search_fields = ['last_name', 'email', 'membership_nr']
 

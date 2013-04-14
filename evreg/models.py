@@ -53,10 +53,10 @@ class Event(models.Model):
 
     @property
     def title(self):
-        return _("%(name)s from %(start)s to %(finish)s at %(venue_name)s") % {
+        return u"%(name)s, %(start)s - %(finish)s, %(venue_name)s" % {
             "name": self.name,
-            "start": self.start,
-            "finish": self.finish,
+            "start": str(self.start),
+            "finish": str(self.finish),
             "venue_name": self.venue_name
         }
 
