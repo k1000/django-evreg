@@ -54,10 +54,10 @@ class RegistrationForm(forms.ModelForm):
         return reg
 
 
-class MealItemForm(forms.Form):
+class ServiceItemForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
-        super(MealItemForm, self).__init__(*args, **kwargs)
+        super(ServiceItemForm, self).__init__(*args, **kwargs)
         label = u"%s for %s€, quantity" % (self.initial.get('name', ""),
                                 self.initial.get('unit_price', ""))
         self.fields["quantity"].label = label
@@ -69,4 +69,4 @@ class MealItemForm(forms.Form):
         choices=enumerate(range(10)),
     )
 
-MealOrderFormSet = formset_factory(MealItemForm, extra=0)
+MealOrderFormSet = formset_factory(ServiceItemForm, extra=0)

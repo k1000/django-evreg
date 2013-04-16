@@ -248,7 +248,7 @@ class Registry(models.Model):
     member_type = models.PositiveSmallIntegerField(
             _("member of Dzogchen Community"),
             default=1,
-            choices=[[mem[0], u"%s" % mem[1]] for mem in MEMBER_TYPES]
+            choices=MEMBER_TYPES,
     )
     membership_nr = models.PositiveSmallIntegerField(
             _("membership nr"),
