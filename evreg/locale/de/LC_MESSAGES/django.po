@@ -1,19 +1,25 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: django evreg\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-17 21:05+0200\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: django evreg\n"
-"Language: de\n"
 
 #: admin.py:76
 msgid "Advanced options"
 msgstr "Erweiterte Optionen"
 
 #: forms.py:8
-msgid "If you are member of Dzogchen Community     you must specify your membership number,      membership type and Gar you belong."
-msgstr "Wenn Sie Mitglied der Dzogchen Gemeinschaft sind, geben Sie bitte Ihre Mitgliedsnummer, Art der Mitgliedschaft und Ihren Gar an."
+msgid ""
+"If you are member of Dzogchen Community     you must specify your membership "
+"number,      membership type and Gar you belong."
+msgstr ""
+"Wenn Sie Mitglied der Dzogchen Gemeinschaft sind, geben Sie bitte Ihre "
+"Mitgliedsnummer, Art der Mitgliedschaft und Ihren Gar an."
 
 #: forms.py:12
 msgid "Erroneus member type"
@@ -21,7 +27,9 @@ msgstr "Fehlerhafter Elementtyp"
 
 #: forms.py:13
 msgid "You must select at least one day of the event to attend"
-msgstr "Sie müssen mindestens einen Tag der Veranstaltung auswählen um daran teilzunehmen"
+msgstr ""
+"Sie müssen mindestens einen Tag der Veranstaltung auswählen um daran "
+"teilzunehmen"
 
 #: forms.py:68
 msgid "quantity"
@@ -108,26 +116,26 @@ msgid "Success template name"
 msgstr "Success-Template-Namen"
 
 #: models.py:51
-msgid "Example: 'success.html'. If this isn't provided,         the system will use 'evreg/payment_form.html'."
-msgstr "Beispiel: 'success.html'. Wenn diese nicht vorhanden ist, verwendet das System 'evreg / payment_form.html'."
+msgid ""
+"Example: 'success.html'. If this isn't provided,         the system will use "
+"'evreg/payment_form.html'."
+msgstr ""
+"Beispiel: 'success.html'. Wenn diese nicht vorhanden ist, verwendet das "
+"System 'evreg / payment_form.html'."
 
-#: models.py:56
-msgid "%(name)s from %(start)s to %(finish)s at %(venue_name)s"
-msgstr "%(name)s von %(start)s nach %(finish)s bei %(venue_name)s"
-
-#: models.py:155 models.py:171 models.py:191 models.py:218
+#: models.py:155 models.py:171 models.py:191 models.py:225
 msgid "Event"
 msgstr "Veranstaltung"
 
-#: models.py:156 models.py:201
+#: models.py:156 models.py:208
 msgid "Member type"
 msgstr "Art der Mitgliedschaft"
 
-#: models.py:159 models.py:204
+#: models.py:159 models.py:211
 msgid "full price"
 msgstr "vollen Preis"
 
-#: models.py:160 models.py:205
+#: models.py:160 models.py:212
 msgid "earlybird price"
 msgstr "Frühbucher-Preis"
 
@@ -155,163 +163,178 @@ msgstr "Veranstaltungstage"
 msgid "price"
 msgstr "Preis"
 
-#: models.py:200 models.py:336
+#: models.py:197 models.py:198
+msgid "Service"
+msgstr ""
+
+#: models.py:207 models.py:345
 msgid "Day"
 msgstr "Tag"
 
-#: models.py:213
+#: models.py:220
 msgid "not payed"
 msgstr "nicht bezahlt"
 
-#: models.py:214
+#: models.py:221
 msgid "payed"
 msgstr "bezahlt"
 
-#: models.py:215
+#: models.py:222
 msgid "canceled"
 msgstr "storniert"
 
-#: models.py:220 models.py:337
+#: models.py:227 models.py:346
 msgid "created_at"
 msgstr "created_at"
 
-#: models.py:222
+#: models.py:229
 msgid "first name"
 msgstr "Vorname"
 
-#: models.py:223
+#: models.py:230
 msgid "last name"
 msgstr "Nachname"
 
-#: models.py:225
+#: models.py:232
 msgid "email"
 msgstr "E-Mail-"
 
-#: models.py:226
+#: models.py:233
 msgid "phone"
 msgstr "Telefon"
 
-#: models.py:228
+#: models.py:236
 msgid "address"
 msgstr "Adresse"
 
-#: models.py:229
+#: models.py:237
 msgid "zip"
 msgstr "PLZ"
 
-#: models.py:230
+#: models.py:239
 msgid "State/Region"
 msgstr "Bundesland/Region"
 
-#: models.py:231
+#: models.py:240
 msgid "city"
 msgstr "Stadt"
 
-#: models.py:233
+#: models.py:242
 msgid "country"
 msgstr "Land"
 
-#: models.py:240
+#: models.py:249
 msgid "member of Dzogchen Community"
 msgstr "Mitglied der Dzogchen Gemeinschaft"
 
-#: models.py:245
+#: models.py:254
 msgid "membership nr"
 msgstr "Mitgliedsnummer"
 
-#: models.py:250
+#: models.py:259
 msgid "gar"
 msgstr "Gar"
 
-#: models.py:252
+#: models.py:261
 msgid "Leave it empty if you dont know"
 msgstr "Bitte freilassen, wenn Sie es nicht wissen"
 
-#: models.py:256
+#: models.py:265
 msgid "is valid member?"
 msgstr "gültiges Mitglied?"
 
-#: models.py:259
+#: models.py:268
 msgid "karmayoga"
 msgstr "Karmayoga"
 
-#: models.py:261
+#: models.py:270
 msgid "Do you want to help?"
 msgstr "Möchten Sie mithelfen?"
 
-#: models.py:264
+#: models.py:273
 msgid "observations"
 msgstr "Beobachtungen"
 
-#: models.py:267
-msgid "recive newsletter"
+#: models.py:276
+#, fuzzy
+msgid "Receive Newsletter"
 msgstr "Newsletter abonnieren"
 
-#: models.py:268
+#: models.py:277
 msgid "comments"
 msgstr "Kommentare"
 
-#: models.py:272
+#: models.py:281
 msgid "payment time"
 msgstr "Zahlungsfrist"
 
-#: models.py:275
+#: models.py:284
 msgid "amount to pay "
 msgstr "Betrag zu zahlen␣"
 
-#: models.py:278
+#: models.py:287
 msgid "payment id"
 msgstr "Zahlungs-ID"
 
-#: models.py:283
+#: models.py:292
 msgid "status"
 msgstr "Status"
 
-#: models.py:321 models.py:322 models.py:333
+#: models.py:330 models.py:331 models.py:342
 msgid "Registry"
 msgstr "Registratur"
 
-#: models.py:325
-msgid "%(first_name)s %(last_name)s registered for %(event)s"
+#: models.py:334
+#, fuzzy, python-format
+msgid "%(first_name)s %(last_name)s registry for %(event)s"
 msgstr "%(first_name)s %(last_name)s für %(event)s registriert"
 
-#: views.py:19
-msgid "\n"
+#: views.py:20
+#, python-format
+msgid ""
+"\n"
 "Thank You for registring for %s. Soon you will recive confirmation email.\n"
-""
-msgstr "Vielen Dank dass Sie sich für %s angemeldet haben. Sie werden umgehend eine Bestätigungs-Email erhalten.\n"
-""
+msgstr ""
+"Vielen Dank dass Sie sich für %s angemeldet haben. Sie werden umgehend eine "
+"Bestätigungs-Email erhalten.\n"
 
-#: views.py:24
+#: views.py:25
+#, python-format
 msgid "You been registered for %s"
 msgstr "Sie haben sich für %s angemeldet"
 
-#: views.py:27
+#: views.py:28
+#, python-format
 msgid "We recived payment for %s"
 msgstr "Wir haben die Zahlung für %s erhalten"
 
-#: views.py:28
-msgid "\n"
+#: views.py:29
+msgid ""
+"\n"
 "    Thank You.\n"
 "    You been registered for %<name>s\n"
 "    "
-msgstr "␣␣␣␣␣Danke.\n"
+msgstr ""
+"␣␣␣␣␣Danke.\n"
 "    Sie haben sich für %<name>s angemeldet\n"
 "    "
 
-#: views.py:34
+#: views.py:35
+#, python-format
 msgid "There been error in payment for %s"
 msgstr "Es gab einen Fehler in der Zahlung für %s"
 
-#: views.py:35
-msgid "\n"
+#: views.py:36
+msgid ""
+"\n"
 "    Sorry.\n"
 "    There been error in processing your payment.\n"
 "    Please contact us:\n"
 "\n"
 "    Thank you\n"
 "    "
-msgstr "␣␣␣␣␣Verzeihung.\n"
+msgstr ""
+"␣␣␣␣␣Verzeihung.\n"
 "    Es ist ein Fehler bei der Bearbeitung Ihrer Zahlung aufgetreten.\n"
 "    Bitte kontaktieren Sie uns:\n"
 "\n"
@@ -349,10 +372,13 @@ msgstr "Frühbucher:"
 
 #: templates/evreg/_registration_form.html:43
 msgid "Event has no option to pay for separate days."
-msgstr "Bei dieser Veranstaltung gibt es keine Möglichkeit, für einzelne Tage zu bezahlen."
+msgstr ""
+"Bei dieser Veranstaltung gibt es keine Möglichkeit, für einzelne Tage zu "
+"bezahlen."
 
 #: templates/evreg/_registration_form.html:49
-msgid "Registartion Form"
+#, fuzzy
+msgid "Registration Form"
 msgstr "Anmeldungsformular"
 
 #: templates/evreg/_registration_form.html:50
@@ -376,12 +402,25 @@ msgid "Your registration number is: RG-"
 msgstr "Ihre Buchungsnummer ist: RG-"
 
 #: templates/evreg/registration_completed.html:10
-msgid "Please note that your registration will only be valid once the retreat fee has arrived on the account of the German Dzogchen Community. In order to be entitled for the early bird tariff the fee has to be arrived on our account by-"
-msgstr "Bitte beachten Sie, dass Ihre Anmeldung erst mit Zahlungseingang auf dem Konto der deutschen Dzogchen Gemeinschaft gültig wird. Für die Berechnung des Frühbucherpreises ist der fristgerechte Zahlungseingang ausschlaggebend."
+#, fuzzy
+msgid ""
+"Please note that your registration will only be valid once the event fee has "
+"arrived on our account. In order to be entitled for the early bird tariff "
+"the fee has to be arrived on our account before "
+msgstr ""
+"Bitte beachten Sie, dass Ihre Anmeldung erst mit Zahlungseingang auf dem "
+"Konto der deutschen Dzogchen Gemeinschaft gültig wird. Für die Berechnung "
+"des Frühbucherpreises ist der fristgerechte Zahlungseingang ausschlaggebend."
 
 #: templates/evreg/registration_completed.html:12
-msgid "You can register other persons filling again the form at"
+#, fuzzy
+msgid "You can register more participants submiting them trought"
 msgstr "Sie können weitere Anmeldungen hinzufügen"
+
+#: templates/evreg/registration_completed.html:12
+#, fuzzy
+msgid "registration form"
+msgstr "Anmeldungsformular"
 
 #: templates/evreg/registration_completed.html:14
 msgid "or procead to checkout and pay online"
@@ -392,8 +431,13 @@ msgid "Checkout"
 msgstr "Kasse"
 
 #: templates/evreg/registration_completed.html:21
-msgid "You may reserve meals offered during the event. In such a cas indicate the cuantity"
-msgstr "Sie haben die Möglichkeit vergünstigte Mahlzeiten zu buchen. Bitte geben Sie die Menge an."
+#, fuzzy
+msgid ""
+"You may order other services offered during the event. In such a case please "
+"indicate the quantity"
+msgstr ""
+"Sie haben die Möglichkeit vergünstigte Mahlzeiten zu buchen. Bitte geben Sie "
+"die Menge an."
 
 #: templates/evreg/registration_completed.html:24
 msgid "Reserve meals"
@@ -404,6 +448,13 @@ msgid "Contact"
 msgstr "Kontakt"
 
 #: templates/evreg/registration_form.html:11
-msgid "Registration for %%<name>s is closed. Looking forward to see you in the next events."
-msgstr "Die Anmeldung für %%<name>s ist abgeschlossen. Wir freuen uns darauf Sie bei einer der nächsten Veranstaltungen zu empfangen."
+#, python-format
+msgid ""
+"Registration for %%<name>s is closed. Looking forward to see you in the next "
+"events."
+msgstr ""
+"Die Anmeldung für %%<name>s ist abgeschlossen. Wir freuen uns darauf Sie bei "
+"einer der nächsten Veranstaltungen zu empfangen."
 
+#~ msgid "%(name)s from %(start)s to %(finish)s at %(venue_name)s"
+#~ msgstr "%(name)s von %(start)s nach %(finish)s bei %(venue_name)s"
