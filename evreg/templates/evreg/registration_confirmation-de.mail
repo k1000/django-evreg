@@ -1,5 +1,4 @@
 Sehr geehrte/r {{person.first_name}} {{person.last_name}},
-(english version below)
 
 vielen Dank für Ihre Anmeldung zum {{ event.name }}.
 

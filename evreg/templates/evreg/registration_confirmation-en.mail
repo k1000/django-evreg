@@ -15,6 +15,5 @@ All other details about travelling and lodging can be found on our website at {{
 
 For further information or questions please contact us at {{ event.contact_email }} or by phone at {{ event.contact_tel }}
 
-Regards,
-
+RBest regards,
 {{ event.organizer }}

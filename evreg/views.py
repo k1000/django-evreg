@@ -80,7 +80,7 @@ def registration(request, event_slug, settings=None):
                 order.add(reg, reg.payment_amount, 1, reg.__unicode__())
             except:
                 # send to checkout when it was already confirmed
-                return HttpResponseRedirect(reverse("payment"))
+                HttpResponseRedirect(reverse("payment", args=[order.cart.id]))
             request.session['reg_id'] = reg.pk
             request.session['client'] = {
                 "first_name": reg.first_name,
