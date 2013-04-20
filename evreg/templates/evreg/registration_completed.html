@@ -7,7 +7,7 @@
 
 <p>{% trans "Your registration number is: RG-" %}{{registry.id}}</p>
 
-<p>{% trans "Please note that your registration will only be valid once the event fee has arrived on our account. In order to be entitled for the early bird tariff the fee has to be arrived on our account before " %} {{event.earlybird_date }}.</p>
+<p>{% blocktrans %}Please note that your registration will only be valid once the event fee has arrived on our account. In order to be entitled for the early bird tariff the fee has to be arrived on our account before {% endblocktrans %} {{event.earlybird_date }}.</p>
 
 <p>{% trans "You can register more participants submiting them trought" %} <a href="{{ request.referrer }}">{% trans "registration form" %}</a> </p>
 
@@ -18,10 +18,10 @@
 {% if meal_order_formset %}
 <form action="./" method="post">
 	<fieldset>
-		<legend>{% trans "You may order other services offered during the event. In such a case please indicate the quantity" %}</legend>
+		<legend>{% blocktrans %} You may order other services offered during the event. In such a case please indicate the quantity {% endblocktrans %}</legend>
 		<ul>
 			{{meal_order_formset.as_ul}}
-			<li><button class="button">{% trans "Reserve meals" %}</button></li>
+			<li><button class="button">{% trans "Reserve services" %}</button></li>
 		</ul>
 	</fieldset>
 </form>

@@ -8,7 +8,7 @@
 {% if event.is_registration_active %}
 {% include "evreg/_registration_form.html" %}
 {% else %}
-<p>{% trans "Registration for %<name>s is closed. Looking forward to see you in the next events." %}</p>
+<p>{% blocktrans %}Registration for %(name)s is closed. Looking forward to see you in the next events{% endblocktrans %}.</p>
 {% endif %}
 
 {% endblock %}

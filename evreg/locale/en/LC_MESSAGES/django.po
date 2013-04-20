@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-17 21:15+0200\n"
+"POT-Creation-Date: 2013-04-20 09:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -344,6 +344,7 @@ msgid "No early bird prices"
 msgstr ""
 
 #: templates/evreg/_registration_form.html:13
+#: templates/evreg/_registration_form.html:34
 msgid "early bird"
 msgstr ""
 
@@ -354,10 +355,6 @@ msgstr ""
 
 #: templates/evreg/_registration_form.html:21
 msgid "Day Tickets"
-msgstr ""
-
-#: templates/evreg/_registration_form.html:34
-msgid "early bird:"
 msgstr ""
 
 #: templates/evreg/_registration_form.html:43
@@ -413,12 +410,12 @@ msgstr ""
 
 #: templates/evreg/registration_completed.html:21
 msgid ""
-"You may order other services offered during the event. In such a case please "
-"indicate the quantity"
+" You may order other services offered during the event. In such a case "
+"please indicate the quantity "
 msgstr ""
 
 #: templates/evreg/registration_completed.html:24
-msgid "Reserve meals"
+msgid "Reserve services"
 msgstr ""
 
 #: templates/evreg/registration_form.html:6
@@ -428,6 +425,6 @@ msgstr ""
 #: templates/evreg/registration_form.html:11
 #, python-format
 msgid ""
-"Registration for %%<name>s is closed. Looking forward to see you in the next "
-"events."
+"Registration for %%(name)s is closed. Looking forward to see you in the next "
+"events"
 msgstr ""

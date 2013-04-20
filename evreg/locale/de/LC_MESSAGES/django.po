@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django evreg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-17 21:15+0200\n"
+"POT-Creation-Date: 2013-04-20 09:48+0200\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -290,7 +290,7 @@ msgid "%(first_name)s %(last_name)s registry for %(event)s"
 msgstr "%(first_name)s %(last_name)s für %(event)s registriert"
 
 #: views.py:20
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "\n"
 "Thank You for registring for %s. Soon you will recive confirmation email.\n"
@@ -309,15 +309,15 @@ msgid "We recived payment for %s"
 msgstr "Wir haben die Zahlung für %s erhalten"
 
 #: views.py:29
+#, fuzzy
 msgid ""
 "\n"
 "    Thank You.\n"
 "    You been registered for %<name>s\n"
 "    "
 msgstr ""
-"␣␣␣␣␣Danke.\n"
-"    Sie haben sich für %<name>s angemeldet\n"
-"    "
+"Danke.\n"
+" Sie haben sich für %(name)s angemeldet"
 
 #: views.py:35
 #, python-format
@@ -325,6 +325,7 @@ msgid "There been error in payment for %s"
 msgstr "Es gab einen Fehler in der Zahlung für %s"
 
 #: views.py:36
+#, fuzzy
 msgid ""
 "\n"
 "    Sorry.\n"
@@ -334,12 +335,11 @@ msgid ""
 "    Thank you\n"
 "    "
 msgstr ""
-"␣␣␣␣␣Verzeihung.\n"
-"    Es ist ein Fehler bei der Bearbeitung Ihrer Zahlung aufgetreten.\n"
-"    Bitte kontaktieren Sie uns:\n"
+"Verzeihung.\n"
+" Es ist ein Fehler bei der Bearbeitung Ihrer Zahlung aufgetreten.\n"
+" Bitte kontaktieren Sie uns:\n"
 "\n"
-"    Vielen Dank␣␣␣␣␣\n"
-"    "
+" Vielen Dank"
 
 #: templates/evreg/_registration_form.html:3
 msgid "Prices"
@@ -354,6 +354,7 @@ msgid "No early bird prices"
 msgstr "Keine Frühbucherpreise"
 
 #: templates/evreg/_registration_form.html:13
+#: templates/evreg/_registration_form.html:34
 msgid "early bird"
 msgstr "Frühbucher"
 
@@ -365,10 +366,6 @@ msgstr "später"
 #: templates/evreg/_registration_form.html:21
 msgid "Day Tickets"
 msgstr "Tageskarten"
-
-#: templates/evreg/_registration_form.html:34
-msgid "early bird:"
-msgstr "Frühbucher:"
 
 #: templates/evreg/_registration_form.html:43
 msgid "Event has no option to pay for separate days."
@@ -433,14 +430,15 @@ msgstr "Kasse"
 #: templates/evreg/registration_completed.html:21
 #, fuzzy
 msgid ""
-"You may order other services offered during the event. In such a case please "
-"indicate the quantity"
+" You may order other services offered during the event. In such a case "
+"please indicate the quantity "
 msgstr ""
 "Sie haben die Möglichkeit vergünstigte Mahlzeiten zu buchen. Bitte geben Sie "
 "die Menge an."
 
 #: templates/evreg/registration_completed.html:24
-msgid "Reserve meals"
+#, fuzzy
+msgid "Reserve services"
 msgstr "Reservierung von Mahlzeiten"
 
 #: templates/evreg/registration_form.html:6
@@ -448,13 +446,16 @@ msgid "Contact"
 msgstr "Kontakt"
 
 #: templates/evreg/registration_form.html:11
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Registration for %%<name>s is closed. Looking forward to see you in the next "
-"events."
+"Registration for %%(name)s is closed. Looking forward to see you in the next "
+"events"
 msgstr ""
 "Die Anmeldung für %%<name>s ist abgeschlossen. Wir freuen uns darauf Sie bei "
 "einer der nächsten Veranstaltungen zu empfangen."
+
+#~ msgid "early bird:"
+#~ msgstr "Frühbucher:"
 
 #~ msgid "%(name)s from %(start)s to %(finish)s at %(venue_name)s"
 #~ msgstr "%(name)s von %(start)s nach %(finish)s bei %(venue_name)s"
