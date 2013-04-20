@@ -1,0 +1,10 @@
+Hallo,
+
+es ist eine neue Anmeldung für das Retreat eingangen:
+
+Name: {{person.first_name}} {{person.last_name}}
+Anmelde-Nr: {{person.id}}
+
+Alle weiteren Details findest Du unter 
+    https://www.dzogchen.de/admin/member/retreatregistration/{{person.id}}
+    

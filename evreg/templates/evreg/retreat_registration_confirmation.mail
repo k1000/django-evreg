@@ -1,0 +1,70 @@
+Sehr geehrte/r {{person.first_name}} {{person.last_name}},
+(english version below)
+
+vielen Dank für Ihre Anmeldung zum Retreat mit Chögyal Namkhai Norbu vom 5. bis 7. Juni 2009 im Marriott Hotel in Köln.
+
+Ihre Registrierungsnummer lautet: RG-{{person.id}}
+
+Bitte beachten Sie, dass Ihre Anmeldung erst dann gültig wird, wenn die Retreatgebühr auf dem Konto der Dzogchen Gemeinschaft e.V. eingegangen ist. Um den Frühzahlerrabatt zu erhalten, muss der Betrag vor dem 22. Mai 2009 auf dem Konto eingegangen sein.
+
+Tarife:
+  Nicht-Mitglied: € 150, später € 180
+  Gewöhnliche Mitgliedschaft: € 108, später € 150
+  Reduzierte Mitgliedschaft: € 70, später € 90
+  Fördermitgliedschaft: € 30, später € 40
+  Verdienstvolle Mitgliedschaft: € 0
+
+Bankverbindung:
+  Dzogchen-Gemeinschaft Deutschland e.V.
+  Stadtsparkasse Duesseldorf
+  Kontonummer: 110 478 91
+  BLZ: 30050110
+  Für Überweisungen aus anderen EU Ländern:
+  IBAN: DE40300501100011047891
+  BIC: DUSSDEDDXXX
+  Als Verwendungszweck geben Sie bitte "Retreat" an.
+
+Alle weiteren Details zu Anreise und Übernachtung finden Sie auf unserer Webpage unter http://www.dzogchen.de/retreat-2009/
+Viele weitere Informationen zum Thema Dzogchen finden Sie auf unserer Homepage unter http://www.dzogchen.de
+
+Falls Sie noch Frage haben so wenden Sie sich bitte an unsere Geschäftsstelle per email unter office@dzogchen.de bzw. telefonisch unter +49-(0)211-682657
+
+Mit besten Grüßen,
+
+Dzogchen Gemeinschaft Deutschland e.V.
+
+
+
+
+Dear {{person.first_name}} {{person.last_name}},
+
+thank your for registering for the retreat with Chögyal Namkhai Norbu from 5th till 7th June 2009 in the Marriott Hotel in Cologne.
+
+Your registration number is: RG-{{person.id}}
+
+Please note that your registration will only be valid once the retreat fee has arrived on the account of the German Dzogchen Community. In order to be entitled for the early bird tariff the fee has to be arrived on our account by 22nd of May 2009.
+
+Tariff:
+  Non-Member: € 150, later € 180
+  Ordinary Member: € 108, later € 150
+  Reduced Member: € 70, later € 90
+  Sustaining Member: € 30, later € 40
+  Meritorious Member: € 0
+ 
+Bank details
+  Dzogchen-Gemeinschaft Deutschland e.V.
+  Stadtsparkasse Duesseldorf
+  Account number: 110 478 91
+  BLZ: 30050110
+  For transfers from other Euro-Countries:
+  IBAN: DE40300501100011047891
+  BIC: DUSSDEDDXXX
+  reason for payment: "retreat"
+  
+All other details about travelling and lodging can be found on our website at http://www.dzogchen.de/retreat-2009/
+
+For further information or questions please contact us at office@dzogchen.de or by phone at +49-(0)211-682657
+
+Regards,
+
+Dzogchen Community Germany
