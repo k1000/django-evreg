@@ -261,8 +261,8 @@ msgid "Receive Newsletter"
 msgstr "Newsletter abonnieren"
 
 #: models.py:277
-msgid "comments"
-msgstr "Kommentare"
+msgid "comments, how did you found about us?"
+msgstr "Kommentare, wie haben Sie von der Veranstaltung effahren?"
 
 #: models.py:281
 msgid "payment time"
