@@ -69,4 +69,4 @@ class ServiceItemForm(forms.Form):
         choices=enumerate(range(10)),
     )
 
-MealOrderFormSet = formset_factory(ServiceItemForm, extra=0)
+ServiceOrderFormSet = formset_factory(ServiceItemForm, extra=0)

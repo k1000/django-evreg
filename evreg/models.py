@@ -274,7 +274,7 @@ class Registry(models.Model):
         blank=True, null=True,
     )
     newsletter = models.BooleanField(_("Receive Newsletter"))
-    comments = models.TextField(_("comments"),
+    comments = models.TextField(_("comments, how did you found about us?"),
         blank=True, null=True,
     )
 

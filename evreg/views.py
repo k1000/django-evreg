@@ -12,7 +12,7 @@ from signals import registration_completed
 
 
 from models import Registry, Event, ParticipationDay
-from forms import RegistrationForm, MealOrderFormSet
+from forms import RegistrationForm, ServiceOrderFormSet
 
 from shop.cart import Cart
 
@@ -128,7 +128,7 @@ def registration_complete(request, slug):
     if event.offers_meals:
         meals = event.meals.all()
 
-        meal_order_formset = MealOrderFormSet(
+        meal_order_formset = ServiceOrderFormSet(
             request.POST or None,
             initial=[{"id":meal.id, "unit_price":meal.price, "name":meal.description}
                 for meal in meals]
