@@ -14,7 +14,7 @@ from signals import registration_completed
 from models import Registry, Event, ParticipationDay
 from forms import RegistrationForm, ServiceOrderFormSet
 
-from shop.cart import Cart
+from shop.cart import Cart, OrderAlreadyCheckedout
 
 
 REFISTRY_SUCCESS_MSG = _("""
@@ -73,12 +73,12 @@ def registration(request, event_slug, settings=None):
                     participation_day.save()
 
             # send signal on success
-            registration_completed.send(sender=reg, request=request)
+            # registration_completed.send(sender=reg, lang=request.LANGUAGE_CODE)
 
             order = Cart(request)
             try:
                 order.add(reg, reg.payment_amount, 1, reg.__unicode__())
-            except:
+            except OrderAlreadyCheckedout:
                 # send to checkout when it was already confirmed
                 HttpResponseRedirect(reverse("payment", args=[order.cart.id]))
             request.session['reg_id'] = reg.pk

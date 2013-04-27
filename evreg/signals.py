@@ -1,3 +1,3 @@
-import django.dispatch
+from django.dispatch import Signal
 
-registration_completed = django.dispatch.Signal(providing_args=["request"])
+registration_completed = Signal(providing_args=["lang"])
