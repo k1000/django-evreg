@@ -144,7 +144,10 @@ def registration_complete(request, slug):
                     if quantity > 0:
                         meal_id = int(form.cleaned_data['id'])
                         meal = meals_by_id[meal_id]
-                        order.add(meal, meal.price, quantity, meal.description)
+                        try:
+                            order.add(meal, meal.price, quantity, meal.description)
+                        except OrderAlreadyCheckedout:
+                            HttpResponseRedirect(reverse("payment", args=[order.cart.id]))
 
                 return HttpResponseRedirect(reverse("checkout"))
 
