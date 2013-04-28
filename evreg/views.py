@@ -10,7 +10,6 @@ from django.conf import settings
 
 from signals import registration_completed
 
-
 from models import Registry, Event, ParticipationDay
 from forms import RegistrationForm, ServiceOrderFormSet
 
@@ -20,26 +19,10 @@ from shop.cart import Cart, OrderAlreadyCheckedout
 REFISTRY_SUCCESS_MSG = _("""
 Thank You for registring for %s. Soon you will recive confirmation email.
 """)
+
 EMAIL_MSG = getattr(settings, "EVREG_EMAIL_MSG", dict(
     registry_succes={
         "subject": _("You been registered for %s"),
-    },
-    payment_sucess={
-        "subject": _("We recived payment for %s"),
-        "message": _("""
-    Thank You.
-    You been registered for %<name>s
-    """)
-    },
-    payment_failure={
-        "subject": _("There been error in payment for %s"),
-        "message": _("""
-    Sorry.
-    There been error in processing your payment.
-    Please contact us:
-
-    Thank you
-    """)
     },
 ))
 
