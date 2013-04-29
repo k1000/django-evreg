@@ -9,11 +9,11 @@
 
 <p>{% blocktrans %}Please note that your registration will only be valid once the event fee has arrived on our account. In order to be entitled for the early bird tariff the fee has to be arrived on our account before {% endblocktrans %} {{event.earlybird_date }}.</p>
 
-<p>{% trans "You can register more participants submiting them trought" %} <a href="{{ request.referrer }}">{% trans "registration form" %}</a> </p>
+<p>{% trans "You can register more participants submiting them trought" %} <a href="{% url registration-form event.slug %}">{% trans "registration form" %}</a> </p>
 
 <p>{% trans "or procead to checkout and pay online" %}</p>
 
-<a href="/shop/checkout/" class="checkout button">{% trans "Checkout" %}</a>
+<a href="{% url checkout %}" class="checkout button">{% trans "Checkout" %}</a>
 
 {% if meal_order_formset %}
 <form action="./" method="post">

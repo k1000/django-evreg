@@ -70,7 +70,7 @@
     {% endfor %}
 
     <li>{% trans "Price" %} <em id="price">{{ registration_form.instance.get_prices.0 }}€</em></li>
-    <li><button>{% trans "Register" %}</button></li>
+    <li><button class="button">{% trans "Register" %}</button></li>
   </ul>
   {% csrf_token %}
   </form>

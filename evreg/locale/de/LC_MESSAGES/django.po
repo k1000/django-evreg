@@ -375,7 +375,7 @@ msgstr ""
 
 #: templates/evreg/_registration_form.html:49
 #, fuzzy
-msgid "Registration Form"
+msgid "registration form"
 msgstr "Anmeldungsformular"
 
 #: templates/evreg/_registration_form.html:50
@@ -413,11 +413,6 @@ msgstr ""
 #, fuzzy
 msgid "You can register more participants submiting them trought"
 msgstr "Sie können weitere Anmeldungen hinzufügen"
-
-#: templates/evreg/registration_completed.html:12
-#, fuzzy
-msgid "registration form"
-msgstr "Anmeldungsformular"
 
 #: templates/evreg/registration_completed.html:14
 msgid "or procead to checkout and pay online"

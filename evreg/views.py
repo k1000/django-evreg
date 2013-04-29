@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from django.utils.translation import ugettext_lazy as _
-from django.core.urlresolvers import reverse
-from django.core.mail import send_mail
-from django.template.loader import get_template
-from django.template import Context
-from django.conf import settings
+from django.shortcuts import redirect
+from django.utils.translation import get_language
 
 from signals import registration_completed
 
@@ -14,29 +9,6 @@ from models import Registry, Event, ParticipationDay
 from forms import RegistrationForm, ServiceOrderFormSet
 
 from shop.cart import Cart, OrderAlreadyCheckedout
-
-
-REFISTRY_SUCCESS_MSG = _("""
-Thank You for registring for %s. Soon you will recive confirmation email.
-""")
-
-EMAIL_MSG = getattr(settings, "EVREG_EMAIL_MSG", dict(
-    registry_succes={
-        "subject": _("You been registered for %s"),
-    },
-))
-
-
-def mail_registration_complete(event, reg, lang):
-    email_var = {"event": event, "person": reg}
-    email_template_name = "evreg/registration_confirmation-%s.mail" % lang
-    send_mail(
-                EMAIL_MSG['registry_succes']['subject'] % event.title,
-                get_template(email_template_name).render(Context(email_var)),
-                event.contact_email,
-                [reg.email],
-                fail_silently=True
-            )
 
 
 def registration(request, event_slug, settings=None):
@@ -56,14 +28,15 @@ def registration(request, event_slug, settings=None):
                     participation_day.save()
 
             # send signal on success
-            # registration_completed.send(sender=reg, lang=request.LANGUAGE_CODE)
+            registration_completed.send(sender=reg, lang=get_language())
 
             order = Cart(request)
             try:
                 order.add(reg, reg.payment_amount, 1, reg.__unicode__())
             except OrderAlreadyCheckedout:
                 # send to checkout when it was already confirmed
-                HttpResponseRedirect(reverse("payment", args=[order.cart.id]))
+                return redirect("payment", order.cart.id)
+
             request.session['reg_id'] = reg.pk
             request.session['client'] = {
                 "first_name": reg.first_name,
@@ -78,9 +51,7 @@ def registration(request, event_slug, settings=None):
                 "member_type": reg.member_type,
             }
 
-            mail_registration_complete(event, reg, request.LANGUAGE_CODE)
-
-            return HttpResponseRedirect(reverse("registration-complete", args=(event.slug,)))
+            return redirect("registration-complete", event.slug)
 
     return {"registration_form": registration_form,
             "event": event,
@@ -130,9 +101,9 @@ def registration_complete(request, slug):
                         try:
                             order.add(meal, meal.price, quantity, meal.description)
                         except OrderAlreadyCheckedout:
-                            HttpResponseRedirect(reverse("payment", args=[order.cart.id]))
+                            return redirect("payment", order.cart.id)
 
-                return HttpResponseRedirect(reverse("checkout"))
+                return redirect("checkout")
 
     return render(request, "evreg/registration_completed.html",
         {"registry": registry,
@@ -141,3 +112,5 @@ def registration_complete(request, slug):
         "msgs": msgs,
         "order": order
         })
+
+from notify import *
