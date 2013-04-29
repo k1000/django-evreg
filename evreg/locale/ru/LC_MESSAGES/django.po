@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-20 09:48+0200\n"
+"POT-Creation-Date: 2013-04-29 20:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -264,7 +264,7 @@ msgid "Receive Newsletter"
 msgstr ""
 
 #: models.py:277
-msgid "comments"
+msgid "comments, how did you found about us?"
 msgstr ""
 
 #: models.py:281
@@ -292,45 +292,16 @@ msgstr ""
 msgid "%(first_name)s %(last_name)s registry for %(event)s"
 msgstr ""
 
-#: views.py:20
+#: notify.py:12
 #, python-format
 msgid ""
 "\n"
 "Thank You for registring for %s. Soon you will recive confirmation email.\n"
 msgstr ""
 
-#: views.py:25
+#: notify.py:17
 #, python-format
 msgid "You been registered for %s"
-msgstr ""
-
-#: views.py:28
-#, python-format
-msgid "We recived payment for %s"
-msgstr ""
-
-#: views.py:29
-msgid ""
-"\n"
-"    Thank You.\n"
-"    You been registered for %<name>s\n"
-"    "
-msgstr ""
-
-#: views.py:35
-#, python-format
-msgid "There been error in payment for %s"
-msgstr ""
-
-#: views.py:36
-msgid ""
-"\n"
-"    Sorry.\n"
-"    There been error in processing your payment.\n"
-"    Please contact us:\n"
-"\n"
-"    Thank you\n"
-"    "
 msgstr ""
 
 #: templates/evreg/_registration_form.html:3
@@ -364,7 +335,8 @@ msgid "Event has no option to pay for separate days."
 msgstr ""
 
 #: templates/evreg/_registration_form.html:49
-msgid "Registration Form"
+#: templates/evreg/registration_completed.html:12
+msgid "registration form"
 msgstr ""
 
 #: templates/evreg/_registration_form.html:50
@@ -398,10 +370,6 @@ msgstr ""
 msgid "You can register more participants submiting them trought"
 msgstr ""
 
-#: templates/evreg/registration_completed.html:12
-msgid "registration form"
-msgstr ""
-
 #: templates/evreg/registration_completed.html:14
 msgid "or procead to checkout and pay online"
 msgstr ""
@@ -427,6 +395,5 @@ msgstr ""
 #: templates/evreg/registration_form.html:11
 #, python-format
 msgid ""
-"Registration for %%(name)s is closed. Looking forward to see you in the next "
-"events"
+"Registration for %%s is closed. Looking forward to see you in the next events"
 msgstr ""
