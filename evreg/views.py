@@ -17,6 +17,10 @@ def registration(request, event_slug, settings=None):
 
     if request.method == 'POST':
         if registration_form.is_valid():
+            order = Cart(request)
+            if order.cart.state > 2:
+                return redirect("payment", order.cart.id)
+
             participation_days = registration_form.cleaned_data.get("participation")
             reg = registration_form.save(commit=False)
             reg.payment_amount = reg.calculate_price(participation_days)
@@ -27,10 +31,6 @@ def registration(request, event_slug, settings=None):
                     participation_day = ParticipationDay(participant=reg, day_id=int(day_id))
                     participation_day.save()
 
-            # send signal on success
-            registration_completed.send(sender=reg, lang=get_language())
-
-            order = Cart(request)
             try:
                 order.add(reg, reg.payment_amount, 1, reg.__unicode__())
             except OrderAlreadyCheckedout:
@@ -50,6 +50,9 @@ def registration(request, event_slug, settings=None):
                 "country": reg.country,
                 "member_type": reg.member_type,
             }
+
+            # send signal on success
+            registration_completed.send(sender=reg, lang=get_language())
 
             return redirect("registration-complete", event.slug)
 
