@@ -17,9 +17,6 @@ def registration(request, event_slug, settings=None):
 
     if request.method == 'POST':
         if registration_form.is_valid():
-            order = Cart(request)
-            if order.cart.state > 2:
-                return redirect("payment", order.cart.id)
 
             participation_days = registration_form.cleaned_data.get("participation")
             reg = registration_form.save(commit=False)
@@ -31,28 +28,24 @@ def registration(request, event_slug, settings=None):
                     participation_day = ParticipationDay(participant=reg, day_id=int(day_id))
                     participation_day.save()
 
-            try:
-                order.add(reg, reg.payment_amount, 1, reg.__unicode__())
-            except OrderAlreadyCheckedout:
-                # send to checkout when it was already confirmed
-                return redirect("payment", order.cart.id)
-
             request.session['reg_id'] = reg.pk
-            request.session['client'] = {
-                "first_name": reg.first_name,
-                "last_name": reg.last_name,
-                "email": reg.email,
-                "phone": reg.phone,
-                "address": reg.address,
-                "postal_code": reg.postal_code,
-                "state": reg.state,
-                "city": reg.city,
-                "country": reg.country,
-                "member_type": reg.member_type,
-            }
+
+            if not request.session.get('client', None):
+                request.session['client'] = {
+                    "first_name": reg.first_name,
+                    "last_name": reg.last_name,
+                    "email": reg.email,
+                    "phone": reg.phone,
+                    "address": reg.address,
+                    "postal_code": reg.postal_code,
+                    "state": reg.state,
+                    "city": reg.city,
+                    "country": reg.country,
+                    "member_type": reg.member_type,
+                }
 
             # send signal on success
-            registration_completed.send(sender=reg, lang=get_language())
+            registration_completed.send(sender=reg, lang=get_language(), request=request)
 
             return redirect("registration-complete", event.slug)
 
