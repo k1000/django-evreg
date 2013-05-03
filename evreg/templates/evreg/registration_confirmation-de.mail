@@ -1,20 +1,13 @@
 Sehr geehrte/r {{person.first_name}} {{person.last_name}},
 
-vielen Dank für Ihre Anmeldung zum {{ event.name }}.
+Sie sind zum {{ event.name }} angemeldet.
 
 Ihre Registrierungsnummer lautet: RG-{{person.id}}
+Gebucht wurde: {{ event.name }}
 
-Bitte beachten Sie, dass Ihre Anmeldung erst dann gültig wird, wenn die Retreatgebühr auf dem Konto der Dzogchen Gemeinschaft e.V. eingegangen ist. Um den Frühzahlerrabatt zu erhalten, muss der Betrag vor dem 22. Mai 2009 auf dem Konto eingegangen sein.
+Alle weiteren Details zu Anreise und Übernachtung finden Sie auf unserer Website unter {{ event.web }}
 
-{% if event.bank_details %}
-Bankverbindung:
-{{event.bank_details}}
-
-{% endif %}
-Alle weiteren Details zu Anreise und Übernachtung finden Sie auf unserer Webpage unter {{ event.web }}
-
-Falls Sie noch Frage haben so wenden Sie sich bitte an unsere Geschäftsstelle per email unter {{ event.contact_email }} bzw. telefonisch unter {{ event.contact_tel }}
+Falls Sie noch Fragen haben, so wenden Sie sich bitte an unsere Geschäftsstelle per email unter office@dzogchen.de bzw. telefonisch unter {{ event.contact_tel }}
 
 Mit besten Grüßen,
-
 {{ event.organizer }}
