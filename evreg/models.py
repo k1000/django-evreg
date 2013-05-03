@@ -10,6 +10,7 @@ from international.models import Gar
 
 from django.conf import settings
 
+from signals import inscription_completed
 
 MEMBER_TYPES = getattr(settings, "EVREG_MEMBER_TYPES",
 (
@@ -325,6 +326,27 @@ class Registry(models.Model):
                     price = price + day_prices.price
 
         return price
+
+    def make_payment(self, payment_id, amount=None):
+        import datetime
+        actual_price = self.calculate_price()
+
+        if actual_price >= self.payment_amount:
+            self.payment_time = datetime.datetime.now()
+            self.status = 2
+            self.payment_id = payment_id
+
+            self.save()
+
+            # send signal
+            inscription_completed.send(sender=self)
+        elif self.event.is_earlybird:
+            # diference must be payed
+            diference_to_pay = actual_price - self.payment_amount
+            # TODO notify administrator and client
+        else:
+            # payed too less
+            pass
 
     class Meta:
         verbose_name = _('Registry')

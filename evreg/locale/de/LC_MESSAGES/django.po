@@ -159,6 +159,10 @@ msgstr "Veranstaltungstag"
 msgid "event days"
 msgstr "Veranstaltungstage"
 
+#: models.py:179
+msgid "Event Eays"
+msgstr "Veranstaltungstage"
+
 #: models.py:194
 msgid "price"
 msgstr "Preis"
@@ -256,7 +260,6 @@ msgid "observations"
 msgstr "Beobachtungen"
 
 #: models.py:276
-#, fuzzy
 msgid "Receive Newsletter"
 msgstr "Newsletter bestellen"
 
@@ -284,17 +287,16 @@ msgstr "Status"
 msgid "Registry"
 msgstr "Registratur"
 
-#: models.py:334
-#, fuzzy, python-format
 msgid "%(first_name)s %(last_name)s registry for %(event)s"
 msgstr "%(first_name)s %(last_name)s für %(event)s registriert"
 
 #: notify.py:12
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "Thank You for registring for %s. Soon you will recive confirmation email.\n"
 msgstr ""
+"\n"
 "Vielen Dank dass Sie sich für %s angemeldet haben. Sie werden umgehend eine "
 "Bestätigungs-Email erhalten.\n"
 
@@ -337,7 +339,6 @@ msgstr ""
 
 #: templates/evreg/_registration_form.html:49
 #: templates/evreg/registration_completed.html:12
-#, fuzzy
 msgid "registration form"
 msgstr "Anmeldungsformular"
 
@@ -362,7 +363,6 @@ msgid "Your registration number is: RG-"
 msgstr "Ihre Buchungsnummer ist: RG-"
 
 #: templates/evreg/registration_completed.html:10
-#, fuzzy
 msgid ""
 "Please note that your registration will only be valid once the event fee has "
 "arrived on our account. In order to be entitled for the early bird tariff "
@@ -373,7 +373,6 @@ msgstr ""
 "des Frühbucherpreises ist der fristgerechte Zahlungseingang ausschlaggebend."
 
 #: templates/evreg/registration_completed.html:12
-#, fuzzy
 msgid "You can register more participants submiting them trought"
 msgstr "Sie können weitere Anmeldungen hinzufügen"
 
@@ -386,7 +385,6 @@ msgid "Checkout"
 msgstr "Kasse"
 
 #: templates/evreg/registration_completed.html:21
-#, fuzzy
 msgid ""
 " You may order other services offered during the event. In such a case "
 "please indicate the quantity "
@@ -395,7 +393,6 @@ msgstr ""
 "die Menge an."
 
 #: templates/evreg/registration_completed.html:24
-#, fuzzy
 msgid "Reserve services"
 msgstr "Reservierung von Mahlzeiten"
 
@@ -404,17 +401,15 @@ msgid "Contact"
 msgstr "Kontakt"
 
 #: templates/evreg/registration_form.html:11
-#, fuzzy, python-format
 msgid ""
-"Registration for %%s is closed. Looking forward to see you in the next events"
+"Registration for %<name>s is closed. Looking forward to see you in the next events"
 msgstr ""
-"Die Anmeldung für %%<name>s ist abgeschlossen. Wir freuen uns darauf Sie bei "
+"Die Anmeldung für %<name>s ist abgeschlossen. Wir freuen uns darauf Sie bei "
 "einer der nächsten Veranstaltungen zu empfangen."
 
 #~ msgid "We recived payment for %s"
 #~ msgstr "Wir haben die Zahlung für %s erhalten"
 
-#, fuzzy
 #~ msgid ""
 #~ "\n"
 #~ "    Thank You.\n"
@@ -427,7 +422,6 @@ msgstr ""
 #~ msgid "There been error in payment for %s"
 #~ msgstr "Es gab einen Fehler in der Zahlung für %s"
 
-#, fuzzy
 #~ msgid ""
 #~ "\n"
 #~ "    Sorry.\n"
