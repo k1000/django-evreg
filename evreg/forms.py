@@ -4,13 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.forms.formsets import formset_factory
 
 from models import Registry
-
-FORM_ERROR_MEMEBERSHIP = _("If you are member of Dzogchen Community\
-     you must specify your membership number, \
-     membership type and Gar you belong.")
-
-FORM_ERROR_MEMEBERSHIP_TYPE = _("Erroneus member type")
-FORM_ERROR_NO_DAY_SELECTED = _("You must select at least one day of the event to attend")
+from settings import *
 
 
 class RegistrationForm(forms.ModelForm):

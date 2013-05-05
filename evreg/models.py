@@ -1,25 +1,17 @@
 # -*- coding: utf-8 -*-
-from operator import itemgetter
 import datetime
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import smart_str
-from countries import codes
+
 from international.models import Gar
 
 from django.conf import settings
 
-from signals import inscription_completed
-
-MEMBER_TYPES = getattr(settings, "EVREG_MEMBER_TYPES",
-(
-    (1, _("Non-member")),
-    (2, _("Ordinary")),
-    (3, _("Reduced")),
-    (4, _("Sustaining")),
-    (5, _("Benefactor")),
-))
+from signals import inscription_completed, insuficient_payment_received, delayed_earlibird_payment_received
+from settings import MEMBER_TYPES
+from countries import COUNTRIES_LIST
 
 
 class Event(models.Model):
@@ -242,7 +234,8 @@ class Registry(models.Model):
 
     country = models.CharField(_("country"),
         max_length=50,
-        choices=sorted(codes.items(), key=itemgetter(1)),
+        # choices=sorted(codes.items(), key=itemgetter(1)),
+        choices=COUNTRIES_LIST,
         default=str(settings.LANGUAGE_CODE.upper()),
     )
 
@@ -343,10 +336,17 @@ class Registry(models.Model):
         elif self.event.is_earlybird:
             # diference must be payed
             diference_to_pay = actual_price - self.payment_amount
-            # TODO notify administrator and client
+            # send signal notify administrator and client
+            delayed_earlibird_payment_received.send(
+                sender=self,
+                payment_id=payment_id,
+                diference_to_pay=diference_to_pay,)
         else:
             # payed too less
-            pass
+            insuficient_payment_received.send(
+                sender=self,
+                payment_id=payment_id,
+                amount=amount,)
 
     class Meta:
         verbose_name = _('Registry')

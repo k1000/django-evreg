@@ -1,0 +1,15 @@
+Delayed early bird payment recived
+
+    {{reg.first_name}} {{ reg.last_name }} from {{ reg.country }} 
+    {{ reg.email }} 
+    registered at {{ reg.created_at }}
+
+    {% if reg.membership_nr %}
+    DC {{ reg.member_type }} nr {{ reg.membership_nr }} at {{ reg.gar }}
+    {% endif %}
+
+    payment delayed {{ delay }}
+    has to pay {{ diference_to_pay }}€
+
+see registry at /admin/evreg/registry/{{ reg.id }}/
+see last payment at /admin/shop/payment/{{ payment_id.id }}/

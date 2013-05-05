@@ -1,0 +1,14 @@
+Insription #%{{ reg.id }}s completed
+
+    {{reg.first_name}} {{ reg.last_name }} from {{ reg.country }} 
+    {{ reg.email }} 
+    registered at {{ reg.created_at }}
+
+    {% if reg.membership_nr %}
+    DC {{ reg.member_type }} nr {{ reg.membership_nr }} at {{ reg.gar }}
+    {% endif %}
+
+    payed {{ reg.payment_amount }} at {{ reg.payment_time }}
+    for {{ reg.participation_days }}
+
+see registry at /admin/evreg/registry/{{ reg.id }}/

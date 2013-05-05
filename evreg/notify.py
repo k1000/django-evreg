@@ -2,28 +2,23 @@
 from django.core.mail import send_mail
 from django.template.loader import get_template
 from django.template import Context
-from django.utils.translation import ugettext_lazy as _
+from django.contrib.sites.models import Site
 
-from django.conf import settings
+from signals import registration_completed
+from signals import inscription_completed
+from signals import delayed_earlibird_payment_received
+from signals import insuficient_payment_received
 
-from signals import registration_completed, inscription_completed
+from settings import *
 
-
-REFISTRY_SUCCESS_MSG = _("""
-Thank You for registring for %s. Soon you will recive confirmation email.
-""")
-EMAIL_MSG = getattr(settings, "EVREG_EMAIL_MSG", dict(
-    registry_succes={
-        "subject": _("You been registered for %s"),
-    },
-))
+SITE = Site.objects.get_current()
 
 
 def mail_registration_complete(event, reg, lang):
     email_var = {"event": event, "person": reg}
     email_template_name = "evreg/registration_confirmation-%s.mail" % lang
     send_mail(
-                EMAIL_MSG['registry_succes']['subject'] % event.title,
+                EMAIL_MSG['registration_complete']['subject'] % event.title,
                 get_template(email_template_name).render(Context(email_var)),
                 event.contact_email,
                 [reg.email],
@@ -36,14 +31,11 @@ def notify_registration_complete(**kwargs):
     mail_registration_complete(reg.event, reg, kwargs["lang"])
 
 
-registration_completed.connect(notify_registration_complete)
-
-
 def mail_inscription_completed(reg, lang):
     email_var = {"event": reg.event, "person": reg}
-    email_template_name = "evreg/registration_confirmation-%s.mail" % lang
+    email_template_name = "evreg/inscription_completed-%s.mail" % lang
     send_mail(
-                EMAIL_MSG['registry_succes']['subject'] % reg.event.title,
+                EMAIL_MSG['inscription_completed']['subject'] % reg.event.title,
                 get_template(email_template_name).render(Context(email_var)),
                 reg.event.contact_email,
                 [reg.email],
@@ -52,8 +44,41 @@ def mail_inscription_completed(reg, lang):
 
 
 def notify_inscription_completed(**kwargs):
-    reg = kwargs["sender"]
-    lang = kwargs["lang"]
-    mail_inscription_completed(reg, lang)
+    mail_inscription_completed(kwargs["sender"], kwargs["lang"])
 
-inscription_completed.connect(notify_registration_complete)
+
+def mail_admin_inscription_completed(reg, **kwargs):
+    email_var = {"event": reg.event, "person": reg}
+    email_template_name = "evreg/admin-inscription_completed.mail"
+    send_mail(
+                EMAIL_MSG['admin_inscription_completed']['subject'] % (reg.id, reg.event.name),
+                get_template(email_template_name).render(Context(email_var)),
+                reg.event.contact_email,
+                [reg.event.contact_email],
+                fail_silently=True
+            )
+
+
+def mail_admin_delayed_earlibird_payment(reg, **kwargs):
+    from datetime import date
+    delay = reg.event.earlybird_date - date.today()
+    email_var = {"event": reg.event,
+            "person": reg,
+            "delay": delay,
+            "payment_id": kwargs["payment_id"],
+            "diference_to_pay": kwargs["diference_to_pay"]}
+    email_template_name = "evreg/admin-delayed_earlibird_payment.mail"
+    send_mail(
+                EMAIL_MSG['admin_delayed_earlibird_payment']['subject'] % (reg.id, reg.event.name),
+                get_template(email_template_name).render(Context(email_var)),
+                reg.event.contact_email,
+                [reg.event.contact_email],
+                fail_silently=True
+            )
+
+
+registration_completed.connect(notify_registration_complete)
+inscription_completed.connect(notify_inscription_completed)
+inscription_completed.connect(mail_admin_inscription_completed)
+delayed_earlibird_payment_received.connect(mail_admin_delayed_earlibird_payment)
+# TODO insuficient payment

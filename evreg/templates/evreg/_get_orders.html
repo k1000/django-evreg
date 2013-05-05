@@ -1,0 +1,10 @@
+{% load i18n %}
+<p>ddd{{ request.session.reg_id }}</p>
+{% if request.session.CHECKOUT_ORDERS %}
+	<p class="orders">
+		{% blocktrans %}There are checked out orders which you should pay.ssss{% endblocktrans %}
+		{% for order_id in request.session %}
+		<a href="{% url payment order_id %}">{% trans "order " %} {{ order_id }}</a>
+		{% endfor %}
+	</p>
+{% endif %}
