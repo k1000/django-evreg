@@ -322,7 +322,7 @@ class Registry(models.Model):
 
     def make_payment(self, payment_id, amount=None):
         import datetime
-        actual_price = self.calculate_price()
+        actual_price = self.calculate_price(self.participation_days)
 
         if actual_price >= self.payment_amount:
             self.payment_time = datetime.datetime.now()
