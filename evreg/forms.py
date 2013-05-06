@@ -16,7 +16,7 @@ class RegistrationForm(forms.ModelForm):
         if self.event.has_daily_prices:
             self.fields["participation"] = forms.MultipleChoiceField(
                 widget=forms.CheckboxSelectMultiple,
-                label="Event Days",
+                label=_("Event Days"),
                 initial=[e.id for e in self.event.get_event_days()],
                 choices=[[e.id, e.date] for e in self.event.get_event_days()])
 
