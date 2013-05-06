@@ -159,8 +159,8 @@ msgstr "Veranstaltungstag"
 msgid "event days"
 msgstr "Veranstaltungstage"
 
-#: models.py:179
-msgid "Event Eays"
+#: forms.py:19
+msgid "Event Days"
 msgstr "Veranstaltungstage"
 
 #: models.py:194
