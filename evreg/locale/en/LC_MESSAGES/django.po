@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-29 20:16+0200\n"
+"POT-Creation-Date: 2013-05-06 09:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,331 +21,1359 @@ msgstr ""
 msgid "Advanced options"
 msgstr ""
 
-#: forms.py:8
-msgid ""
-"If you are member of Dzogchen Community     you must specify your membership "
-"number,      membership type and Gar you belong."
+#: countries.py:4
+msgid "Afghanistan"
 msgstr ""
 
-#: forms.py:12
-msgid "Erroneus member type"
+#: countries.py:5
+msgid "Aland Islands"
 msgstr ""
 
-#: forms.py:13
-msgid "You must select at least one day of the event to attend"
+#: countries.py:6
+msgid "Albania"
 msgstr ""
 
-#: forms.py:68
+#: countries.py:7
+msgid "Algeria"
+msgstr ""
+
+#: countries.py:8
+msgid "American Samoa"
+msgstr ""
+
+#: countries.py:9
+msgid "Andorra"
+msgstr ""
+
+#: countries.py:10
+msgid "Angola"
+msgstr ""
+
+#: countries.py:11
+msgid "Anguilla"
+msgstr ""
+
+#: countries.py:12
+msgid "Antarctica"
+msgstr ""
+
+#: countries.py:13
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: countries.py:14
+msgid "Argentina"
+msgstr ""
+
+#: countries.py:15
+msgid "Armenia"
+msgstr ""
+
+#: countries.py:16
+msgid "Aruba"
+msgstr ""
+
+#: countries.py:17
+msgid "Australia"
+msgstr ""
+
+#: countries.py:18
+msgid "Austria"
+msgstr ""
+
+#: countries.py:19
+msgid "Azerbaijan"
+msgstr ""
+
+#: countries.py:20
+msgid "Bahamas"
+msgstr ""
+
+#: countries.py:21
+msgid "Bahrain"
+msgstr ""
+
+#: countries.py:22
+msgid "Bangladesh"
+msgstr ""
+
+#: countries.py:23
+msgid "Barbados"
+msgstr ""
+
+#: countries.py:24
+msgid "Belarus"
+msgstr ""
+
+#: countries.py:25
+msgid "Belgium"
+msgstr ""
+
+#: countries.py:26
+msgid "Belize"
+msgstr ""
+
+#: countries.py:27
+msgid "Benin"
+msgstr ""
+
+#: countries.py:28
+msgid "Bermuda"
+msgstr ""
+
+#: countries.py:29
+msgid "Bhutan"
+msgstr ""
+
+#: countries.py:30
+msgid "Bolivia, Plurinational State of"
+msgstr ""
+
+#: countries.py:31
+msgid "Bonaire, Sint Eustatius and Saba"
+msgstr ""
+
+#: countries.py:32
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: countries.py:33
+msgid "Botswana"
+msgstr ""
+
+#: countries.py:34
+msgid "Bouvet Island"
+msgstr ""
+
+#: countries.py:35
+msgid "Brazil"
+msgstr ""
+
+#: countries.py:36
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: countries.py:37
+msgid "Brunei Darussalam"
+msgstr ""
+
+#: countries.py:38
+msgid "Bulgaria"
+msgstr ""
+
+#: countries.py:39
+msgid "Burkina Faso"
+msgstr ""
+
+#: countries.py:40
+msgid "Burundi"
+msgstr ""
+
+#: countries.py:41
+msgid "Cambodia"
+msgstr ""
+
+#: countries.py:42
+msgid "Cameroon"
+msgstr ""
+
+#: countries.py:43
+msgid "Canada"
+msgstr ""
+
+#: countries.py:44
+msgid "Cape Verde"
+msgstr ""
+
+#: countries.py:45
+msgid "Cayman Islands"
+msgstr ""
+
+#: countries.py:46
+msgid "Central African Republic"
+msgstr ""
+
+#: countries.py:47
+msgid "Chad"
+msgstr ""
+
+#: countries.py:48
+msgid "Chile"
+msgstr ""
+
+#: countries.py:49
+msgid "China"
+msgstr ""
+
+#: countries.py:50
+msgid "Christmas Island"
+msgstr ""
+
+#: countries.py:51
+msgid "Cocos (Keeling) Islands"
+msgstr ""
+
+#: countries.py:52
+msgid "Colombia"
+msgstr ""
+
+#: countries.py:53
+msgid "Comoros"
+msgstr ""
+
+#: countries.py:54
+msgid "Congo"
+msgstr ""
+
+#: countries.py:55
+msgid "Congo, The Democratic Republic of the"
+msgstr ""
+
+#: countries.py:56
+msgid "Cook Islands"
+msgstr ""
+
+#: countries.py:57
+msgid "Costa Rica"
+msgstr ""
+
+#: countries.py:58
+msgid "Côte d'Ivoire"
+msgstr ""
+
+#: countries.py:59
+msgid "Croatia"
+msgstr ""
+
+#: countries.py:60
+msgid "Cuba"
+msgstr ""
+
+#: countries.py:61
+msgid "Curaçao"
+msgstr ""
+
+#: countries.py:62
+msgid "Cyprus"
+msgstr ""
+
+#: countries.py:63
+msgid "Czech Republic"
+msgstr ""
+
+#: countries.py:64
+msgid "Denmark"
+msgstr ""
+
+#: countries.py:65
+msgid "Djibouti"
+msgstr ""
+
+#: countries.py:66
+msgid "Dominica"
+msgstr ""
+
+#: countries.py:67
+msgid "Dominican Republic"
+msgstr ""
+
+#: countries.py:68
+msgid "Ecuador"
+msgstr ""
+
+#: countries.py:69
+msgid "Egypt"
+msgstr ""
+
+#: countries.py:70
+msgid "El Salvador"
+msgstr ""
+
+#: countries.py:71
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: countries.py:72
+msgid "Eritrea"
+msgstr ""
+
+#: countries.py:73
+msgid "Estonia"
+msgstr ""
+
+#: countries.py:74
+msgid "Ethiopia"
+msgstr ""
+
+#: countries.py:75
+msgid "Falkland Islands (Malvinas)"
+msgstr ""
+
+#: countries.py:76
+msgid "Faroe Islands"
+msgstr ""
+
+#: countries.py:77
+msgid "Fiji"
+msgstr ""
+
+#: countries.py:78
+msgid "Finland"
+msgstr ""
+
+#: countries.py:79
+msgid "France"
+msgstr ""
+
+#: countries.py:80
+msgid "French Guiana"
+msgstr ""
+
+#: countries.py:81
+msgid "French Polynesia"
+msgstr ""
+
+#: countries.py:82
+msgid "French Southern Territories"
+msgstr ""
+
+#: countries.py:83
+msgid "Gabon"
+msgstr ""
+
+#: countries.py:84
+msgid "Gambia"
+msgstr ""
+
+#: countries.py:85
+msgid "Georgia"
+msgstr ""
+
+#: countries.py:86
+msgid "Germany"
+msgstr ""
+
+#: countries.py:87
+msgid "Ghana"
+msgstr ""
+
+#: countries.py:88
+msgid "Gibraltar"
+msgstr ""
+
+#: countries.py:89
+msgid "Greece"
+msgstr ""
+
+#: countries.py:90
+msgid "Greenland"
+msgstr ""
+
+#: countries.py:91
+msgid "Grenada"
+msgstr ""
+
+#: countries.py:92
+msgid "Guadeloupe"
+msgstr ""
+
+#: countries.py:93
+msgid "Guam"
+msgstr ""
+
+#: countries.py:94
+msgid "Guatemala"
+msgstr ""
+
+#: countries.py:95
+msgid "Guernsey"
+msgstr ""
+
+#: countries.py:96
+msgid "Guinea"
+msgstr ""
+
+#: countries.py:97
+msgid "Guinea-Bissau"
+msgstr ""
+
+#: countries.py:98
+msgid "Guyana"
+msgstr ""
+
+#: countries.py:99
+msgid "Haiti"
+msgstr ""
+
+#: countries.py:100
+msgid "Heard Island and McDonald Islands"
+msgstr ""
+
+#: countries.py:101
+msgid "Holy See (Vatican City State)"
+msgstr ""
+
+#: countries.py:102
+msgid "Honduras"
+msgstr ""
+
+#: countries.py:103
+msgid "Hong Kong"
+msgstr ""
+
+#: countries.py:104
+msgid "Hungary"
+msgstr ""
+
+#: countries.py:105
+msgid "Iceland"
+msgstr ""
+
+#: countries.py:106
+msgid "India"
+msgstr ""
+
+#: countries.py:107
+msgid "Indonesia"
+msgstr ""
+
+#: countries.py:108
+msgid "Iran, Islamic Republic of"
+msgstr ""
+
+#: countries.py:109
+msgid "Iraq"
+msgstr ""
+
+#: countries.py:110
+msgid "Ireland"
+msgstr ""
+
+#: countries.py:111
+msgid "Isle of Man"
+msgstr ""
+
+#: countries.py:112
+msgid "Israel"
+msgstr ""
+
+#: countries.py:113
+msgid "Italy"
+msgstr ""
+
+#: countries.py:114
+msgid "Jamaica"
+msgstr ""
+
+#: countries.py:115
+msgid "Japan"
+msgstr ""
+
+#: countries.py:116
+msgid "Jersey"
+msgstr ""
+
+#: countries.py:117
+msgid "Jordan"
+msgstr ""
+
+#: countries.py:118
+msgid "Kazakhstan"
+msgstr ""
+
+#: countries.py:119
+msgid "Kenya"
+msgstr ""
+
+#: countries.py:120
+msgid "Kiribati"
+msgstr ""
+
+#: countries.py:121
+msgid "Korea, Democratic People's Republic of"
+msgstr ""
+
+#: countries.py:122
+msgid "Korea, Republic of"
+msgstr ""
+
+#: countries.py:123
+msgid "Kuwait"
+msgstr ""
+
+#: countries.py:124
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: countries.py:125
+msgid "Lao People's Democratic Republic"
+msgstr ""
+
+#: countries.py:126
+msgid "Latvia"
+msgstr ""
+
+#: countries.py:127
+msgid "Lebanon"
+msgstr ""
+
+#: countries.py:128
+msgid "Lesotho"
+msgstr ""
+
+#: countries.py:129
+msgid "Liberia"
+msgstr ""
+
+#: countries.py:130
+msgid "Libya"
+msgstr ""
+
+#: countries.py:131
+msgid "Liechtenstein"
+msgstr ""
+
+#: countries.py:132
+msgid "Lithuania"
+msgstr ""
+
+#: countries.py:133
+msgid "Luxembourg"
+msgstr ""
+
+#: countries.py:134
+msgid "Macao"
+msgstr ""
+
+#: countries.py:135
+msgid "Macedonia, Republic of"
+msgstr ""
+
+#: countries.py:136
+msgid "Madagascar"
+msgstr ""
+
+#: countries.py:137
+msgid "Malawi"
+msgstr ""
+
+#: countries.py:138
+msgid "Malaysia"
+msgstr ""
+
+#: countries.py:139
+msgid "Maldives"
+msgstr ""
+
+#: countries.py:140
+msgid "Mali"
+msgstr ""
+
+#: countries.py:141
+msgid "Malta"
+msgstr ""
+
+#: countries.py:142
+msgid "Marshall Islands"
+msgstr ""
+
+#: countries.py:143
+msgid "Martinique"
+msgstr ""
+
+#: countries.py:144
+msgid "Mauritania"
+msgstr ""
+
+#: countries.py:145
+msgid "Mauritius"
+msgstr ""
+
+#: countries.py:146
+msgid "Mayotte"
+msgstr ""
+
+#: countries.py:147
+msgid "Mexico"
+msgstr ""
+
+#: countries.py:148
+msgid "Micronesia, Federated States of"
+msgstr ""
+
+#: countries.py:149
+msgid "Moldova, Republic of"
+msgstr ""
+
+#: countries.py:150
+msgid "Monaco"
+msgstr ""
+
+#: countries.py:151
+msgid "Mongolia"
+msgstr ""
+
+#: countries.py:152
+msgid "Montenegro"
+msgstr ""
+
+#: countries.py:153
+msgid "Montserrat"
+msgstr ""
+
+#: countries.py:154
+msgid "Morocco"
+msgstr ""
+
+#: countries.py:155
+msgid "Mozambique"
+msgstr ""
+
+#: countries.py:156
+msgid "Myanmar"
+msgstr ""
+
+#: countries.py:157
+msgid "Namibia"
+msgstr ""
+
+#: countries.py:158
+msgid "Nauru"
+msgstr ""
+
+#: countries.py:159
+msgid "Nepal"
+msgstr ""
+
+#: countries.py:160
+msgid "Netherlands"
+msgstr ""
+
+#: countries.py:161
+msgid "New Caledonia"
+msgstr ""
+
+#: countries.py:162
+msgid "New Zealand"
+msgstr ""
+
+#: countries.py:163
+msgid "Nicaragua"
+msgstr ""
+
+#: countries.py:164
+msgid "Niger"
+msgstr ""
+
+#: countries.py:165
+msgid "Nigeria"
+msgstr ""
+
+#: countries.py:166
+msgid "Niue"
+msgstr ""
+
+#: countries.py:167
+msgid "Norfolk Island"
+msgstr ""
+
+#: countries.py:168
+msgid "Northern Mariana Islands"
+msgstr ""
+
+#: countries.py:169
+msgid "Norway"
+msgstr ""
+
+#: countries.py:170
+msgid "Oman"
+msgstr ""
+
+#: countries.py:171
+msgid "Pakistan"
+msgstr ""
+
+#: countries.py:172
+msgid "Palau"
+msgstr ""
+
+#: countries.py:173
+msgid "Palestinian Territory, Occupied"
+msgstr ""
+
+#: countries.py:174
+msgid "Panama"
+msgstr ""
+
+#: countries.py:175
+msgid "Papua New Guinea"
+msgstr ""
+
+#: countries.py:176
+msgid "Paraguay"
+msgstr ""
+
+#: countries.py:177
+msgid "Peru"
+msgstr ""
+
+#: countries.py:178
+msgid "Philippines"
+msgstr ""
+
+#: countries.py:179
+msgid "Pitcairn"
+msgstr ""
+
+#: countries.py:180
+msgid "Poland"
+msgstr ""
+
+#: countries.py:181
+msgid "Portugal"
+msgstr ""
+
+#: countries.py:182
+msgid "Puerto Rico"
+msgstr ""
+
+#: countries.py:183
+msgid "Qatar"
+msgstr ""
+
+#: countries.py:184
+msgid "Réunion"
+msgstr ""
+
+#: countries.py:185
+msgid "Romania"
+msgstr ""
+
+#: countries.py:186
+msgid "Russian Federation"
+msgstr ""
+
+#: countries.py:187
+msgid "Rwanda"
+msgstr ""
+
+#: countries.py:188
+msgid "Saint Barthélemy"
+msgstr ""
+
+#: countries.py:189
+msgid "Saint Helena, Ascension and Tristan da Cunha"
+msgstr ""
+
+#: countries.py:190
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+#: countries.py:191
+msgid "Saint Lucia"
+msgstr ""
+
+#: countries.py:192
+msgid "Saint Martin (French part)"
+msgstr ""
+
+#: countries.py:193
+msgid "Saint Pierre and Miquelon"
+msgstr ""
+
+#: countries.py:194
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: countries.py:195
+msgid "Samoa"
+msgstr ""
+
+#: countries.py:196
+msgid "San Marino"
+msgstr ""
+
+#: countries.py:197
+msgid "Sao Tome and Principe"
+msgstr ""
+
+#: countries.py:198
+msgid "Saudi Arabia"
+msgstr ""
+
+#: countries.py:199
+msgid "Senegal"
+msgstr ""
+
+#: countries.py:200
+msgid "Serbia"
+msgstr ""
+
+#: countries.py:201
+msgid "Seychelles"
+msgstr ""
+
+#: countries.py:202
+msgid "Sierra Leone"
+msgstr ""
+
+#: countries.py:203
+msgid "Singapore"
+msgstr ""
+
+#: countries.py:204
+msgid "Sint Maarten (Dutch part)"
+msgstr ""
+
+#: countries.py:205
+msgid "Slovakia"
+msgstr ""
+
+#: countries.py:206
+msgid "Slovenia"
+msgstr ""
+
+#: countries.py:207
+msgid "Solomon Islands"
+msgstr ""
+
+#: countries.py:208
+msgid "Somalia"
+msgstr ""
+
+#: countries.py:209
+msgid "South Africa"
+msgstr ""
+
+#: countries.py:210
+msgid "South Georgia and the South Sandwich Islands"
+msgstr ""
+
+#: countries.py:211
+msgid "Spain"
+msgstr ""
+
+#: countries.py:212
+msgid "Sri Lanka"
+msgstr ""
+
+#: countries.py:213
+msgid "Sudan"
+msgstr ""
+
+#: countries.py:214
+msgid "Suriname"
+msgstr ""
+
+#: countries.py:215
+msgid "South Sudan"
+msgstr ""
+
+#: countries.py:216
+msgid "Svalbard and Jan Mayen"
+msgstr ""
+
+#: countries.py:217
+msgid "Swaziland"
+msgstr ""
+
+#: countries.py:218
+msgid "Sweden"
+msgstr ""
+
+#: countries.py:219
+msgid "Switzerland"
+msgstr ""
+
+#: countries.py:220
+msgid "Syrian Arab Republic"
+msgstr ""
+
+#: countries.py:221
+msgid "Taiwan, Province of China"
+msgstr ""
+
+#: countries.py:222
+msgid "Tajikistan"
+msgstr ""
+
+#: countries.py:223
+msgid "Tanzania, United Republic of"
+msgstr ""
+
+#: countries.py:224
+msgid "Thailand"
+msgstr ""
+
+#: countries.py:225
+msgid "Timor-Leste"
+msgstr ""
+
+#: countries.py:226
+msgid "Togo"
+msgstr ""
+
+#: countries.py:227
+msgid "Tokelau"
+msgstr ""
+
+#: countries.py:228
+msgid "Tonga"
+msgstr ""
+
+#: countries.py:229
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: countries.py:230
+msgid "Tunisia"
+msgstr ""
+
+#: countries.py:231
+msgid "Turkey"
+msgstr ""
+
+#: countries.py:232
+msgid "Turkmenistan"
+msgstr ""
+
+#: countries.py:233
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+#: countries.py:234
+msgid "Tuvalu"
+msgstr ""
+
+#: countries.py:235
+msgid "Uganda"
+msgstr ""
+
+#: countries.py:236
+msgid "Ukraine"
+msgstr ""
+
+#: countries.py:237
+msgid "United Arab Emirates"
+msgstr ""
+
+#: countries.py:238
+msgid "United Kingdom"
+msgstr ""
+
+#: countries.py:239
+msgid "United States"
+msgstr ""
+
+#: countries.py:240
+msgid "United States Minor Outlying Islands"
+msgstr ""
+
+#: countries.py:241
+msgid "Uruguay"
+msgstr ""
+
+#: countries.py:242
+msgid "Uzbekistan"
+msgstr ""
+
+#: countries.py:243
+msgid "Vanuatu"
+msgstr ""
+
+#: countries.py:244
+msgid "Venezuela, Bolivarian Republic of"
+msgstr ""
+
+#: countries.py:245
+msgid "Viet Nam"
+msgstr ""
+
+#: countries.py:246
+msgid "Virgin Islands, British"
+msgstr ""
+
+#: countries.py:247
+msgid "Virgin Islands, U.S."
+msgstr ""
+
+#: countries.py:248
+msgid "Wallis and Futuna"
+msgstr ""
+
+#: countries.py:249
+msgid "Western Sahara"
+msgstr ""
+
+#: countries.py:250
+msgid "Yemen"
+msgstr ""
+
+#: countries.py:251
+msgid "Zambia"
+msgstr ""
+
+#: countries.py:252
+msgid "Zimbabwe"
+msgstr ""
+
+#: forms.py:19
+msgid "Event Days"
+msgstr ""
+
+#: forms.py:62
 msgid "quantity"
 msgstr ""
 
-#: models.py:16
-msgid "Non-member"
-msgstr ""
-
-#: models.py:17
-msgid "Ordinary"
-msgstr ""
-
 #: models.py:18
-msgid "Reduced"
-msgstr ""
-
-#: models.py:19
-msgid "Sustaining"
-msgstr ""
-
-#: models.py:20
-msgid "Benefactor"
-msgstr ""
-
-#: models.py:25
 msgid "name"
 msgstr ""
 
-#: models.py:26
+#: models.py:19
 msgid "identificator"
 msgstr ""
 
-#: models.py:27 models.py:193
+#: models.py:20 models.py:186
 msgid "description"
 msgstr ""
 
-#: models.py:28
+#: models.py:21
 msgid "Organizer"
 msgstr ""
 
-#: models.py:30
+#: models.py:23
 msgid "registration until"
 msgstr ""
 
-#: models.py:32
+#: models.py:25
 msgid "earlybird date"
 msgstr ""
 
-#: models.py:35
+#: models.py:28
 msgid "start"
 msgstr ""
 
-#: models.py:36
+#: models.py:29
 msgid "finish"
 msgstr ""
 
-#: models.py:38
+#: models.py:31
 msgid "Venue name"
 msgstr ""
 
-#: models.py:39
+#: models.py:32
 msgid "Venue address"
 msgstr ""
 
-#: models.py:41
+#: models.py:34
 msgid "contact email"
 msgstr ""
 
-#: models.py:42
+#: models.py:35
 msgid "contact tel"
 msgstr ""
 
-#: models.py:43
+#: models.py:36
 msgid "event web"
 msgstr ""
 
-#: models.py:45
+#: models.py:38
 msgid "bank details"
 msgstr ""
 
-#: models.py:48
+#: models.py:41
 msgid "Success template name"
 msgstr ""
 
-#: models.py:51
+#: models.py:44
 msgid ""
 "Example: 'success.html'. If this isn't provided,         the system will use "
 "'evreg/payment_form.html'."
 msgstr ""
 
-#: models.py:155 models.py:171 models.py:191 models.py:225
+#: models.py:148 models.py:164 models.py:184 models.py:218
 msgid "Event"
 msgstr ""
 
-#: models.py:156 models.py:208
+#: models.py:149 models.py:201
 msgid "Member type"
 msgstr ""
 
-#: models.py:159 models.py:211
+#: models.py:152 models.py:204
 msgid "full price"
 msgstr ""
 
-#: models.py:160 models.py:212
+#: models.py:153 models.py:205
 msgid "earlybird price"
 msgstr ""
 
-#: models.py:164
+#: models.py:157
 msgid "Member Prices"
 msgstr ""
 
-#: models.py:172
+#: models.py:165
 msgid "date"
 msgstr ""
 
-#: models.py:174
+#: models.py:167
 msgid "programme"
 msgstr ""
 
-#: models.py:178
+#: models.py:171
 msgid "event day"
 msgstr ""
 
-#: models.py:179
+#: models.py:172
 msgid "event days"
 msgstr ""
 
-#: models.py:194
+#: models.py:187
 msgid "price"
 msgstr ""
 
-#: models.py:197 models.py:198
+#: models.py:190 models.py:191
 msgid "Service"
 msgstr ""
 
-#: models.py:207 models.py:345
+#: models.py:200 models.py:367
 msgid "Day"
 msgstr ""
 
-#: models.py:220
+#: models.py:213
 msgid "not payed"
 msgstr ""
 
-#: models.py:221
+#: models.py:214
 msgid "payed"
 msgstr ""
 
-#: models.py:222
+#: models.py:215
 msgid "canceled"
 msgstr ""
 
-#: models.py:227 models.py:346
+#: models.py:220 models.py:368
 msgid "created_at"
 msgstr ""
 
-#: models.py:229
+#: models.py:222
 msgid "first name"
 msgstr ""
 
-#: models.py:230
+#: models.py:223
 msgid "last name"
 msgstr ""
 
-#: models.py:232
+#: models.py:225
 msgid "email"
 msgstr ""
 
-#: models.py:233
+#: models.py:226
 msgid "phone"
 msgstr ""
 
-#: models.py:236
+#: models.py:229
 msgid "address"
 msgstr ""
 
-#: models.py:237
+#: models.py:230
 msgid "zip"
 msgstr ""
 
-#: models.py:239
+#: models.py:232
 msgid "State/Region"
 msgstr ""
 
-#: models.py:240
+#: models.py:233
 msgid "city"
 msgstr ""
 
-#: models.py:242
+#: models.py:235
 msgid "country"
 msgstr ""
 
-#: models.py:249
+#: models.py:243
 msgid "member of Dzogchen Community"
 msgstr ""
 
-#: models.py:254
+#: models.py:248
 msgid "membership nr"
 msgstr ""
 
-#: models.py:259
+#: models.py:253
 msgid "gar"
 msgstr ""
 
-#: models.py:261
+#: models.py:255
 msgid "Leave it empty if you dont know"
 msgstr ""
 
-#: models.py:265
+#: models.py:259
 msgid "is valid member?"
 msgstr ""
 
-#: models.py:268
+#: models.py:262
 msgid "karmayoga"
 msgstr ""
 
-#: models.py:270
+#: models.py:264
 msgid "Do you want to help?"
 msgstr ""
 
-#: models.py:273
+#: models.py:267
 msgid "observations"
 msgstr ""
 
-#: models.py:276
+#: models.py:270
 msgid "Receive Newsletter"
 msgstr ""
 
-#: models.py:277
+#: models.py:271
 msgid "comments, how did you found about us?"
 msgstr ""
 
-#: models.py:281
+#: models.py:275
 msgid "payment time"
 msgstr ""
 
-#: models.py:284
+#: models.py:278
 msgid "amount to pay "
 msgstr ""
 
-#: models.py:287
+#: models.py:281
 msgid "payment id"
 msgstr ""
 
-#: models.py:292
+#: models.py:286
 msgid "status"
 msgstr ""
 
-#: models.py:330 models.py:331 models.py:342
+#: models.py:352 models.py:353 models.py:364
 msgid "Registry"
 msgstr ""
 
-#: models.py:334
+#: models.py:356
 #, python-format
 msgid "%(first_name)s %(last_name)s registry for %(event)s"
 msgstr ""
 
-#: notify.py:12
+#: settings.py:7
+msgid "Non-member"
+msgstr ""
+
+#: settings.py:8
+msgid "Ordinary"
+msgstr ""
+
+#: settings.py:9
+msgid "Reduced"
+msgstr ""
+
+#: settings.py:10
+msgid "Sustaining"
+msgstr ""
+
+#: settings.py:11
+msgid "Benefactor"
+msgstr ""
+
+#: settings.py:14
 #, python-format
 msgid ""
 "\n"
 "Thank You for registring for %s. Soon you will recive confirmation email.\n"
 msgstr ""
 
-#: notify.py:17
+#: settings.py:20
 #, python-format
 msgid "You been registered for %s"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:3
+#: settings.py:23
+#, python-format
+msgid "You been inscribed for %s"
+msgstr ""
+
+#: settings.py:26
+#, python-format
+msgid "Inscription #%(ref)s for %(event)s completed"
+msgstr ""
+
+#: settings.py:29
+#, python-format
+msgid "Delayed earlybird payment #%(ref)s for %(event)s recived"
+msgstr ""
+
+#: settings.py:32
+#, python-format
+msgid "Insufficient payment #%(ref)s for %(event)s recived"
+msgstr ""
+
+#: settings.py:36
+msgid ""
+"If you are member of Dzogchen Community     you must specify your membership "
+"number,      membership type and Gar you belong."
+msgstr ""
+
+#: settings.py:40
+msgid "Erroneus member type"
+msgstr ""
+
+#: settings.py:41
+msgid "You must select at least one day of the event to attend"
+msgstr ""
+
+#: templates/evreg/_get_orders.html:5
+msgid "There are checked out orders which you should pay.ssss"
+msgstr ""
+
+#: templates/evreg/_get_orders.html:7
+msgid "order "
+msgstr ""
+
+#: templates/evreg/_registration_form.html:4
 msgid "Prices"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:5
+#: templates/evreg/_registration_form.html:6
 msgid "Early bird prices available until"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:7
+#: templates/evreg/_registration_form.html:8
 msgid "No early bird prices"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:13
-#: templates/evreg/_registration_form.html:34
+#: templates/evreg/_registration_form.html:14
+#: templates/evreg/_registration_form.html:35
 msgid "early bird"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:13
-#: templates/evreg/_registration_form.html:34
+#: templates/evreg/_registration_form.html:14
+#: templates/evreg/_registration_form.html:35
 msgid "later"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:21
+#: templates/evreg/_registration_form.html:22
 msgid "Day Tickets"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:43
+#: templates/evreg/_registration_form.html:44
 msgid "Event has no option to pay for separate days."
 msgstr ""
 
-#: templates/evreg/_registration_form.html:49
-#: templates/evreg/registration_completed.html:12
+#: templates/evreg/_registration_form.html:50
+#: templates/evreg/registration_completed.html:13
 msgid "registration form"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:50
+#: templates/evreg/_registration_form.html:51
 msgid "Please fill required fields"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:72
+#: templates/evreg/_registration_form.html:73
 msgid "Price"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:73
+#: templates/evreg/_registration_form.html:74
 msgid "Register"
 msgstr ""
 
@@ -364,25 +1392,21 @@ msgid ""
 "the fee has to be arrived on our account before "
 msgstr ""
 
-#: templates/evreg/registration_completed.html:12
-msgid "You can register more participants submiting them trought"
+#: templates/evreg/registration_completed.html:15
+msgid "or proceed to checkout and pay online"
 msgstr ""
 
-#: templates/evreg/registration_completed.html:14
-msgid "or procead to checkout and pay online"
-msgstr ""
-
-#: templates/evreg/registration_completed.html:16
+#: templates/evreg/registration_completed.html:17
 msgid "Checkout"
 msgstr ""
 
-#: templates/evreg/registration_completed.html:21
+#: templates/evreg/registration_completed.html:22
 msgid ""
 " You may order other services offered during the event. In such a case "
 "please indicate the quantity "
 msgstr ""
 
-#: templates/evreg/registration_completed.html:24
+#: templates/evreg/registration_completed.html:25
 msgid "Reserve services"
 msgstr ""
 

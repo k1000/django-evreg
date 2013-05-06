@@ -3,15 +3,16 @@
 
 {% block content %}
 
-<p>{% trans "Thank your for registering for the" %} {{ event.name }}.</p>
+<h1>{% trans "Thank your for registering for the" %} {{ event.name }}.</h1>
 
 <p>{% trans "Your registration number is: RG-" %}{{registry.id}}</p>
 
 <p>{% blocktrans %}Please note that your registration will only be valid once the event fee has arrived on our account. In order to be entitled for the early bird tariff the fee has to be arrived on our account before {% endblocktrans %} {{event.earlybird_date }}.</p>
 
-<p>{% trans "You can register more participants submiting them trought" %} <a href="{% url registration-form event.slug %}">{% trans "registration form" %}</a> </p>
+<p>{% trans "You can register more participants submitting them through
+" %} <a href="{% url registration-form event.slug %}">{% trans "registration form" %}</a> </p>
 
-<p>{% trans "or procead to checkout and pay online" %}</p>
+<p>{% trans "or proceed to checkout and pay online" %}</p>
 
 <a href="{% url checkout %}" class="checkout button">{% trans "Checkout" %}</a>
 

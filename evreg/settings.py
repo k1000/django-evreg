@@ -23,13 +23,13 @@ EMAIL_MSG = getattr(settings, "EVREG_EMAIL_MSG", dict(
         "subject": _("You been inscribed for %s"),
     },
     admin_inscription_completed={
-        "subject": _("Inscription #%s for %s completed"),
+        "subject": _("Inscription #%(ref)s for %(event)s completed"),
     },
     admin_delayed_earlibird_payment={
-        "subject": _("Delayed earlybird payment #%s for %s recived"),
+        "subject": _("Delayed earlybird payment #%(ref)s for %(event)s recived"),
     },
     admin_insufficient_payment={
-        "subject": _("Insufficient payment #%s for %s recived"),
+        "subject": _("Insufficient payment #%(ref)s for %(event)s recived"),
     },
 ))
 ADMIN_EMAILS = getattr(settings, "EVREG_ADMIN_EMAILS", [])
