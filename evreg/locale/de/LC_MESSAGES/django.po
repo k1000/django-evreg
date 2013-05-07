@@ -1400,7 +1400,6 @@ msgstr ""
 "des Frühbucherpreises ist der fristgerechte Zahlungseingang ausschlaggebend."
 
 #: templates/evreg/registration_completed.html:15
-#, fuzzy
 msgid "or proceed to checkout and pay online"
 msgstr "oder zur Kasse gehen und online bezahlen"
 
@@ -1432,7 +1431,7 @@ msgstr ""
 "Die Anmeldung für %<name>s ist abgeschlossen. Wir freuen uns darauf Sie bei "
 "einer der nächsten Veranstaltungen zu empfangen."
 
-#~ msgid "You can register more participants submiting them trought"
+#~ msgid "You can register more participants submitting them through"
 #~ msgstr "Sie können weitere Anmeldungen hinzufügen"
 
 #~ msgid "We recived payment for %s"
