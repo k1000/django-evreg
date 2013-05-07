@@ -2,7 +2,8 @@ Dear {{person.first_name}} {{person.last_name}},
 
 You are registered for {{ event.name }}.
 
-Your registration number is: RG-{{person.id}}
+Your registration number is: R-{{person.id}}
+Please keep it well, since it is needed for the handover of the tickets.
 Registration is for: {{ event.name }}
 
 All information on arrival and accommodation you can find on our website {{ event.web }}
