@@ -353,10 +353,14 @@ class Registry(models.Model):
         verbose_name_plural = _('Registry')
 
     def __unicode__(self):
-        return _(u"%(first_name)s %(last_name)s registry for %(event)s") % {
+        participation_days = [str(day.day) for day in self.participation_days]
+        return _(u"#%(id)s %(first_name)s %(last_name)s (%(member_type)s) registry for %(event)s at days %(days)s") % {
+            "id": self.id,
             "first_name": self.first_name,
             "last_name": self.last_name,
-            "event": self.event.__unicode__()
+            "member_type": MEMBER_TYPES[self.member_type][1],  # ???? self.get_member_type_display,
+            "event": self.event.__unicode__(),
+            "days": ", ".join(participation_days)
         }
 
 
