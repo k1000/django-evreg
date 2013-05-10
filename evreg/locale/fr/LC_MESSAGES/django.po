@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-06 09:54+0200\n"
+"POT-Creation-Date: 2013-05-10 19:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1034,7 +1034,7 @@ msgstr ""
 msgid "identificator"
 msgstr ""
 
-#: models.py:20 models.py:186
+#: models.py:20 models.py:188
 msgid "description"
 msgstr ""
 
@@ -1092,169 +1092,171 @@ msgid ""
 "'evreg/payment_form.html'."
 msgstr ""
 
-#: models.py:148 models.py:164 models.py:184 models.py:218
+#: models.py:150 models.py:166 models.py:186 models.py:220
 msgid "Event"
 msgstr ""
 
-#: models.py:149 models.py:201
+#: models.py:151 models.py:203
 msgid "Member type"
 msgstr ""
 
-#: models.py:152 models.py:204
+#: models.py:154 models.py:206
 msgid "full price"
 msgstr ""
 
-#: models.py:153 models.py:205
+#: models.py:155 models.py:207
 msgid "earlybird price"
 msgstr ""
 
-#: models.py:157
+#: models.py:159
 msgid "Member Prices"
 msgstr ""
 
-#: models.py:165
+#: models.py:167
 msgid "date"
 msgstr ""
 
-#: models.py:167
+#: models.py:169
 msgid "programme"
 msgstr ""
 
-#: models.py:171
+#: models.py:173
 msgid "event day"
 msgstr ""
 
-#: models.py:172
+#: models.py:174
 msgid "event days"
 msgstr ""
 
-#: models.py:187
+#: models.py:189
 msgid "price"
 msgstr ""
 
-#: models.py:190 models.py:191
+#: models.py:192 models.py:193
 msgid "Service"
 msgstr ""
 
-#: models.py:200 models.py:367
+#: models.py:202 models.py:373
 msgid "Day"
 msgstr ""
 
-#: models.py:213
+#: models.py:215
 msgid "not payed"
 msgstr ""
 
-#: models.py:214
+#: models.py:216
 msgid "payed"
 msgstr ""
 
-#: models.py:215
+#: models.py:217
 msgid "canceled"
 msgstr ""
 
-#: models.py:220 models.py:368
+#: models.py:222 models.py:374
 msgid "created_at"
 msgstr ""
 
-#: models.py:222
+#: models.py:224
 msgid "first name"
 msgstr ""
 
-#: models.py:223
+#: models.py:225
 msgid "last name"
 msgstr ""
 
-#: models.py:225
+#: models.py:227
 msgid "email"
 msgstr ""
 
-#: models.py:226
+#: models.py:228
 msgid "phone"
 msgstr ""
 
-#: models.py:229
+#: models.py:231
 msgid "address"
 msgstr ""
 
-#: models.py:230
+#: models.py:232
 msgid "zip"
 msgstr ""
 
-#: models.py:232
+#: models.py:234
 msgid "State/Region"
 msgstr ""
 
-#: models.py:233
+#: models.py:235
 msgid "city"
 msgstr ""
 
-#: models.py:235
+#: models.py:237
 msgid "country"
 msgstr ""
 
-#: models.py:243
+#: models.py:245
 msgid "member of Dzogchen Community"
 msgstr ""
 
-#: models.py:248
+#: models.py:250
 msgid "membership nr"
 msgstr ""
 
-#: models.py:253
+#: models.py:255
 msgid "gar"
 msgstr ""
 
-#: models.py:255
+#: models.py:257
 msgid "Leave it empty if you dont know"
 msgstr ""
 
-#: models.py:259
+#: models.py:261
 msgid "is valid member?"
 msgstr ""
 
-#: models.py:262
+#: models.py:264
 msgid "karmayoga"
 msgstr ""
 
-#: models.py:264
+#: models.py:266
 msgid "Do you want to help?"
 msgstr ""
 
-#: models.py:267
+#: models.py:269
 msgid "observations"
 msgstr ""
 
-#: models.py:270
+#: models.py:272
 msgid "Receive Newsletter"
 msgstr ""
 
-#: models.py:271
+#: models.py:273
 msgid "comments, how did you found about us?"
 msgstr ""
 
-#: models.py:275
+#: models.py:277
 msgid "payment time"
 msgstr ""
 
-#: models.py:278
+#: models.py:280
 msgid "amount to pay "
 msgstr ""
 
-#: models.py:281
+#: models.py:283
 msgid "payment id"
 msgstr ""
 
-#: models.py:286
+#: models.py:288
 msgid "status"
 msgstr ""
 
-#: models.py:352 models.py:353 models.py:364
+#: models.py:354 models.py:355 models.py:370
 msgid "Registry"
 msgstr ""
 
-#: models.py:356
+#: models.py:359
 #, python-format
-msgid "%(first_name)s %(last_name)s registry for %(event)s"
+msgid ""
+"#%(id)s %(first_name)s %(last_name)s (%(member_type)s) registry for "
+"%(event)s at days %(days)s"
 msgstr ""
 
 #: settings.py:7
@@ -1286,7 +1288,7 @@ msgstr ""
 
 #: settings.py:20
 #, python-format
-msgid "You been registered for %s"
+msgid "%s confirmation of reservation"
 msgstr ""
 
 #: settings.py:23
@@ -1323,11 +1325,11 @@ msgstr ""
 msgid "You must select at least one day of the event to attend"
 msgstr ""
 
-#: templates/evreg/_get_orders.html:5
-msgid "There are checked out orders which you should pay.ssss"
+#: templates/evreg/_get_orders.html:4
+msgid "There are checked out orders which you should pay"
 msgstr ""
 
-#: templates/evreg/_get_orders.html:7
+#: templates/evreg/_get_orders.html:6
 msgid "order "
 msgstr ""
 
@@ -1362,7 +1364,7 @@ msgid "Event has no option to pay for separate days."
 msgstr ""
 
 #: templates/evreg/_registration_form.html:50
-#: templates/evreg/registration_completed.html:13
+#: templates/evreg/registration_completed.html:12
 msgid "registration form"
 msgstr ""
 
@@ -1393,21 +1395,25 @@ msgid ""
 "the fee has to be arrived on our account before "
 msgstr ""
 
-#: templates/evreg/registration_completed.html:15
+#: templates/evreg/registration_completed.html:12
+msgid "You can register more participants submitting them through"
+msgstr ""
+
+#: templates/evreg/registration_completed.html:12
 msgid "or proceed to checkout and pay online"
 msgstr ""
 
-#: templates/evreg/registration_completed.html:17
+#: templates/evreg/registration_completed.html:14
 msgid "Checkout"
 msgstr ""
 
-#: templates/evreg/registration_completed.html:22
+#: templates/evreg/registration_completed.html:19
 msgid ""
 " You may order other services offered during the event. In such a case "
 "please indicate the quantity "
 msgstr ""
 
-#: templates/evreg/registration_completed.html:25
+#: templates/evreg/registration_completed.html:22
 msgid "Reserve services"
 msgstr ""
 

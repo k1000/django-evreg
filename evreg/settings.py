@@ -17,7 +17,7 @@ Thank You for registring for %s. Soon you will recive confirmation email.
 
 EMAIL_MSG = getattr(settings, "EVREG_EMAIL_MSG", dict(
     registration_complete={
-        "subject": _("You been registered for %s"),
+        "subject": _("%s confirmation of reservation"),
     },
     inscription_completed={
         "subject": _("You been inscribed for %s"),

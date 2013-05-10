@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django evreg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-06 09:54+0200\n"
+"POT-Creation-Date: 2013-05-10 19:56+0200\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1026,7 +1026,7 @@ msgstr "Name"
 msgid "identificator"
 msgstr "Identifikator"
 
-#: models.py:20 models.py:186
+#: models.py:20 models.py:188
 msgid "description"
 msgstr "Beschreibung"
 
@@ -1086,170 +1086,172 @@ msgstr ""
 "Beispiel: 'success.html'. Wenn diese nicht vorhanden ist, verwendet das "
 "System 'evreg / payment_form.html'."
 
-#: models.py:148 models.py:164 models.py:184 models.py:218
+#: models.py:150 models.py:166 models.py:186 models.py:220
 msgid "Event"
 msgstr "Veranstaltung"
 
-#: models.py:149 models.py:201
+#: models.py:151 models.py:203
 msgid "Member type"
 msgstr "Art der Mitgliedschaft"
 
-#: models.py:152 models.py:204
+#: models.py:154 models.py:206
 msgid "full price"
 msgstr "vollen Preis"
 
-#: models.py:153 models.py:205
+#: models.py:155 models.py:207
 msgid "earlybird price"
 msgstr "Frühbucher-Preis"
 
-#: models.py:157
+#: models.py:159
 msgid "Member Prices"
 msgstr "Preise für Mitglieder"
 
-#: models.py:165
+#: models.py:167
 msgid "date"
 msgstr "Datum"
 
-#: models.py:167
+#: models.py:169
 msgid "programme"
 msgstr "Programm"
 
-#: models.py:171
+#: models.py:173
 msgid "event day"
 msgstr "Veranstaltungstag"
 
-#: models.py:172
+#: models.py:174
 msgid "event days"
 msgstr "Veranstaltungstage"
 
-#: models.py:187
+#: models.py:189
 msgid "price"
 msgstr "Preis"
 
-#: models.py:190 models.py:191
+#: models.py:192 models.py:193
 msgid "Service"
 msgstr ""
 
-#: models.py:200 models.py:367
+#: models.py:202 models.py:373
 msgid "Day"
 msgstr "Tag"
 
-#: models.py:213
+#: models.py:215
 msgid "not payed"
 msgstr "nicht bezahlt"
 
-#: models.py:214
+#: models.py:216
 msgid "payed"
 msgstr "bezahlt"
 
-#: models.py:215
+#: models.py:217
 msgid "canceled"
 msgstr "storniert"
 
-#: models.py:220 models.py:368
+#: models.py:222 models.py:374
 msgid "created_at"
 msgstr "created_at"
 
-#: models.py:222
+#: models.py:224
 msgid "first name"
 msgstr "Vorname"
 
-#: models.py:223
+#: models.py:225
 msgid "last name"
 msgstr "Nachname"
 
-#: models.py:225
+#: models.py:227
 msgid "email"
 msgstr "E-Mail-"
 
-#: models.py:226
+#: models.py:228
 msgid "phone"
 msgstr "Telefon"
 
-#: models.py:229
+#: models.py:231
 msgid "address"
 msgstr "Adresse"
 
-#: models.py:230
+#: models.py:232
 msgid "zip"
 msgstr "PLZ"
 
-#: models.py:232
+#: models.py:234
 msgid "State/Region"
 msgstr "Bundesland/Region"
 
-#: models.py:233
+#: models.py:235
 msgid "city"
 msgstr "Stadt"
 
-#: models.py:235
+#: models.py:237
 msgid "country"
 msgstr "Land"
 
-#: models.py:243
+#: models.py:245
 msgid "member of Dzogchen Community"
 msgstr "Mitglied der Dzogchen Gemeinschaft"
 
-#: models.py:248
+#: models.py:250
 msgid "membership nr"
 msgstr "Mitgliedsnummer"
 
-#: models.py:253
+#: models.py:255
 msgid "gar"
 msgstr "Gar"
 
-#: models.py:255
+#: models.py:257
 msgid "Leave it empty if you dont know"
 msgstr "Bitte freilassen, wenn Sie es nicht wissen"
 
-#: models.py:259
+#: models.py:261
 msgid "is valid member?"
 msgstr "gültiges Mitglied?"
 
-#: models.py:262
+#: models.py:264
 msgid "karmayoga"
 msgstr "Karmayoga"
 
-#: models.py:264
+#: models.py:266
 msgid "Do you want to help?"
 msgstr "Möchten Sie mithelfen?"
 
-#: models.py:267
+#: models.py:269
 msgid "observations"
 msgstr "Beobachtungen"
 
-#: models.py:270
+#: models.py:272
 msgid "Receive Newsletter"
 msgstr "Newsletter bestellen"
 
-#: models.py:271
+#: models.py:273
 msgid "comments, how did you found about us?"
 msgstr "Kommentare, wie haben Sie von der Veranstaltung erfahren?"
 
-#: models.py:275
+#: models.py:277
 msgid "payment time"
 msgstr "Zahlungsfrist"
 
-#: models.py:278
+#: models.py:280
 msgid "amount to pay "
 msgstr "Betrag zu zahlen␣"
 
-#: models.py:281
+#: models.py:283
 msgid "payment id"
 msgstr "Zahlungs-ID"
 
-#: models.py:286
+#: models.py:288
 msgid "status"
 msgstr "Status"
 
-#: models.py:352 models.py:353 models.py:364
+#: models.py:354 models.py:355 models.py:370
 msgid "Registry"
 msgstr "Registratur"
 
-#: models.py:356
+#: models.py:359
 #, python-format
-msgid "%(first_name)s %(last_name)s registry for %(event)s"
-msgstr "%(first_name)s %(last_name)s für %(event)s registriert"
+msgid ""
+"#%(id)s %(first_name)s %(last_name)s (%(member_type)s) registry for "
+"%(event)s at days %(days)s"
+msgstr "#%(id)s %(first_name)s %(last_name)s (%(member_type)s) Anmeldung zum %(event)s am %(days)s tags"
 
 #: settings.py:7
 msgid "Non-member"
@@ -1283,8 +1285,8 @@ msgstr ""
 
 #: settings.py:20
 #, python-format
-msgid "You been registered for %s"
-msgstr "Sie haben sich für %s angemeldet"
+msgid "%s confirmation of reservation"
+msgstr "%s Bestätigung der Reservierung"
 
 #: settings.py:23
 #, fuzzy, python-format
@@ -1324,11 +1326,11 @@ msgstr ""
 "Sie müssen mindestens einen Tag der Veranstaltung auswählen um daran "
 "teilzunehmen"
 
-#: templates/evreg/_get_orders.html:5
+#: templates/evreg/_get_orders.html:4
 msgid "There are checked out orders which you should pay"
 msgstr ""
 
-#: templates/evreg/_get_orders.html:7
+#: templates/evreg/_get_orders.html:6
 msgid "order "
 msgstr ""
 
@@ -1365,7 +1367,7 @@ msgstr ""
 "bezahlen."
 
 #: templates/evreg/_registration_form.html:50
-#: templates/evreg/registration_completed.html:13
+#: templates/evreg/registration_completed.html:12
 msgid "registration form"
 msgstr "Anmeldungsformular"
 
@@ -1399,15 +1401,19 @@ msgstr ""
 "Konto der deutschen Dzogchen Gemeinschaft gültig wird. Für die Berechnung "
 "des Frühbucherpreises ist der fristgerechte Zahlungseingang ausschlaggebend."
 
-#: templates/evreg/registration_completed.html:15
+#: templates/evreg/registration_completed.html:12
+msgid "You can register more participants submitting them through"
+msgstr "Sie können weitere Anmeldungen hinzufügen"
+
+#: templates/evreg/registration_completed.html:12
 msgid "or proceed to checkout and pay online"
 msgstr "oder zur Kasse gehen und online bezahlen"
 
-#: templates/evreg/registration_completed.html:17
+#: templates/evreg/registration_completed.html:14
 msgid "Checkout"
 msgstr "Kasse"
 
-#: templates/evreg/registration_completed.html:22
+#: templates/evreg/registration_completed.html:19
 msgid ""
 " You may order other services offered during the event. In such a case "
 "please indicate the quantity "
@@ -1415,7 +1421,7 @@ msgstr ""
 "Sie haben die Möglichkeit vergünstigte Mahlzeiten zu buchen. Bitte geben Sie "
 "die Menge an."
 
-#: templates/evreg/registration_completed.html:25
+#: templates/evreg/registration_completed.html:22
 msgid "Reserve services"
 msgstr "Reservierung von Mahlzeiten"
 
@@ -1430,9 +1436,6 @@ msgid ""
 msgstr ""
 "Die Anmeldung für %<name>s ist abgeschlossen. Wir freuen uns darauf Sie bei "
 "einer der nächsten Veranstaltungen zu empfangen."
-
-#~ msgid "You can register more participants submitting them through"
-#~ msgstr "Sie können weitere Anmeldungen hinzufügen"
 
 #~ msgid "We recived payment for %s"
 #~ msgstr "Wir haben die Zahlung für %s erhalten"
