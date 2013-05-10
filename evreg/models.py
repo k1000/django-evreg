@@ -103,7 +103,8 @@ class Event(models.Model):
         """
         self._daily_prices = getattr(self,
                 "_daily_prices",
-                MemberPricesPerDay.objects.select_related().filter(day__event=self.pk))
+                MemberPricesPerDay.objects.select_related().filter(day__event=self.pk).order_by("id")
+        )
         return self._daily_prices
 
     def list_member_pices(self):
@@ -136,6 +137,7 @@ class Event(models.Model):
                 objects[atr].append(current_price)
             else:
                 objects[atr] = [current_price]
+
         return objects or 0
 
     def __unicode__(self):
