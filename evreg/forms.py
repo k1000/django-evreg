@@ -52,8 +52,7 @@ class ServiceItemForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(ServiceItemForm, self).__init__(*args, **kwargs)
-        label = u"%s for %s€, quantity" % (self.initial.get('name', ""),
-                                self.initial.get('unit_price', ""))
+        label = _(u"%(name)s for %(unit_price)s€, quantity") % self.initial
         self.fields["quantity"].label = label
 
     id = forms.CharField(widget=forms.HiddenInput())

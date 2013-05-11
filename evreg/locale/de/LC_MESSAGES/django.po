@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django evreg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-10 19:56+0200\n"
+"POT-Creation-Date: 2013-05-11 17:00+0200\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1014,7 +1014,12 @@ msgstr ""
 msgid "Event Days"
 msgstr "Veranstaltungstage"
 
-#: forms.py:62
+#: forms.py:55
+#, python-format
+msgid "%(name)s for %(unit_price)s€, quantity"
+msgstr "%(name)s für %(unit_price)s€, Quantität"
+
+#: forms.py:61
 msgid "quantity"
 msgstr "Menge"
 
@@ -1251,7 +1256,9 @@ msgstr "Registratur"
 msgid ""
 "#%(id)s %(first_name)s %(last_name)s (%(member_type)s) registry for "
 "%(event)s at days %(days)s"
-msgstr "#%(id)s %(first_name)s %(last_name)s (%(member_type)s) Anmeldung zum %(event)s am %(days)s tags"
+msgstr ""
+"#%(id)s %(first_name)s %(last_name)s (%(member_type)s) Anmeldung zum "
+"%(event)s am %(days)s tags"
 
 #: settings.py:7
 msgid "Non-member"
@@ -1385,7 +1392,7 @@ msgstr "Anmelden"
 
 #: templates/evreg/registration_completed.html:6
 msgid "Thank your for registering for the"
-msgstr "Vielen Dank für die Registrierung für die"
+msgstr "Vielen Dank für die Registrierung zum"
 
 #: templates/evreg/registration_completed.html:8
 msgid "Your registration number is: RG-"

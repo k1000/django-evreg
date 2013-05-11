@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-10 19:56+0200\n"
+"POT-Creation-Date: 2013-05-11 17:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1021,7 +1021,12 @@ msgstr ""
 msgid "Event Days"
 msgstr ""
 
-#: forms.py:62
+#: forms.py:55
+#, python-format
+msgid "%(name)s for %(unit_price)s€, quantity"
+msgstr ""
+
+#: forms.py:61
 msgid "quantity"
 msgstr ""
 
