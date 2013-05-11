@@ -360,7 +360,7 @@ class Registry(models.Model):
             "id": self.id,
             "first_name": self.first_name,
             "last_name": self.last_name,
-            "member_type": MEMBER_TYPES[self.member_type][1],  # ???? self.get_member_type_display,
+            "member_type": MEMBER_TYPES[self.member_type - 1][1],  # ???? self.get_member_type_display,
             "event": self.event.__unicode__(),
             "days": ", ".join(participation_days)
         }
