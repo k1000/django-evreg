@@ -302,6 +302,9 @@ class Registry(models.Model):
         return self.event.member_prices.get(member_type=member_type)
 
     def calculate_price(self, participation_days):
+        """
+        participation_days = [u'1', u'2']
+        """
         event_days = self.event_days
         # whole event
         if not self.event.has_daily_prices or len(event_days) == len(participation_days):
@@ -324,31 +327,44 @@ class Registry(models.Model):
 
     def make_payment(self, payment_id, amount=None):
         import datetime
-        actual_price = self.calculate_price(self.participation_days)
+        self.payment_time = datetime.datetime.now()
+        self.status = 2
+        self.payment_id = payment_id
 
-        if actual_price >= self.payment_amount:
-            self.payment_time = datetime.datetime.now()
-            self.status = 2
-            self.payment_id = payment_id
+        self.save()
 
-            self.save()
+        # send signal
+        inscription_completed.send(sender=self)
 
-            # send signal
-            inscription_completed.send(sender=self)
-        elif self.event.is_earlybird:
-            # diference must be payed
-            diference_to_pay = actual_price - self.payment_amount
-            # send signal notify administrator and client
-            delayed_earlibird_payment_received.send(
-                sender=self,
-                payment_id=payment_id,
-                diference_to_pay=diference_to_pay,)
-        else:
-            # payed too less
-            insuficient_payment_received.send(
-                sender=self,
-                payment_id=payment_id,
-                amount=amount,)
+        # TODO check if it is eanought mone etc
+
+        # participation_days_ids = [unicode(day.id) for day in self.participationday_set.all()]
+        # import ipdb; ipdb.set_trace()
+        # actual_price = self.calculate_price(participation_days_ids)
+
+        # if actual_price >= self.payment_amount:
+        #     self.payment_time = datetime.datetime.now()
+        #     self.status = 2
+        #     self.payment_id = payment_id
+
+        #     self.save()
+
+        #     # send signal
+        #     inscription_completed.send(sender=self)
+        # elif self.event.is_earlybird:
+        #     # diference must be payed
+        #     diference_to_pay = actual_price - self.payment_amount
+        #     # send signal notify administrator and client
+        #     delayed_earlibird_payment_received.send(
+        #         sender=self,
+        #         payment_id=payment_id,
+        #         diference_to_pay=diference_to_pay,)
+        # else:
+        #     # payed too less
+        #     insuficient_payment_received.send(
+        #         sender=self,
+        #         payment_id=payment_id,
+        #         amount=amount,)
 
     class Meta:
         verbose_name = _('Registry')
