@@ -47,7 +47,8 @@ def notify_inscription_completed(**kwargs):
     mail_inscription_completed(kwargs["sender"], kwargs["lang"])
 
 
-def mail_admin_inscription_completed(reg, **kwargs):
+def mail_admin_inscription_completed(**kwargs):
+    reg = kwargs.get("reg")
     email_var = {"event": reg.event, "person": reg}
     email_template_name = "evreg/admin-inscription_completed.mail"
     send_mail(
@@ -59,8 +60,9 @@ def mail_admin_inscription_completed(reg, **kwargs):
             )
 
 
-def mail_admin_delayed_earlibird_payment(reg, **kwargs):
+def mail_admin_delayed_earlibird_payment(**kwargs):
     from datetime import date
+    reg = kwargs.get("reg")
     delay = reg.event.earlybird_date - date.today()
     email_var = {"event": reg.event,
             "person": reg,
