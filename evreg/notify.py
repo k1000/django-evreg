@@ -81,6 +81,6 @@ def mail_admin_delayed_earlibird_payment(**kwargs):
 
 registration_completed.connect(notify_registration_complete)
 # inscription_completed.connect(notify_inscription_completed)
-inscription_completed.connect(mail_admin_inscription_completed)
+# inscription_completed.connect(mail_admin_inscription_completed)
 # delayed_earlibird_payment_received.connect(mail_admin_delayed_earlibird_payment)
 # TODO insuficient payment
