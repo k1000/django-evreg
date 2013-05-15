@@ -372,7 +372,7 @@ class Registry(models.Model):
 
     def __unicode__(self):
         participation_days = [str(day.day) for day in self.participation_days]
-        return _(u"#%(id)s %(first_name)s %(last_name)s (%(member_type)s) registry for %(event)s at days %(days)s") % {
+        return _(u"R-%(id)s %(first_name)s %(last_name)s (%(member_type)s) %(event)s at days %(days)s") % {
             "id": self.id,
             "first_name": self.first_name,
             "last_name": self.last_name,
