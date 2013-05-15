@@ -1254,11 +1254,9 @@ msgstr "Registratur"
 #: models.py:359
 #, python-format
 msgid ""
-"#%(id)s %(first_name)s %(last_name)s (%(member_type)s) registry for "
-"%(event)s at days %(days)s"
+"R-%(id)s %(first_name)s %(last_name)s (%(member_type)s) %(event)s at days %(days)s"
 msgstr ""
-"#%(id)s %(first_name)s %(last_name)s (%(member_type)s) Anmeldung zum "
-"%(event)s am %(days)s tags"
+"R-%(id)s %(first_name)s %(last_name)s (%(member_type)s) %(event)s am %(days)s"
 
 #: settings.py:7
 msgid "Non-member"
