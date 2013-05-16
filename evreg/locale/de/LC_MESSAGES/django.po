@@ -1228,7 +1228,7 @@ msgid "Receive Newsletter"
 msgstr "Newsletter bestellen"
 
 #: models.py:273
-msgid "comments, how did you found about us?"
+msgid "comments, How did you find out about us?"
 msgstr "Kommentare, wie haben Sie von der Veranstaltung erfahren?"
 
 #: models.py:277
