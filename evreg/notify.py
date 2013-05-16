@@ -18,7 +18,7 @@ def mail_registration_complete(event, reg, lang):
     email_var = {"event": event, "person": reg}
     email_template_name = "evreg/registration_confirmation-%s.mail" % lang
     send_mail(
-                EMAIL_MSG['registration_complete']['subject'] % event.title,
+                EMAIL_MSG['registration_complete']['subject'] % event.name,
                 get_template(email_template_name).render(Context(email_var)),
                 event.contact_email,
                 [reg.email],
@@ -59,7 +59,7 @@ def mail_admin_inscription_completed(**kwargs):
                 fail_silently=True
             )
 
-
+import ipdb; ipdb.set_trace()
 def mail_admin_delayed_earlibird_payment(**kwargs):
     from datetime import date
     reg = kwargs.get("reg")
