@@ -261,16 +261,16 @@ class Registry(models.Model):
         _("is valid member?"),
         default=False,
     )
-    karmayoga = models.TextField(_("karmayoga"),
-        blank=True, null=True,
-        help_text=_("Do you want to help?")
-    )
+    # karmayoga = models.TextField(_("karmayoga"),
+    #     blank=True, null=True,
+    #     help_text=_("Do you want to help?")
+    # )
 
     observations = models.TextField(_("observations"),
         blank=True, null=True,
     )
     newsletter = models.BooleanField(_("Receive Newsletter"))
-    comments = models.TextField(_("comments, how did you found about us?"),
+    comments = models.TextField(_("comments, How did you find out about us?"),
         blank=True, null=True,
     )
 
