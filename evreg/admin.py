@@ -25,12 +25,12 @@ class RegistryAdmin(admin.ModelAdmin):
                 ('postal_code', "city",),
                 'country',
                 ('member_type', 'membership_nr', 'gar'),
-                'karmayoga',
+                # 'karmayoga',
                 ('payment_time', 'payment_amount', 'payment_id')),
         }),
     )
     list_display = ('first_name', 'last_name', 'id', 'event', 'status', 'member_type')
-    list_filter = ['event', 'gar', 'status', 'member_type', 'karmayoga']
+    list_filter = ['event', 'gar', 'status', 'member_type', ]
     search_fields = ['last_name', 'email', 'membership_nr']
 
 
