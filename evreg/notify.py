@@ -59,7 +59,7 @@ def mail_admin_inscription_completed(**kwargs):
                 fail_silently=True
             )
 
-import ipdb; ipdb.set_trace()
+
 def mail_admin_delayed_earlibird_payment(**kwargs):
     from datetime import date
     reg = kwargs.get("reg")
