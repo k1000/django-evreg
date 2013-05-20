@@ -1263,20 +1263,20 @@ msgid "Non-member"
 msgstr "Nichtmitglied"
 
 #: settings.py:8
-msgid "Ordinary"
-msgstr "Einfach"
+msgid "Ordinary Member"
+msgstr "Ordentliches Mitglied"
 
 #: settings.py:9
-msgid "Reduced"
-msgstr "Reduziert"
+msgid "Reduced Member"
+msgstr "Reduziertes Mitglied"
 
 #: settings.py:10
-msgid "Sustaining"
-msgstr "Förder"
+msgid "Sustaining Member"
+msgstr "Fördermitglied"
 
 #: settings.py:11
-msgid "Benefactor"
-msgstr "Verdienstvoll"
+msgid "Meritorious Member"
+msgstr "Verdienstvolles Mitglied"
 
 #: settings.py:14
 #, python-format
