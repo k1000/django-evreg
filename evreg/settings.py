@@ -8,7 +8,7 @@ MEMBER_TYPES = getattr(settings, "EVREG_MEMBER_TYPES",
     (2, _("Ordinary Member")),
     (3, _("Reduced Member")),
     (4, _("Sustaining Member")),
-    (5, _("Benefactor Member")),
+    (5, _("Meritorious Member")),
 ))
 
 REGISTRY_SUCCESS_MSG = _("""
