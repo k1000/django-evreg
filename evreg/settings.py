@@ -5,10 +5,10 @@ from django.conf import settings
 MEMBER_TYPES = getattr(settings, "EVREG_MEMBER_TYPES",
 (
     (1, _("Non-member")),
-    (2, _("Ordinary")),
-    (3, _("Reduced")),
-    (4, _("Sustaining")),
-    (5, _("Benefactor")),
+    (2, _("Ordinary Member")),
+    (3, _("Reduced Member")),
+    (4, _("Sustaining Member")),
+    (5, _("Benefactor Member")),
 ))
 
 REGISTRY_SUCCESS_MSG = _("""
