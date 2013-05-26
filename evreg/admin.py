@@ -2,6 +2,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
+from django_exportable_admin.admin import CSVExportableAdmin
 from models import Registry, Event, MemberPrices, EventDay, MemberPricesPerDay, ParticipationDay, Meal
 
 
@@ -9,7 +10,7 @@ class ParticipationDayInline(admin.TabularInline):
     model = ParticipationDay
 
 
-class RegistryAdmin(admin.ModelAdmin):
+class RegistryAdmin(CSVExportableAdmin):
     inlines = [
         ParticipationDayInline
     ]
