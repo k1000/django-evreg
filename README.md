@@ -8,11 +8,12 @@ Features:
 * Unlimited events
 * Multilanguage support
 * Event info includes: name, dates, description, venue, contact email, etc.
-* Prices for whole event & early bird prices
+* Prices for whole event & optional early bird prices 
 * Individual prices for separate days
 * Prices calculated according to membership type
-* Confirmation email for the client
-* Support of online payemnt ex: PayPal
+* Notificatios via email to the client
+* Reservation of arbitrary aditional services as meal, cD etc.
+* Easy integration with online payemnts gateways ex: PayPal
 
 Installing
 ----------
@@ -39,8 +40,8 @@ Config
 Optionally you may set in settings.py file:
 
 * EVREG_MEMBER_TYPES = ((1, _("Non-member")), (2, _("Member")))
-* EVREG_PAYMENT_TEMPLATE = "evreg/payment_form.html"
 * EVREG_EMAIL_MSG 
+* EVREG_ADMIN_EMAILS
 
 Thanx
 -----
