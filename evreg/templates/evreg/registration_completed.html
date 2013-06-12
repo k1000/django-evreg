@@ -3,6 +3,14 @@
 
 {% block content %}
 
+<div class="steps">
+  <ul>
+    <li class="registation active">{% trans "Registration" %}</li>
+    <li class="order">{% trans "Order" %}</li>
+    <li class="payment">{% trans "Payment" %}</li>
+  </ul>
+</div>
+
 <h1>{% trans "Thank your for registering for the" %} {{ event.name }}.</h1>
 
 <p>{% trans "Your registration number is: RG-" %}{{registry.id}}</p>

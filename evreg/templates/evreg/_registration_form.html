@@ -45,6 +45,16 @@
   {% endif %}
 
 </div>
+
+<div class="steps">
+  <ul>
+    <li class="registation active">{% trans "Registration" %}</li>
+    <li class="order">{% trans "Order" %}</li>
+    <li class="payment">{% trans "Payment" %}</li>
+  </ul>
+</div>
+
+
 <div class="registration">
   <form action="." method="post">
   <h3>{{ event.name }} {% trans "registration form" %}</h3>
