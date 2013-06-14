@@ -30,7 +30,8 @@ class RegistryAdmin(CSVExportableAdmin):
                 ('payment_time', 'payment_amount', 'payment_id')),
         }),
     )
-    list_display = ('first_name', 'last_name', 'id', 'event', 'status', 'member_type')
+    list_display = ['first_name', 'last_name', 'id', 'event', 'status', 'member_type']
+    csv_list_display = list_display + ["membership_nr", "gar", "email"]
     list_filter = ['event', 'gar', 'status', 'member_type', ]
     search_fields = ['last_name', 'email', 'membership_nr']
 
