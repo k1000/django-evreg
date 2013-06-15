@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-11 17:00+0200\n"
+"POT-Creation-Date: 2013-06-15 09:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: admin.py:76
+#: admin.py:78
 msgid "Advanced options"
 msgstr ""
 
@@ -1141,7 +1141,7 @@ msgstr ""
 msgid "Service"
 msgstr ""
 
-#: models.py:202 models.py:373
+#: models.py:202 models.py:389
 msgid "Day"
 msgstr ""
 
@@ -1157,7 +1157,7 @@ msgstr ""
 msgid "canceled"
 msgstr ""
 
-#: models.py:222 models.py:374
+#: models.py:222 models.py:390
 msgid "created_at"
 msgstr ""
 
@@ -1217,14 +1217,6 @@ msgstr ""
 msgid "is valid member?"
 msgstr ""
 
-#: models.py:264
-msgid "karmayoga"
-msgstr ""
-
-#: models.py:266
-msgid "Do you want to help?"
-msgstr ""
-
 #: models.py:269
 msgid "observations"
 msgstr ""
@@ -1234,7 +1226,7 @@ msgid "Receive Newsletter"
 msgstr ""
 
 #: models.py:273
-msgid "comments, how did you found about us?"
+msgid "comments, How did you find out about us?"
 msgstr ""
 
 #: models.py:277
@@ -1253,15 +1245,15 @@ msgstr ""
 msgid "status"
 msgstr ""
 
-#: models.py:354 models.py:355 models.py:370
+#: models.py:370 models.py:371 models.py:386
 msgid "Registry"
 msgstr ""
 
-#: models.py:359
+#: models.py:375
 #, python-format
 msgid ""
-"#%(id)s %(first_name)s %(last_name)s (%(member_type)s) registry for "
-"%(event)s at days %(days)s"
+"R-%(id)s %(first_name)s %(last_name)s (%(member_type)s) %(event)s at days "
+"%(days)s"
 msgstr ""
 
 #: settings.py:7
@@ -1269,19 +1261,19 @@ msgid "Non-member"
 msgstr ""
 
 #: settings.py:8
-msgid "Ordinary"
+msgid "Ordinary Member"
 msgstr ""
 
 #: settings.py:9
-msgid "Reduced"
+msgid "Reduced Member"
 msgstr ""
 
 #: settings.py:10
-msgid "Sustaining"
+msgid "Sustaining Member"
 msgstr ""
 
 #: settings.py:11
-msgid "Benefactor"
+msgid "Meritorious Member"
 msgstr ""
 
 #: settings.py:14
@@ -1368,57 +1360,72 @@ msgstr ""
 msgid "Event has no option to pay for separate days."
 msgstr ""
 
-#: templates/evreg/_registration_form.html:50
-#: templates/evreg/registration_completed.html:12
+#: templates/evreg/_registration_form.html:51
+#: templates/evreg/registration_completed.html:8
+msgid "Registration"
+msgstr ""
+
+#: templates/evreg/_registration_form.html:52
+#: templates/evreg/registration_completed.html:9
+msgid "Order"
+msgstr ""
+
+#: templates/evreg/_registration_form.html:53
+#: templates/evreg/registration_completed.html:10
+msgid "Payment"
+msgstr ""
+
+#: templates/evreg/_registration_form.html:60
+#: templates/evreg/registration_completed.html:20
 msgid "registration form"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:51
+#: templates/evreg/_registration_form.html:61
 msgid "Please fill required fields"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:73
+#: templates/evreg/_registration_form.html:83
 msgid "Price"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:74
+#: templates/evreg/_registration_form.html:84
 msgid "Register"
 msgstr ""
 
-#: templates/evreg/registration_completed.html:6
+#: templates/evreg/registration_completed.html:14
 msgid "Thank your for registering for the"
 msgstr ""
 
-#: templates/evreg/registration_completed.html:8
+#: templates/evreg/registration_completed.html:16
 msgid "Your registration number is: RG-"
 msgstr ""
 
-#: templates/evreg/registration_completed.html:10
+#: templates/evreg/registration_completed.html:18
 msgid ""
 "Please note that your registration will only be valid once the event fee has "
 "arrived on our account. In order to be entitled for the early bird tariff "
 "the fee has to be arrived on our account before "
 msgstr ""
 
-#: templates/evreg/registration_completed.html:12
+#: templates/evreg/registration_completed.html:20
 msgid "You can register more participants submitting them through"
 msgstr ""
 
-#: templates/evreg/registration_completed.html:12
+#: templates/evreg/registration_completed.html:20
 msgid "or proceed to checkout and pay online"
 msgstr ""
 
-#: templates/evreg/registration_completed.html:14
+#: templates/evreg/registration_completed.html:22
 msgid "Checkout"
 msgstr ""
 
-#: templates/evreg/registration_completed.html:19
+#: templates/evreg/registration_completed.html:27
 msgid ""
 " You may order other services offered during the event. In such a case "
 "please indicate the quantity "
 msgstr ""
 
-#: templates/evreg/registration_completed.html:22
+#: templates/evreg/registration_completed.html:30
 msgid "Reserve services"
 msgstr ""
 
