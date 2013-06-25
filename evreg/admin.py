@@ -34,7 +34,7 @@ class RegistryAdmin(CSVExportableAdmin):
         }),
         (_('Membership'),
             {
-            'fields': (('member_type', 'member_validated',)
+            'fields': (('member_type', 'member_validated',),
                         ('gar', 'membership_nr'),
                 )}
         ),
