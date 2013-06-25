@@ -32,7 +32,7 @@ class Event(models.Model):
     venue_address = models.TextField(_("Venue address"))
 
     contact_email = models.EmailField(_("contact email"))
-    contact_tel = models.CharField(_("contact tel"))
+    contact_tel = models.CharField(_("contact tel"), max_length=50)
     web = models.URLField(_("event web"))
 
     bank_details = models.TextField(_("bank details"),
