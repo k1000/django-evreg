@@ -56,7 +56,7 @@ class Event(models.Model):
     @property
     def is_earlybird(self):
         if self.earlybird_date:
-            return (datetime.date.today() < self.earlybird_date)
+            return (datetime.date.today() <= self.earlybird_date)
         return None
 
     @property
