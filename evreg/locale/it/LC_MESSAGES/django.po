@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-15 09:22+0200\n"
+"POT-Creation-Date: 2013-07-05 11:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: admin.py:78
+#: admin.py:26 templates/evreg/registration_form.html:6
+msgid "Contact"
+msgstr ""
+
+#: admin.py:35
+msgid "Membership"
+msgstr ""
+
+#: admin.py:41 templates/evreg/_registration_form.html:53
+#: templates/evreg/registration_completed.html:10
+msgid "Payment"
+msgstr ""
+
+#: admin.py:92
 msgid "Advanced options"
 msgstr ""
 
@@ -1370,11 +1383,6 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: templates/evreg/_registration_form.html:53
-#: templates/evreg/registration_completed.html:10
-msgid "Payment"
-msgstr ""
-
 #: templates/evreg/_registration_form.html:60
 #: templates/evreg/registration_completed.html:20
 msgid "registration form"
@@ -1412,7 +1420,7 @@ msgid "You can register more participants submitting them through"
 msgstr ""
 
 #: templates/evreg/registration_completed.html:20
-msgid "or proceed to checkout and pay online"
+msgid "or proceed to checkout to complete your order"
 msgstr ""
 
 #: templates/evreg/registration_completed.html:22
@@ -1427,10 +1435,6 @@ msgstr ""
 
 #: templates/evreg/registration_completed.html:30
 msgid "Reserve services"
-msgstr ""
-
-#: templates/evreg/registration_form.html:6
-msgid "Contact"
 msgstr ""
 
 #: templates/evreg/registration_form.html:11

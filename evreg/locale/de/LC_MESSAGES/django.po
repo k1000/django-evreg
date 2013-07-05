@@ -2,14 +2,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django evreg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-15 09:22+0200\n"
+"POT-Creation-Date: 2013-07-05 11:57+0200\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: admin.py:78
+#: admin.py:26 templates/evreg/registration_form.html:6
+msgid "Contact"
+msgstr "Kontakt"
+
+#: admin.py:35
+#, fuzzy
+msgid "Membership"
+msgstr "Mitgliedsnummer"
+
+#: admin.py:41 templates/evreg/_registration_form.html:53
+#: templates/evreg/registration_completed.html:10
+#, fuzzy
+msgid "Payment"
+msgstr "Zahlungs-ID"
+
+#: admin.py:92
 msgid "Advanced options"
 msgstr "Erweiterte Optionen"
 
@@ -1375,12 +1390,6 @@ msgstr "Anmeldungsformular"
 msgid "Order"
 msgstr "Bestellung"
 
-#: templates/evreg/_registration_form.html:53
-#: templates/evreg/registration_completed.html:10
-#, fuzzy
-msgid "Payment"
-msgstr "Zahlungs-ID"
-
 #: templates/evreg/_registration_form.html:60
 #: templates/evreg/registration_completed.html:20
 msgid "registration form"
@@ -1421,8 +1430,9 @@ msgid "You can register more participants submitting them through"
 msgstr "Sie können weitere Anmeldungen hinzufügen"
 
 #: templates/evreg/registration_completed.html:20
-msgid "or proceed to checkout and pay online"
-msgstr "oder zur Kasse gehen und online bezahlen"
+#, fuzzy
+msgid "or proceed to checkout to complete your order"
+msgstr "oder zur Kasse gehen um die Bestellung abzuschließen"
 
 #: templates/evreg/registration_completed.html:22
 msgid "Checkout"
@@ -1439,10 +1449,6 @@ msgstr ""
 #: templates/evreg/registration_completed.html:30
 msgid "Reserve services"
 msgstr "Reservierung von Mahlzeiten"
-
-#: templates/evreg/registration_form.html:6
-msgid "Contact"
-msgstr "Kontakt"
 
 #: templates/evreg/registration_form.html:11
 #, fuzzy, python-format
