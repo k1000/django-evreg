@@ -301,10 +301,14 @@ class Registry(models.Model):
     def get_member_prices(self, member_type):
         return self.event.member_prices.get(member_type=member_type)
 
-    def calculate_price(self, participation_days):
+    def calculate_price(self, participation_days=None):
         """
         participation_days = [u'1', u'2']
         """
+
+        if not participation_days:
+            participation_days = [ unicode(day.day_id) for day in self.participationday_set.all() ]
+
         event_days = self.event_days
         # whole event
         if not self.event.has_daily_prices or len(event_days) == len(participation_days):
@@ -315,6 +319,7 @@ class Registry(models.Model):
                 price = member_type_price.price
         else:
             price = 0
+            import ipdb; ipdb.set_trace()
             event_days_participation = [event_day for event_day in event_days if unicode(event_day.pk) in participation_days]
             for day in event_days_participation:
                 day_prices = day.per_day_prices.get(member_type=self.member_type)
@@ -324,6 +329,7 @@ class Registry(models.Model):
                     price = price + day_prices.price
 
         return price
+
 
     def make_payment(self, payment_id, amount=None):
         import datetime
