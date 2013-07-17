@@ -22,7 +22,6 @@ class Command(BaseCommand):
         self.update_earlybird_prices(event_slug)
 
     def update_earlybird_prices(self, event_slug):
-        import ipdb; ipdb.set_trace()
         try:
             event = Event.objects.get(slug=event_slug)
         except Event.DoesNotExist:
@@ -30,6 +29,8 @@ class Command(BaseCommand):
         earlybird_date = event.earlybird_date
         registrations = Registry.objects.filter(status__exact=1, created_at__lte=earlybird_date)
         for reg in registrations:
+            old_price = reg.payment_amount
             new_price = reg.calculate_price()
             reg.payment_amount = new_price
             reg.save()
+            print "reg %s set from %s to %s" % (reg.pk, old_price, new_price)

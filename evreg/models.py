@@ -319,7 +319,6 @@ class Registry(models.Model):
                 price = member_type_price.price
         else:
             price = 0
-            import ipdb; ipdb.set_trace()
             event_days_participation = [event_day for event_day in event_days if unicode(event_day.pk) in participation_days]
             for day in event_days_participation:
                 day_prices = day.per_day_prices.get(member_type=self.member_type)
